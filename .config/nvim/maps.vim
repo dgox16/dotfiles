@@ -10,7 +10,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q!<CR>
 nnoremap <Leader>s :wq!<CR>
 nnoremap <Leader>d :bd!<CR>
-nnoremap <Leader>s :bn<CR>
+nnoremap <Leader>t :bn<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>g :Rg<CR>
@@ -55,5 +55,5 @@ function! OpenTerminal()
   endif
 endfunction
 nnoremap <C-t> :call OpenTerminal()<CR>
-nnoremap <space>/ :Commentary<CR>
-vnoremap <space>/ :Commentary<CR>
+nnoremap <Leader>/ :Commentary<CR>
+vnoremap <Leader>/ :Commentary<CR>

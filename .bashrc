@@ -53,6 +53,7 @@ alias coloradn='colorscript -e 21'
 alias matrix='cmatrix'
 alias packetdir='cd /home/dgox16/.var/app/com.cisco.PacketTracer/pt/saves && lh'
 # alias bat='bat --theme=base16-256'
+alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME
 
 export MATLAB_ROOT_DIR="/home/dgox16/Matlab/R2021a"
 
@@ -63,4 +64,3 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
-alias dotfiles=/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME

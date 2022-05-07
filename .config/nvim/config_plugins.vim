@@ -15,3 +15,8 @@ let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --ma
 let $FZF_DEFAULT_COMMAND = 'rg --files --ignore-case --hidden -g "!{.git,node_modules,vendor}/*"'
 command! -bang -nargs=? -complete=dir Files
      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+let g:floaterm_keymap_toggle = '<C-t>'
+let g:floaterm_width=0.7
+let g:floaterm_height=0.7
+let g:floaterm_title=0

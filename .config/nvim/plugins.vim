@@ -17,5 +17,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-signify'
 Plug 'yggdroot/indentline'
 Plug 'tpope/vim-commentary'
+Plug 'akinsho/toggleterm.nvim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
-

@@ -24,3 +24,6 @@ style = "bold yellow"
 
 [cmd_duration]
 style = "bold purple"
+
+[nodejs]
+symbol = "🦕 "

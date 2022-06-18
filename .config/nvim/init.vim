@@ -6,10 +6,10 @@ source ~/.config/nvim/config-plugins/fzf.vim
 source ~/.config/nvim/config-plugins/lsp.lua
 source ~/.config/nvim/config-plugins/lualine.lua
 source ~/.config/nvim/config-plugins/ntree.lua
-source ~/.config/nvim/config-plugins/ntree.vim
 source ~/.config/nvim/config-plugins/treesitter.lua
 source ~/.config/nvim/config-plugins/vimtex.vim
-
+so ~/.config/nvim/config-plugins/catppuccin.lua
+so ~/.config/nvim/config-plugins/bufferline.lua
 
 let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
 colorscheme catppuccin

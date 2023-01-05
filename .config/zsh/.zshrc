@@ -10,8 +10,7 @@ source ~/.config/zsh/configs/catppuccin.zsh
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
 
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
-
+plug "softmoth/zsh-vim-mode"

@@ -33,6 +33,7 @@ null_ls.setup({
         formatting.prettier.with({ extra_args = { "--tab-width", "4" } }),
         formatting.rustfmt,
         formatting.isort,
+        formatting.beautysh,
         diagnostics.flake8,
         diagnostics.djlint,
         formatting.djlint,

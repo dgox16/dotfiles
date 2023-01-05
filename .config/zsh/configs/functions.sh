@@ -13,17 +13,17 @@ function pbv() {
                 --hidden \
                 --follow \
                 --exclude .git |
-                fzf --height 80% \
-                    --layout reverse \
-                    --info inline \
-                    --border \
-                    --preview "bat --style=numbers --color=always {} | head -500" \
-                    --preview-window "down:24:noborder" \
-                    --color=dark \
-                    --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f \
-                    --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7 \
-                    --prompt="File > " \
-                    --query "$LBUFFER"
+            fzf --height 80% \
+                --layout reverse \
+                --info inline \
+                --border \
+                --preview "bat --style=numbers --color=always {} | head -500" \
+                --preview-window "down:24:noborder" \
+                --color=dark \
+                --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f \
+                --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7 \
+                --prompt="File > " \
+                --query "$LBUFFER"
         )
 
         if [ -n "$selected_file" ]; then
@@ -43,10 +43,10 @@ function psv() {
                 --hidden \
                 --follow \
                 --exclude .git |
-                fzf --preview "bat --style=numbers --color=always {} | head -500" \
-                    --color=dark \
-                    --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f \
-                    --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+            fzf --preview "bat --style=numbers --color=always {} | head -500" \
+                --color=dark \
+                --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f \
+                --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
         )
 
         if [ -n "$selected_file" ]; then

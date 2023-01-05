@@ -10,4 +10,3 @@ export BAT_THEME="Catppuccin-mocha"
 #export PATH="$PATH:./node_modules/.bin"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-

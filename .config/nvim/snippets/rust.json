@@ -1,0 +1,14 @@
+{
+    "Complete format to test": {
+        "prefix": "testformat",
+        "body": [
+            "#[cfg(test)]",
+            "mod tests {",
+            "    #[test]",
+            "    fn ${1:name}() {",
+            "        ${2:unimplemented!();}",
+            "    }",
+            "}"
+        ]
+    }
+}

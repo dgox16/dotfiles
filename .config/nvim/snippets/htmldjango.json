@@ -1,0 +1,266 @@
+{
+    "autoescape": {
+        "prefix": "autoescape",
+        "body": "\r\n{% autoescape ${1:off} %}\r\n\t${2:$SELECTION}\r\n{% endautoescape %}\r\n",
+        "description": "autoescape",
+        "scope": "text.html.django"
+    },
+    "block": {
+        "prefix": "block",
+        "body": "\r\n{% block ${1:blockname} %}\r\n\t${2:$SELECTION}\r\n{% endblock ${1:blockname} %}\r\n\t",
+        "description": "block",
+        "scope": "text.html.django"
+    },
+    "blocktrans": {
+        "prefix": "blocktrans",
+        "body": "\r\n{% blocktrans %}\r\n\t${1:$SELECTION}\r\n{% endblocktrans %}\r\n",
+        "description": "blocktrans",
+        "scope": "text.html.django"
+    },
+    "comment": {
+        "prefix": "comment",
+        "body": "\r\n{% comment %}\r\n\t${1:$SELECTION}\r\n{% endcomment %}\r\n\t",
+        "description": "comment",
+        "scope": "text.html.django"
+    },
+    "var": {
+        "prefix": "var",
+        "body": "{{ ${1:$SELECTION} }}",
+        "description": "context variable (var)",
+        "scope": "text.html.django"
+    },
+    "csrf": {
+        "prefix": "csrf",
+        "body": "{% csrf_token %}",
+        "description": "csrf_token",
+        "scope": "text.html.django"
+    },
+    "cycle": {
+        "prefix": "cycle",
+        "body": "{% cycle $1 %}",
+        "description": "cycle",
+        "scope": "text.html.django"
+    },
+    "debug": {
+        "prefix": "debug",
+        "body": "{% debug %}",
+        "description": "debug",
+        "scope": "text.html.django"
+    },
+    "elif": {
+        "prefix": "elif",
+        "body": "{% elif %}",
+        "description": "elif",
+        "scope": "text.html.django"
+    },
+    "else": {
+        "prefix": "else",
+        "body": "{% else %}",
+        "description": "else",
+        "scope": "text.html.django"
+    },
+    "ext": {
+        "prefix": "ext",
+        "body": "{% extends '${1:$SELECTION}' %}",
+        "description": "extends (ext)",
+        "scope": "text.html.django"
+    },
+    "extends": {
+        "prefix": "extends",
+        "body": "{% extends '${1:$SELECTION}' %}",
+        "description": "extends",
+        "scope": "text.html.django"
+    },
+    "extrahead": {
+        "prefix": "extrahead",
+        "body": "\r\n{% block extrahead %}\r\n\t${1:$SELECTION}\r\n{% endblock extrahead %}\r\n\t",
+        "description": "block extrahead",
+        "scope": "text.html.django"
+    },
+    "extrastyle": {
+        "prefix": "extrastyle",
+        "body": "\r\n{% block extrastyle %}\r\n\t${1:$SELECTION}\r\n{% endblock extrastyle %}\r\n\t",
+        "description": "block extrastyle",
+        "scope": "text.html.django"
+    },
+    "filter": {
+        "prefix": "filter",
+        "body": "\r\n{% filter $1 %}\r\n\t${2:$SELECTION}\r\n{% endfilter %}\r\n",
+        "description": "filter",
+        "scope": "text.html.django"
+    },
+    "firstof": {
+        "prefix": "firstof",
+        "body": "{% firstof $1 %}",
+        "description": "firstof",
+        "scope": "text.html.django"
+    },
+    "for": {
+        "prefix": "for",
+        "body": "\r\n{% for $1 in $2 %}\r\n\t${3:$SELECTION}\r\n{% endfor %}\r\n\t",
+        "description": "for",
+        "scope": "text.html.django"
+    },
+    "fore": {
+        "prefix": "fore",
+        "body": "\r\n{% for $1 in $2 %}\r\n\t$3\r\n{% empty %}\r\n\t$4\r\n{% endfor %}\r\n\t",
+        "description": "for... empty...",
+        "scope": "text.html.django"
+    },
+    "iblock": {
+        "prefix": "iblock",
+        "body": "{% block ${1:blockname} %}${2:$SELECTION}{% endblock ${1:blockname} %}",
+        "description": "inline block",
+        "scope": "text.html.django"
+    },
+    "if": {
+        "prefix": "if",
+        "body": "\r\n{% if $1 %}\r\n\t${2:$SELECTION}\r\n{% endif %}\r\n\t",
+        "description": "if",
+        "scope": "text.html.django"
+    },
+    "ifchanged": {
+        "prefix": "ifchanged",
+        "body": "\r\n{% ifchanged $1 %}\r\n\t${2:$SELECTION}\r\n{% endifchanged %}\r\n\t",
+        "description": "ifchanged",
+        "scope": "text.html.django"
+    },
+    "ife": {
+        "prefix": "ife",
+        "body": "\r\n{% if $1 %}\r\n\t$2\r\n{% else %}\r\n\t$3\r\n{% endif %}\r\n\t",
+        "description": "if... else...",
+        "scope": "text.html.django"
+    },
+    "ifelse": {
+        "prefix": "ifelse",
+        "body": "\r\n{% if $1 %}\r\n\t$2\r\n{% else %}\r\n\t$3\r\n{% endif %}\r\n\t",
+        "description": "if... else...",
+        "scope": "text.html.django"
+    },
+    "ifeq": {
+        "prefix": "ifeq",
+        "body": "\r\n{% ifequal $1 $2 %}\r\n\t${3:$SELECTION}\r\n{% endifequal %}\r\n\t",
+        "description": "ifequal (ifeq)",
+        "scope": "text.html.django"
+    },
+    "ifequal": {
+        "prefix": "ifequal",
+        "body": "\r\n{% ifequal $1 $2 %} \r\n\t${3:$SELECTION}\r\n{% endifequal %}\r\n\t",
+        "description": "ifequal",
+        "scope": "text.html.django"
+    },
+    "ifnotequal": {
+        "prefix": "ifnotequal",
+        "body": "\r\n{% ifnotequal $1 $2 %}\r\n\t${3:$SELECTION}\r\n{% endifnotequal %}\r\n\t",
+        "description": "ifnotequal",
+        "scope": "text.html.django"
+    },
+    "inc": {
+        "prefix": "inc",
+        "body": "{% include ${1:'$2'} %}",
+        "description": "include (inc)",
+        "scope": "text.html.django"
+    },
+    "include": {
+        "prefix": "include",
+        "body": "{% include ${1:'$2'} %}",
+        "description": "include",
+        "scope": "text.html.django"
+    },
+    "load": {
+        "prefix": "load",
+        "body": "{% load $1 %}",
+        "description": "load",
+        "scope": "text.html.django"
+    },
+    "media": {
+        "prefix": "media",
+        "body": "{{ MEDIA_URL }} ",
+        "description": "media",
+        "scope": "text.html.django"
+    },
+    "now": {
+        "prefix": "now",
+        "body": "{% now '$1' %}",
+        "description": "now",
+        "scope": "text.html.django"
+    },
+    "regroup": {
+        "prefix": "regroup",
+        "body": "{% regroup $1 by $2 as $3 %}",
+        "description": "regroup",
+        "scope": "text.html.django"
+    },
+    "spaceless": {
+        "prefix": "spaceless",
+        "body": "\r\n{% spaceless %}\r\n\t${1:$SELECTION}\r\n{% endspaceless %}\r\n\t",
+        "description": "spaceless",
+        "scope": "text.html.django"
+    },
+    "ssi": {
+        "prefix": "ssi",
+        "body": "{% ssi $1 ${2:parsed} %}",
+        "description": "ssi",
+        "scope": "text.html.django"
+    },
+    "static": {
+        "prefix": "static",
+        "body": "{% static '${1:$SELECTION}' %}",
+        "description": "static",
+        "scope": "text.html.django"
+    },
+    "staticu": {
+        "prefix": "staticu",
+        "body": "{{ STATIC_URL }} ",
+        "description": "static URL",
+        "scope": "text.html.django"
+    },
+    "super": {
+        "prefix": "super",
+        "body": "{{ block.super }}",
+        "description": "block.super",
+        "scope": "text.html.django"
+    },
+    "tag": {
+        "prefix": "tag",
+        "body": "{% $1 %}",
+        "description": "tag braces",
+        "scope": "text.html.django"
+    },
+    "templatetag": {
+        "prefix": "templatetag",
+        "body": "{% templatetag $1 %}",
+        "description": "templatetag",
+        "scope": "text.html.django"
+    },
+    "trans": {
+        "prefix": "trans",
+        "body": "{% trans '${1:$SELECTION}' %}",
+        "description": "trans",
+        "scope": "text.html.django"
+    },
+    "url": {
+        "prefix": "url",
+        "body": "{% url $1 %}",
+        "description": "url",
+        "scope": "text.html.django"
+    },
+    "verbatim": {
+        "prefix": "verbatim",
+        "body": "\r\n{% verbatim %}\r\n\t${1:$SELECTION}\r\n{% endverbatim %}\r\n\t",
+        "description": "verbatim",
+        "scope": "text.html.django"
+    },
+    "widthratio": {
+        "prefix": "widthratio",
+        "body": "{% widthratio ${1:this_value} ${2:max_value} ${3:100} %}",
+        "description": "widthratio",
+        "scope": "text.html.django"
+    },
+    "with": {
+        "prefix": "with",
+        "body": "\r\n{% with $1 as $2 %}\r\n\t${3:$SELECTION}\r\n{% endwith %}\r\n\t",
+        "description": "with",
+        "scope": "text.html.django"
+    }
+}

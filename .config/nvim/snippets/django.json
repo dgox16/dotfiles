@@ -1,0 +1,1055 @@
+{
+    "adminview": {
+        "prefix": "adminview",
+        "body": [
+            "@admin.register(${1})",
+            "class ${1}Admin(admin.ModelAdmin):",
+            "\t'''Admin View for ${1}'''",
+            "",
+            "\tlist_display = ('${2}',)",
+            "\tlist_filter = ('${3}',)",
+            "\tinlines = [",
+            "\t\t${4}Inline,",
+            "\t]",
+            "\traw_id_fields = ('${5}',)",
+            "\treadonly_fields = ('${6}',)",
+            "\tsearch_fields = ('${7}',)",
+            "\tdate_hierarchy = '${8}'",
+            "\tordering = ('${9}',)"
+        ],
+        "description": "Model Admin View",
+        "scope": "source.python"
+    },
+    "stackedinline": {
+        "prefix": "stackedinline",
+        "body": [
+            "class ${1}Inline(admin.StackedInline):",
+            "\t'''Stacked Inline View for ${1}'''",
+            "",
+            "\tmodel = ${2:${1}}",
+            "\tmin_num = ${3:3}",
+            "\tmax_num = ${4:20}",
+            "\textra = ${5:1}",
+            "\traw_id_fields = (${6},)"
+        ],
+        "description": "Stacked Inline",
+        "scope": "source.python"
+    },
+    "tabularinline": {
+        "prefix": "tabularinline",
+        "body": [
+            "class ${1}Inline(admin.TabularInline):",
+            "\t'''Tabular Inline View for ${1}'''",
+            "",
+            "\tmodel = ${2:${1}}",
+            "\tmin_num = ${3:3}",
+            "\tmax_num = ${4:20}",
+            "\textra = ${5:1}",
+            "\traw_id_fields = (${6},)"
+        ],
+        "description": "Tabular Inline",
+        "scope": "source.python"
+    },
+    "simplelistfilter": {
+        "prefix": "simplelistfilter",
+        "body": [
+            "class ${1:NAME}Filter(admin.SimpleListFilter):",
+            "",
+            "\ttitle = '$2'",
+            "\tparameter_name = '$0'",
+            "",
+            "\tdef lookups(self, request, model_admin):",
+            "\t\tpass",
+            "",
+            "\tdef queryset(self, request, queryset):",
+            "\t\treturn queryset"
+        ],
+        "description": "Admin SimpleList Filter",
+        "scope": "source.python"
+    },
+    "iadmin": {
+        "prefix": "iadmin",
+        "body": "from django.contrib import admin",
+        "description": "from ... import admin",
+        "scope": "source.python"
+    },
+    "iadminsite": {
+        "prefix": "iadminsite",
+        "body": "from django.contrib.admin import AdminSite",
+        "description": "from ... import AdminSite",
+        "scope": "source.python"
+    },
+    "register": {
+        "prefix": "register",
+        "body": "admin.site.register($1)",
+        "description": "register the model class without providing a ModelAdmin description.",
+        "scope": "source.python"
+    },
+    "registermadmin": {
+        "prefix": "registermadmin",
+        "body": "admin.site.register($1, $1Admin)",
+        "description": "register the model class providing a ModelAdmin description",
+        "scope": "source.python"
+    },
+    "fieldsets": {
+        "prefix": "fieldsets",
+        "body": [
+            "fieldsets = (",
+            "\t(None, {",
+            "\t\t'fields': (",
+            "\t\t\t$1",
+            "\t\t),",
+            "\t}),",
+            ")"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "Form": {
+        "prefix": "Form",
+        "body": [
+            "class ${1:FORMNAME}(forms.Form):",
+            "\t\"\"\"${2:$1 definition}.\"\"\"",
+            "",
+            "\t${3:# TODO: Define form fields here}",
+            ""
+        ],
+        "description": "Form",
+        "scope": "source.python"
+    },
+    "ModelForm": {
+        "prefix": "ModelForm",
+        "body": [
+            "class ${1:MODELNAME}Form(forms.ModelForm):",
+            "\t\"\"\"${2:Form definition for $1}.\"\"\"",
+            "",
+            "\tclass Meta:",
+            "\t\t\"\"\"Meta definition for ${1}form.\"\"\"",
+            "",
+            "\t\tmodel = $1",
+            "\t\tfields = ('$3',)",
+            ""
+        ],
+        "description": "ModelForm",
+        "scope": "source.python"
+    },
+    "fbool": {
+        "prefix": "fbool",
+        "body": "${1:FIELDNAME} = forms.BooleanField($2, required=${3:False})",
+        "description": "BooleanField (fbool)",
+        "scope": "source.python"
+    },
+    "fchar": {
+        "prefix": "fchar",
+        "body": "${1:FIELDNAME} = forms.CharField($2,${3: max_length=$4,} required=${5:False})",
+        "description": "CharField (fchar)",
+        "scope": "source.python"
+    },
+    "fchoice": {
+        "prefix": "fchoice",
+        "body": "${1:FIELDNAME} = forms.ChoiceField($2, choices=[${3:CHOICES}], required=${4:False})",
+        "description": "ChoiceField (fchoice)",
+        "scope": "source.python"
+    },
+    "fcombo": {
+        "prefix": "fcombo",
+        "body": "${1:FIELDNAME} = forms.ComboField($2)",
+        "description": "ComboField (fcombo)",
+        "scope": "source.python"
+    },
+    "fdate": {
+        "prefix": "fdate",
+        "body": "${1:FIELDNAME} = forms.DateField($2, required=${3:False})",
+        "description": "DateField (fdate)",
+        "scope": "source.python"
+    },
+    "fdatetime": {
+        "prefix": "fdatetime",
+        "body": "${1:FIELDNAME} = forms.DateTimeField($2, required=${3:False})",
+        "description": "DateTimeField (fdatetime)",
+        "scope": "source.python"
+    },
+    "fdecimal": {
+        "prefix": "fdecimal",
+        "body": "${1:FIELDNAME} = forms.DecimalField($2, required=${3:False})",
+        "description": "DecimalField (fdecimal)",
+        "scope": "source.python"
+    },
+    "fduration": {
+        "prefix": "fduration",
+        "body": "${1:FIELDNAME} = forms.DurationField($2, required=${3:False})",
+        "description": "DurationField (fduration)",
+        "scope": "source.python"
+    },
+    "femail": {
+        "prefix": "femail",
+        "body": "${1:FIELDNAME} = forms.EmailField($2, required=${3:False})",
+        "description": "EmailField (femail)",
+        "scope": "source.python"
+    },
+    "ffile": {
+        "prefix": "ffile",
+        "body": "${1:FIELDNAME} = forms.FileField($2,${3: max_length=$4,} required=${5:False})",
+        "description": "FileField (ffile)",
+        "scope": "source.python"
+    },
+    "ffilepath": {
+        "prefix": "ffilepath",
+        "body": "${1:FIELDNAME} = forms.FilePathField($2, path=${3:/absolute_path/}, required=${4:False})",
+        "description": "FilePathField (ffilepath)",
+        "scope": "source.python"
+    },
+    "ffloat": {
+        "prefix": "ffloat",
+        "body": "${1:FIELDNAME} = forms.FloatField($2, required=${3:False})",
+        "description": "FloatField (ffloat)",
+        "scope": "source.python"
+    },
+    "fip": {
+        "prefix": "fip",
+        "body": "${1:FIELDNAME} = forms.IPAddressField($2)",
+        "description": "IPAddressField (fip).\n\nThis field has been deprecated since version 1.7 in favor of GenericIPAddressField.\n\n",
+        "scope": "source.python"
+    },
+    "fgenericip": {
+        "prefix": "fip",
+        "body": "${1:FIELDNAME} = forms.GenericIPAddressField($2)",
+        "description": "IPAddressField (fgenericip)",
+        "scope": "source.python"
+    },
+    "fimg": {
+        "prefix": "fimg",
+        "body": "${1:FIELDNAME} = forms.ImageField($2, required=${3:False})",
+        "description": "ImageField (fimg)",
+        "scope": "source.python"
+    },
+    "fint": {
+        "prefix": "fint",
+        "body": "${1:FIELDNAME} = forms.IntegerField($2, required=${3:False})",
+        "description": "IntegerField (fint)",
+        "scope": "source.python"
+    },
+    "fmochoice": {
+        "prefix": "fmochoice",
+        "body": "${1:FIELDNAME} = forms.ModelChoiceField($2)",
+        "description": "ModelChoiceField (fmochoice)",
+        "scope": "source.python"
+    },
+    "fmomuchoice": {
+        "prefix": "fmomuchoice",
+        "body": "${1:FIELDNAME} = forms.ModelMultipleChoiceField($2)",
+        "description": "ModelMultipleChoiceField (fmomuchoice)",
+        "scope": "source.python"
+    },
+    "fmuval": {
+        "prefix": "fmuval",
+        "body": "${1:FIELDNAME} = forms.MultiValueField($2)",
+        "description": "MultiValueField (fmuval)",
+        "scope": "source.python"
+    },
+    "fmuchoice": {
+        "prefix": "fmuchoice",
+        "body": "${1:FIELDNAME} = forms.MultipleChoiceField($2, choices=[${3:CHOICES}], required=${4:False})",
+        "description": "MultipleChoiceField (fmuchoice)",
+        "scope": "source.python"
+    },
+    "ftypedmuchoice": {
+        "prefix": "ftypedmuchoice",
+        "body": "${1:FIELDNAME} = forms.TypedMultipleChoiceField($2, choices=[${3:CHOICES}], coerce=${4:TYPE}, required=${5:False})",
+        "description": "TypedMultipleChoiceField (ftypedmuchoice)",
+        "scope": "source.python"
+    },
+    "fnullbool": {
+        "prefix": "fnullbool",
+        "body": "${1:FIELDNAME} = forms.NullBooleanField($2, required=${3:False})",
+        "description": "NullBooleanField (fnullbool)",
+        "scope": "source.python"
+    },
+    "fregex": {
+        "prefix": "fregex",
+        "body": "${1:FIELDNAME} = forms.RegexField($2, regex=${3:REGEX}, required=${4:False})",
+        "description": "RegexField (fregex)",
+        "scope": "source.python"
+    },
+    "fslug": {
+        "prefix": "fslug",
+        "body": "${1:FIELDNAME} = forms.SlugField($2, allow_unicode=${3:False}, required=${4:False})",
+        "description": "SlugField (fslug)",
+        "scope": "source.python"
+    },
+    "fsdatetime": {
+        "prefix": "fsdatetime",
+        "body": "${1:FIELDNAME} = forms.SplitDateTimeField($2)",
+        "description": "SplitDateTimeField (fsdatetime)",
+        "scope": "source.python"
+    },
+    "ftime": {
+        "prefix": "ftime",
+        "body": "${1:FIELDNAME} = forms.TimeField($2, required=${3:False})",
+        "description": "TimeField (ftime)",
+        "scope": "source.python"
+    },
+    "ftchoice": {
+        "prefix": "ftchoice",
+        "body": "${1:FIELDNAME} = forms.TypedChoiceField($2, required=${3:False})",
+        "description": "TypedChoiceField (ftchoice)",
+        "scope": "source.python"
+    },
+    "ftmuchoice": {
+        "prefix": "ftmuchoice",
+        "body": "${1:FIELDNAME} = forms.TypedMultipleChoiceField($2)",
+        "description": "TypedMultipleChoiceField (ftmuchoice)",
+        "scope": "source.python"
+    },
+    "furl": {
+        "prefix": "furl",
+        "body": "${1:FIELDNAME} = forms.URLField($2, required=${3:False})",
+        "description": "URLField (furl)",
+        "scope": "source.python"
+    },
+    "fuuid": {
+        "prefix": "fuuid",
+        "body": "${1:FIELDNAME} = forms.UUIDField($2, required=${3:False})",
+        "description": "UUIDField (fuuid)",
+        "scope": "source.python"
+    },
+    "fsimplearray": {
+        "prefix": "fsimplearray",
+        "body": "${1:FIELDNAME} = SimpleArrayField()",
+        "description": "SimpleArrayField (fsimplearray).\n\n*PostgreSQL specific form fields*.",
+        "scope": "source.python"
+    },
+    "fsplitarray": {
+        "prefix": "fsplitarray",
+        "body": "${1:FIELDNAME} = SplitArrayField()",
+        "description": "SplitArrayField (fsplitarray).\n\n*PostgreSQL specific form fields*.",
+        "scope": "source.python"
+    },
+    "fhstore": {
+        "prefix": "fhstore",
+        "body": "${1:FIELDNAME} = HStoreField()",
+        "description": "HStoreField (fhstore).\n\n*PostgreSQL specific form fields*.",
+        "scope": "source.python"
+    },
+    "fjson": {
+        "prefix": "fjson",
+        "body": "${1:FIELDNAME} = JSONField()",
+        "description": "JSONField (fjson).\n\n*PostgreSQL specific form fields*.",
+        "scope": "source.python"
+    },
+    "fintrange": {
+        "prefix": "fintrange",
+        "body": "${1:FIELDNAME} = IntegerRangeField()",
+        "description": "IntegerRangeField (fintrange).\n\n*PostgreSQL specific form fields*.",
+        "scope": "source.python"
+    },
+    "ffloatrange": {
+        "prefix": "ffloatrange",
+        "body": "${1:FIELDNAME} = FloatRangeField()",
+        "description": "FloatRangeField (ffloatrange).\n\n*PostgreSQL specific form fields*.",
+        "scope": "source.python"
+    },
+    "fdatetimerange": {
+        "prefix": "fdatetimerange",
+        "body": "${1:FIELDNAME} = DateTimeRangeField()",
+        "description": "DateTimeRangeField (fdatetimerange).\n\n*PostgreSQL specific form fields*.",
+        "scope": "source.python"
+    },
+    "fdaterange": {
+        "prefix": "fdaterange",
+        "body": "${1:FIELDNAME} = DateRangeField()",
+        "description": "DateRangeField (fdaterange).\n\n*PostgreSQL specific form fields*.",
+        "scope": "source.python"
+    },
+    "ffi": {
+        "prefix": "ffi",
+        "body": "from .forms import $1",
+        "description": "",
+        "scope": "source.python"
+    },
+    "iforms": {
+        "prefix": "iforms",
+        "body": "from django import forms",
+        "description": "from ... import forms",
+        "scope": "source.python"
+    },
+    "ipostgresff": {
+        "prefix": "ipostgresff",
+        "body": "from django.contrib.postgres.forms import ${1|SimpleArrayField,SplitArrayField,HStoreField,JSONField,IntegerRangeField,FloatRangeField,DateTimeRangeField,DateRangeField|}",
+        "description": "PostgreSQL specific forms fields",
+        "scope": "source.python"
+    },
+    "clean_data": {
+        "prefix": "clean_data",
+        "body": [
+            "def clean_${1:FIELD}(self):",
+            "\t${1:FIELD} = self.cleaned_data.get('${1:FIELD}')",
+            "\n\n\t # TODO Validation\n",
+            "\treturn ${1:FIELD}"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "Model_full": {
+        "prefix": "Model_full",
+        "body": [
+            "class ${1:MODELNAME}(models.Model):",
+            "\t\"\"\"${2:Model definition for $1}.\"\"\"",
+            "",
+            "\t${3:# TODO: Define fields here}",
+            "",
+            "\tclass Meta:",
+            "\t\t\"\"\"Meta definition for $1.\"\"\"",
+            "",
+            "\t\tverbose_name = '$1'",
+            "\t\tverbose_name_plural = '$1s'",
+            "",
+            "\tdef ${4|__str__,__unicode__|}(self):",
+            "\t\t\"\"\"Unicode representation of $1.\"\"\"",
+            "\t\t${7|pass,return '{}'.format(self. ) # TODO,return f'{self. }' # TODO|}",
+            "",
+            "\tdef save(self):",
+            "\t\t\"\"\"Save method for $1.\"\"\"",
+            "\t\tpass",
+            "",
+            "\tdef get_absolute_url(self):",
+            "\t\t\"\"\"Return absolute url for $1.\"\"\"",
+            "\t\treturn ('')",
+            "",
+            "\t${6:# TODO: Define custom methods here}",
+            ""
+        ],
+        "description": "Model (full)",
+        "scope": "source.python"
+    },
+    "Model": {
+        "prefix": "Model",
+        "body": [
+            "class ${1:MODELNAME}(models.Model):",
+            "\t\"\"\"${2:Model definition for $1}.\"\"\"",
+            "",
+            "\t${3:# TODO: Define fields here}",
+            "",
+            "\tclass Meta:",
+            "\t\t\"\"\"Meta definition for $1.\"\"\"",
+            "",
+            "\t\tverbose_name = '$1'",
+            "\t\tverbose_name_plural = '$1s'",
+            "",
+            "\tdef ${4|__str__,__unicode__|}(self):",
+            "\t\t\"\"\"Unicode representation of $1.\"\"\"",
+            "\t\t${5|pass,return '{}'.format(self. ) # TODO,return f'{self. }' # TODO|}",
+            ""
+        ],
+        "description": "Model",
+        "scope": "source.python"
+    },
+    "modelmixin": {
+        "prefix": "modelmixin",
+        "body": [
+            "class $1Mixin(models.Model):",
+            "\t${2:# TODO}\r\n",
+            "\tclass Meta:",
+            "\t\tabstract = True"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "queryset": {
+        "prefix": "qs",
+        "body": ["class $1QuerySet(models.QuerySet):", "\tpass"],
+        "description": "",
+        "scope": "source.python"
+    },
+    "manager": {
+        "prefix": "mngr",
+        "body": [
+            "class $1Manager(models.Manager):",
+            "\tdef get_queryset(self):",
+            "\t\treturn super ($1Manager, self).get_queryset().${2|filter,exclude,order_by,distinct,reverse|}($3)"
+        ],
+        "description": "Add extra Manager methods",
+        "scope": "source.python"
+    },
+    "queryset_from_manager": {
+        "prefix": "qs_mngr",
+        "body": [
+            "class $1Manager(models.Manager):",
+            "\tdef get_queryset(self):",
+            "\t\treturn $1QuerySet(self.model, using=self._db)"
+        ],
+        "description": "Modify the initial QuerySet the Manager returns.",
+        "scope": "source.python"
+    },
+    "mauto": {
+        "prefix": "mauto",
+        "body": "${1:FIELDNAME} = models.AutoField($2)",
+        "description": "AutoField (mauto).\n\nAn IntegerField that automatically increments according to available IDs.\n\n",
+        "scope": "source.python"
+    },
+    "mbigauto": {
+        "prefix": "mbigauto",
+        "body": "${1:FIELDNAME} = models.BigAutoField($2)",
+        "description": "BigAutoField (mbigauto).\n\n[New in Django 1.10.]\n\nA 64-bit integer, much like an AutoField.\n\n",
+        "scope": "source.python"
+    },
+    "mbigint": {
+        "prefix": "mbigint",
+        "body": "${1:FIELDNAME} = models.BigIntegerField($2)",
+        "description": "BigIntegerField (mbigint).\n\nA 64-bit integer, much like an IntegerField.\n\n",
+        "scope": "source.python"
+    },
+    "mbinary": {
+        "prefix": "mbinary",
+        "body": "${1:FIELDNAME} = models.BinaryField($2)",
+        "description": "BinaryField (mbinary).\n\nA field to store raw binary data.\n\n",
+        "scope": "source.python"
+    },
+    "mbool": {
+        "prefix": "mbool",
+        "body": "${1:FIELDNAME} = models.BooleanField($2)",
+        "description": "BooleanField (mbool).\n\nA true/false field.\n\n",
+        "scope": "source.python"
+    },
+    "mchar": {
+        "prefix": "mchar",
+        "body": "${1:FIELDNAME} = models.CharField($2, max_length=${3:50})",
+        "description": "CharField (mchar)",
+        "scope": "source.python"
+    },
+    "mcoseint": {
+        "prefix": "mcoseint",
+        "body": "${1:FIELDNAME} = models.CommaSeparatedIntegerField($2)",
+        "description": "CommaSeparatedIntegerField (mcoseint).\n\nThis field is deprecated since 1.9 in favor of CharField with validators.\n\n",
+        "scope": "source.python"
+    },
+    "mdate": {
+        "prefix": "mdate",
+        "body": "${1:FIELDNAME} = models.DateField($2, auto_now=${3:False}, auto_now_add=${4:False})",
+        "description": "DateField (mdate).\n\nA date, represented in Python by a datetime.date instance.\n\n",
+        "scope": "source.python"
+    },
+    "mdatetime": {
+        "prefix": "mdatetime",
+        "body": "${1:FIELDNAME} = models.DateTimeField($2, auto_now=${3:False}, auto_now_add=${4:False})",
+        "description": "DateTimeField (mdatetime).\n\nA date, represented in Python by a datetime.datetime instance.\n\n",
+        "scope": "source.python"
+    },
+    "mdecimal": {
+        "prefix": "mdecimal",
+        "body": "${1:FIELDNAME} = models.DecimalField($2, max_digits=${3:5}, decimal_places=${4:2})",
+        "description": "DecimalField (mdecimal).\n\nA fixed-precision decimal number, represented in Python by a Decimal instance.\n\n",
+        "scope": "source.python"
+    },
+    "mduration": {
+        "prefix": "mduration",
+        "body": "${1:FIELDNAME} = models.DurationField($2)",
+        "description": "DurationField (mduration).\n\nA field for storing periods of time - modeled in Python by timedelta.\n\n",
+        "scope": "source.python"
+    },
+    "memail": {
+        "prefix": "memail",
+        "body": "${1:FIELDNAME} = models.EmailField($2, max_length=${3:254})",
+        "description": "EmailField (memail).\n\nA CharField that checks that the value is a valid email address.\n\n",
+        "scope": "source.python"
+    },
+    "mfile": {
+        "prefix": "mfile",
+        "body": "${1:FIELDNAME} = models.FileField($2, upload_to=${3:None}, max_length=${4:100})",
+        "description": "FileField (mfile).\n\nA file-upload field.\n\n",
+        "scope": "source.python"
+    },
+    "mfilepath": {
+        "prefix": "mfilepath",
+        "body": "${1:FIELDNAME} = models.FilePathField($2, path=${3:None}, match=${4:None}, recursive=${5:recursive}, max_length=${6:100})",
+        "description": "FilePathField (mfilepath).\n\nA CharField whose choices are limited to the filenames in a certain directory on the filesystem.\n\n",
+        "scope": "source.python"
+    },
+    "mfloat": {
+        "prefix": "mfloat",
+        "body": "${1:FIELDNAME} = models.FloatField($2)",
+        "description": "FloatField (mfloat).\n\nA floating-point number represented in Python by a float instance.\n\n",
+        "scope": "source.python"
+    },
+    "fk": {
+        "prefix": "fk",
+        "body": "${1:FIELDNAME} = models.ForeignKey(${2:OTHERMODEL}, on_delete=models.${3|CASCADE,PROTECT,SET_NULL,SET_DEFAULT,SET(),DO_NOTHING|})",
+        "description": "ForeignKey (fk).\n\nA many-to-one relationship.\n\non_delete will become a required argument in Django 2.0. In older versions it defaults to CASCADE.\n\n",
+        "scope": "source.python"
+    },
+    "mip": {
+        "prefix": "mip",
+        "body": "${1:FIELDNAME} = models.IPAddressField($2)",
+        "description": "IPAddressField (mip).\n\nThis field has been deprecated since version 1.7 in favor of GenericIPAddressField.\n\n",
+        "scope": "source.python"
+    },
+    "mimg": {
+        "prefix": "mimg",
+        "body": "${1:FIELDNAME} = models.ImageField($2, upload_to=${3:None}, height_field=${4:None}, width_field=${5:None}, max_length=${5:100})",
+        "description": "ImageField (mimg).\n\nInherits all attributes and methods from FileField, but also validates that the uploaded object is a valid image.\n\n",
+        "scope": "source.python"
+    },
+    "mint": {
+        "prefix": "mint",
+        "body": "${1:FIELDNAME} = models.IntegerField($2)",
+        "description": "IntegerField (mint).\n\nAn integer. Values from -2147483648 to 2147483647 are safe in all databases supported by Django.\n\n",
+        "scope": "source.python"
+    },
+    "mgenericip": {
+        "prefix": "mgenericip",
+        "body": "${1:FIELDNAME} = models.GenericIPAddressField($2, protocol=${3:'both'}, unpack_ipv4=${4:False})",
+        "description": "GenericIPAddressField (mimg).\n\nAn IPv4 or IPv6 address, in string format.\n\n",
+        "scope": "source.python"
+    },
+    "m2m": {
+        "prefix": "m2m",
+        "body": "${1:FIELDNAME} = models.ManyToManyField(${2:OTHERMODEL})",
+        "description": "ManyToManyField (m2m).\n\nA many-to-many relationship.\n\n",
+        "scope": "source.python"
+    },
+    "mnullbool": {
+        "prefix": "mnullbool",
+        "body": "${1:FIELDNAME} = models.NullBooleanField($2)",
+        "description": "NullBooleanField (mnullbool).\n\nLike a BooleanField, but allows NULL as one of the options.\n\n",
+        "scope": "source.python"
+    },
+    "o2o": {
+        "prefix": "o2o",
+        "body": "${1:FIELDNAME} = models.OneToOneField(${2:OTHERMODEL}, on_delete=models.${3|CASCADE,PROTECT,SET_NULL,SET_DEFAULT,SET(),DO_NOTHING|})",
+        "description": "OneToOneField (o2o).\n\nA one-to-one relationship.\n\non_delete will become a required argument in Django 2.0. In older versions it defaults to CASCADE.\n\n",
+        "scope": "source.python"
+    },
+    "mphone": {
+        "prefix": "mphone",
+        "body": "${1:FIELDNAME} = models.PhoneNumberField($2)",
+        "description": "PhoneNumberField (mphone).\n\n*external package: django-phonenumber-field*\n\n",
+        "scope": "source.python"
+    },
+    "mposint": {
+        "prefix": "mposint",
+        "body": "${1:FIELDNAME} = models.PositiveIntegerField($2)",
+        "description": "PositiveIntegerField (mposint).\n\nLike an IntegerField, but must be either positive or zero (0).\n\n",
+        "scope": "source.python"
+    },
+    "mpossmallint": {
+        "prefix": "mpossmallint",
+        "body": "${1:FIELDNAME} = models.PositiveSmallIntegerField($2)",
+        "description": "PositiveSmallIntegerField (mpossmallint).\n\nLike a PositiveIntegerField, but only allows values under a certain (database-dependent) point.\n\n",
+        "scope": "source.python"
+    },
+    "mslug": {
+        "prefix": "mslug",
+        "body": "${1:FIELDNAME} = models.SlugField($2)",
+        "description": "SlugField (mslug).\n\nA slug is a short label for something, containing only letters, numbers, underscores or hyphens. They’re generally used in URLs.\n\n",
+        "scope": "source.python"
+    },
+    "msmallint": {
+        "prefix": "msmallint",
+        "body": "${1:FIELDNAME} = models.SmallIntegerField($2)",
+        "description": "SmallIntegerField (msmallint).\n\nLike an IntegerField, but only allows values under a certain (database-dependent) point.\n\n",
+        "scope": "source.python"
+    },
+    "mtext": {
+        "prefix": "mtext",
+        "body": "${1:FIELDNAME} = models.TextField($2)",
+        "description": "TextField (mtext).\n\nA large text field.\n\n",
+        "scope": "source.python"
+    },
+    "mtime": {
+        "prefix": "mtime",
+        "body": "${1:FIELDNAME} = models.TimeField($2, auto_now=${4:False}, auto_now_add=${5:False})",
+        "description": "TimeField (mtime).\n\nA time, represented in Python by a datetime.time instance.\n\n",
+        "scope": "source.python"
+    },
+    "murl": {
+        "prefix": "murl",
+        "body": "${1:FIELDNAME} = models.URLField($2, max_length=${3:200})",
+        "description": "URLField (murl).\n\nA CharField for a URL.\n\n",
+        "scope": "source.python"
+    },
+    "musstate": {
+        "prefix": "musstate",
+        "body": "${1:FIELDNAME} = models.USStateField($2)",
+        "description": "USStateField (musstate).\n\n*external package: django-localflavor*\n\n",
+        "scope": "source.python"
+    },
+    "muuid": {
+        "prefix": "muuid",
+        "body": "${1:FIELDNAME} = models.UUIDField($2)",
+        "description": "UUIDField (muuid).\n\nA field for storing universally unique identifiers. Uses Python’s UUID class.\n\n",
+        "scope": "source.python"
+    },
+    "mxml": {
+        "prefix": "mxml",
+        "body": "${1:FIELDNAME} = models.XMLField($2)",
+        "description": "XMLField (mxml).\n\n*All uses of XMLField can be replaced with TextField. This field has been deprecated since version 1.3*\n\n",
+        "scope": "source.python"
+    },
+    "mstore": {
+        "prefix": "mstore",
+        "body": "${1:FIELDNAME} = HStoreField()",
+        "description": "HStoreField (mstore).\n\n*PostgreSQL specific model fields*.\n\nA field for storing key-value pairs. The Python data type used is a dict.\n\n",
+        "scope": "source.python"
+    },
+    "mjson": {
+        "prefix": "mjson",
+        "body": "${1:FIELDNAME} = JSONField()",
+        "description": "JSONField (mjson).\n\n*PostgreSQL specific model fields*.\n\n[New in Django 1.11.]\n\nA field for storing JSON encoded data.\n\n",
+        "scope": "source.python"
+    },
+    "marray": {
+        "prefix": "marray",
+        "body": "${1:FIELDNAME} = ArrayField()",
+        "description": "ArrayField (marray).\n\n*PostgreSQL specific model fields*.\n\nA field for storing lists of data\n\n",
+        "scope": "source.python"
+    },
+    "fmai": {
+        "prefix": "fmai",
+        "body": "from .managers import $1QuerySet",
+        "description": "",
+        "scope": "source.python"
+    },
+    "fmi": {
+        "prefix": "fmi",
+        "body": "from .models import $1",
+        "description": "",
+        "scope": "source.python"
+    },
+    "imodels": {
+        "prefix": "imodels",
+        "body": "from django.db import models",
+        "description": "from ... import models",
+        "scope": "source.python"
+    },
+    "ipy2_unicode_compatible": {
+        "prefix": "iuc",
+        "body": "from django.utils.encoding import python_2_unicode_compatible",
+        "description": "For forwards compatibility, this decorator is available as of Django 1.4.2.",
+        "scope": "source.python"
+    },
+    "ipostgresmf": {
+        "prefix": "ipostgresmf",
+        "body": "from django.contrib.postgres.fields import ${1|ArrayField,JSONField,HStoreField|}",
+        "description": "PostgreSQL specific model fields",
+        "scope": "source.python"
+    },
+    "isignals": {
+        "prefix": "isignals",
+        "body": "from django.db.models.signals import ${1|pre_init,post_init,pre_save,post_save,pre_delete,post_delete,m2m_changed,class_prepared,Management signals,pre_migrate,post_migrate|}",
+        "description": "Signals for Django Model",
+        "scope": "source.python"
+    },
+    "__str__": {
+        "prefix": "str",
+        "body": ["def __str__(self):", "\treturn self${1: # TODO}"],
+        "description": "",
+        "scope": "source.python"
+    },
+    "get_absolute_url": {
+        "prefix": "get_absolute_url",
+        "body": [
+            "def get_absolute_url(self):",
+            "\tfrom django.core.urlresolvers import reverse",
+            "\treturn reverse('$1', kwargs={'pk': self.pk})"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "receiver": {
+        "prefix": "receiver",
+        "body": [
+            "def ${1:FUNCTIONNAME}_${2|pre_init,post_init,pre_save,post_save,pre_delete,post_delete,m2m_changed,class_prepared,Management signals,pre_migrate,post_migrate|}_receiver(sender, instance, *args, **kwargs):",
+            "\tpass",
+            "\n\n${2|pre_init,post_init,pre_save,post_save,pre_delete,post_delete,m2m_changed,class_prepared,Management signals,pre_migrate,post_migrate|}.connect(${1:name}_${2|pre_init,post_init,pre_save,post_save,pre_delete,post_delete,m2m_changed,class_prepared,Management signals,pre_migrate,post_migrate|}_receiver, sender=${3:MODELNAME})"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "__init__": {
+        "prefix": "__init__",
+        "body": "\r\ndef __init__(self, *args, **kwargs):\r\n    super(${1:CLASS_NAME}, self).__init__(*args, **kwargs)\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "ipdb": {
+        "prefix": "ipdb",
+        "body": "import ipdb; ipdb.set_trace()",
+        "description": "ipdb debug tool",
+        "scope": "source.python"
+    },
+    "npdb": {
+        "prefix": "npdb",
+        "body": "from nose.tools import set_trace; set_trace()",
+        "description": "nose pdb debug tool",
+        "scope": "source.python"
+    },
+    "pdb": {
+        "prefix": "pdb",
+        "body": "import pdb; pdb.set_trace()",
+        "description": "pdb debug tool",
+        "scope": "source.python"
+    },
+    "traceback": {
+        "prefix": "traceback",
+        "body": "import traceback; traceback.print_exc();",
+        "description": "traceback print exception",
+        "scope": "source.python"
+    },
+    "utfc": {
+        "prefix": "utfc",
+        "body": "# -*- coding: utf-8 -*-",
+        "description": "coding: utf-8",
+        "scope": "source.python"
+    },
+    "iunicode_literals": {
+        "prefix": "iul",
+        "body": "from __future__ import unicode_literals",
+        "description": "In order to enable the same behavior in Python 2, every module must import: \n",
+        "scope": "source.python"
+    },
+    "ilib": {
+        "prefix": "ilib",
+        "body": [
+            "from django import template",
+            "register = template.Library()"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "li18n": {
+        "prefix": "li18n",
+        "body": "{% load i18n %}",
+        "description": "",
+        "scope": "text.html.django"
+    },
+    "lstatic": {
+        "prefix": "lstatic",
+        "body": "{% load staticfiles %}",
+        "description": "",
+        "scope": "text.html.django"
+    },
+    "ltags": {
+        "prefix": "ltags",
+        "body": "{% load $SELECTION$1_tags %}",
+        "description": "",
+        "scope": "text.html.django"
+    },
+    "register_assignment_tag": {
+        "prefix": "register_assignment_tag",
+        "body": [
+            "def get_$1(context):",
+            "\trequest = context.get('request')",
+            "\t$1 = ${2:[]}",
+            "\treturn ${3:$1}"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "register_filter": {
+        "prefix": "register_filter",
+        "body": ["@register.filter", "def $1(value):", "\treturn value$2"],
+        "description": "",
+        "scope": "source.python"
+    },
+    "register_inclusion_tag": {
+        "prefix": "register_inclusion_tag",
+        "body": [
+            "@register.inclusion_tag(${2:'$1.html'}, takes_context=True)",
+            "def $1(context):",
+            "\trequest = context.get('request')",
+            "\t$3",
+            "\treturn {",
+            "\t\t'request': request,",
+            "\t\t$4",
+            "\t}"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "register_simple_tag": {
+        "prefix": "register_simple_tag",
+        "body": [
+            "@register.simple_tag(takes_context=True)",
+            "def $1(context):",
+            "\trequest = context.get('request')",
+            "\treturn ${2:'It Works!'}"
+        ],
+        "description": "",
+        "scope": "source.python"
+    },
+    "urlresolvers": {
+        "prefix": "iurlresolvers",
+        "body": "from django.core.urlresolvers import ${1|reverse,reverse_lazy,resolve,get_script_prefix|}",
+        "description": "*Deprecated since version 1.10*\n\nUtility functions.\n\n",
+        "scope": "source.python"
+    },
+    "urls (≥1.10 & ≤1.11)": {
+        "prefix": "iurls",
+        "body": "from django.urls import ${1|reverse,reverse_lazy,resolve,get_script_prefix|}",
+        "description": "Utility functions for use in URLconfs.",
+        "scope": "source.python"
+    },
+    "conf.urls (≤1.11)": {
+        "prefix": "iconf_urls",
+        "body": "from django.conf.urls import ${1|static,url,include,handler400,handler403,handler404,handler500|}",
+        "description": "Utility functions for use in URLconfs.",
+        "scope": "source.python"
+    },
+    "urls (≥2.0)": {
+        "prefix": "iurls",
+        "body": "from django.urls import ${1|path,re_path,include,reverse,reverse_lazy,register_converter|}",
+        "description": "Utility functions for use in URLconfs.",
+        "scope": "source.python"
+    },
+    "conf.urls (≥2.0)": {
+        "prefix": "iconf_urls",
+        "body": "from django.conf.urls import ${1|static,url,handler400,handler403,handler404,handler500|}",
+        "description": "Utilityfunctions for use in URLconfs.",
+        "scope": "source.python"
+    },
+    "url_stack": {
+        "prefix": "url_stack",
+        "body": [
+            "${1|url,re_path|}(",
+            "\tr'^${2:REGEX}/$',",
+            "\t${3:VIEW}${4:.as_view()},",
+            "\tname='$5'",
+            "),"
+        ],
+        "description": "url(regex, view, kwargs=None, name=None)\n\n*url is an alias to re_path*\n\n",
+        "scope": "source.python"
+    },
+    "url_inline": {
+        "prefix": "url_inline",
+        "body": [
+            "${1|url,re_path|}(r'^${2:REGEX}/$', ${3:VIEW}${4:.as_view()}, name='$5'),"
+        ],
+        "description": "url(regex, view, kwargs=None, name=None)\n\n*url is an alias to re_path*\n\n",
+        "scope": "source.python"
+    },
+    "path_stack": {
+        "prefix": "path_stack",
+        "body": [
+            "path(",
+            "\t'${1:ROUTE}/',",
+            "\t${2:VIEW}${3:.as_view()},",
+            "\tname='$4'",
+            "),"
+        ],
+        "description": "path(route, view, kwargs=None, name=None)",
+        "scope": "source.python"
+    },
+    "path_inline": {
+        "prefix": "path_inline",
+        "body": ["path('${1:ROUTE}/', ${2:VIEW}${3:.as_view()}, name='$4'),"],
+        "description": "path(route, view, kwargs=None, name=None)",
+        "scope": "source.python"
+    },
+    "urlpatterns": {
+        "prefix": "urlpatterns",
+        "body": ["urlpatterns = [", "\t$0", "]"],
+        "description": "",
+        "scope": "source.python"
+    },
+    "repk": {
+        "prefix": "repk",
+        "body": "r'^(?P<${1:pk}>d+)/$'",
+        "description": "PK URL regex",
+        "scope": "source.python"
+    },
+    "reslug": {
+        "prefix": "reslug",
+        "body": "r'^(?P<${1:slug}>[-w]+)/$'",
+        "description": "Slug URL regex",
+        "scope": "source.python"
+    },
+    "reusername": {
+        "prefix": "reusername",
+        "body": "r'^(?P<username>[w.@+-]+)/$'",
+        "description": "Username regex",
+        "scope": "source.python"
+    },
+    "createview": {
+        "prefix": "createview",
+        "body": "\r\nclass ${1:MODEL_NAME}CreateView(CreateView):\r\n    model = ${1:MODEL_NAME}\r\n    template_name = \"${2:TEMPLATE_NAME}\"\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "deleteview": {
+        "prefix": "deleteview",
+        "body": "\r\nclass ${1:MODEL_NAME}DeleteView(DeleteView):\r\n    model = ${1:MODEL_NAME}\r\n    template_name = \"${2:TEMPLATE_NAME}\"\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "detailview": {
+        "prefix": "detailview",
+        "body": "\r\nclass ${1:MODEL_NAME}DetailView(DetailView):\r\n    model = ${1:MODEL_NAME}\r\n    template_name = \"${2:TEMPLATE_NAME}\"\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "listview": {
+        "prefix": "listview",
+        "body": "\r\nclass ${1:MODEL_NAME}ListView(ListView):\r\n    model = ${1:MODEL_NAME}\r\n    template_name = \"${2:TEMPLATE_NAME}\"\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "templateview": {
+        "prefix": "templateview",
+        "body": "\r\nclass ${1:CLASS_NAME}(TemplateView):\r\n    template_name = \"${2:TEMPLATE_NAME}\"\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "updateview": {
+        "prefix": "updateview",
+        "body": "\r\nclass ${1:MODEL_NAME}UpdateView(UpdateView):\r\n    model = ${1:MODEL_NAME}\r\n    template_name = \"${2:TEMPLATE_NAME}\"\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "from views import": {
+        "prefix": "fvi",
+        "body": "from . import $1",
+        "description": "",
+        "scope": "source.python"
+    },
+    "igenericviews": {
+        "prefix": "igenericviews",
+        "body": "from django.views.generic import ${1|CreateView,DetailView,FormView,ListView,TemplateView,UpdateView|}",
+        "description": "Generic class-based views",
+        "scope": "source.python"
+    },
+    "isettings": {
+        "prefix": "isettings",
+        "body": "from django.conf import settings",
+        "description": "from django.conf import settings",
+        "scope": "source.python"
+    },
+    "view": {
+        "prefix": "view",
+        "body": "def ${1:VIEWNAME}(request):",
+        "description": "View",
+        "scope": "source.python"
+    },
+    "dispatch": {
+        "prefix": "dispatch",
+        "body": "\r\ndef dispatch(self, request, *args, **kwargs):\r\n    return super(${1:CLASS_NAME}, self).dispatch(request, *args, **kwargs)\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "context": {
+        "prefix": "get_context_data",
+        "body": "\r\ndef get_context_data(self, **kwargs):\r\n    context = super(${1:CLASS_NAME}, self).get_context_data(**kwargs)\r\n    return context\r\n",
+        "description": "",
+        "scope": "source.python"
+    },
+    "get_queryset": {
+        "prefix": "get_queryset",
+        "body": [
+            "def get_queryset(self):",
+            "\tqueryset = super(${1:CLASS_NAME}, self).get_queryset()",
+            "\tqueryset = queryset${3: # TODO}",
+            "\treturn queryset"
+        ],
+        "description": "",
+        "scope": "source.python"
+    }
+}

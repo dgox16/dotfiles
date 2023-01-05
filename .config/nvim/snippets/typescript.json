@@ -1,0 +1,21 @@
+{
+    "Express GET": {
+        "prefix": "eget",
+        "body": ["router.get('${1:route}', ${2:unimplemented!}"]
+    },
+
+    "Express POST": {
+        "prefix": "epost",
+        "body": ["router.post('${1:route}', ${2:unimplemented!}"]
+    },
+
+    "Express DELETE": {
+        "prefix": "edel",
+        "body": ["router.delete('${1:route}', ${2:unimplemented!}"]
+    },
+
+    "Express PUT": {
+        "prefix": "eput",
+        "body": ["router.put('${1:route}', ${2:unimplemented!}"]
+    }
+}

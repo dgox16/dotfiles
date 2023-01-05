@@ -1,0 +1,47 @@
+{
+    "name": "my-custom-snippets",
+    "engines": {
+        "vscode": "^1.11.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "rust"
+                ],
+                "path": "./rust.json"
+            },
+            {
+                "language": [
+                    "javascript",
+                    "javascriptreact",
+                    "vue",
+                    "svelte",
+                    "javascript.jsx",
+                    "typescript",
+                    "typescriptreact",
+                    "typescript.tsx"
+                ],
+                "path": "./typescript.json"
+            },
+            {
+                "language": [
+                    "tex"
+                ],
+                "path": "./tex.json"
+            },
+            {
+                "language": [
+                    "python"
+                ],
+                "path": "./django.json"
+            },
+            {
+                "language": [
+                    "html"
+                ],
+                "path": "./htmldjango.json"
+            }
+        ]
+    }
+}

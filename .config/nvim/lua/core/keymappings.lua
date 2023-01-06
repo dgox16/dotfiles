@@ -43,7 +43,7 @@ keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- Telescope
-keymap("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opts)
 keymap("n", "<Leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
 keymap("n", "<Leader>fw", "<cmd>Telescope live_grep <CR>", opts)
 keymap("n", "<Leader>ft", "<cmd>Telescope treesitter<CR>", opts)

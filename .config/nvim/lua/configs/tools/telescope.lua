@@ -3,14 +3,23 @@ vim.api.nvim_command([[packadd telescope-fzf-native.nvim]])
 require("telescope").setup({
     defaults = {
         entry_prefix = " ",
-        -- preview = false,
         scroll_strategy = "limit",
-        path_display = { "absolute" },
+        prompt_prefix = "   ",
+        path_display = { "truncate" },
+        winblend = 0,
+        border = {},
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         layout_config = {
-            prompt_position = "bottom",
             horizontal = {
-                preview_width = 0.5,
+                preview_width = 0.55,
+                results_width = 0.8,
             },
+            vertical = {
+                mirror = false,
+            },
+            width = 0.87,
+            height = 0.80,
+            preview_cutoff = 120,
         },
         file_ignore_patterns = {
             ".git/",

@@ -7,6 +7,7 @@ export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export PATH=$HOME/.cargo/bin:$PATH
 export BAT_THEME="Catppuccin-mocha"
+export KITTY_SHELL_INTEGRATION="enabled"
 #export PATH="$PATH:./node_modules/.bin"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

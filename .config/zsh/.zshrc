@@ -1,4 +1,5 @@
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+DISABLE_AUTO_TITLE="true"
 
 # source
 plug "$HOME/.config/zsh/configs/aliases.zsh"
@@ -11,6 +12,15 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
+precmd () {print -Pn "\e]0;%~\a"}
+
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "softmoth/zsh-vim-mode"
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search

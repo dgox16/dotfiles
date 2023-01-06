@@ -207,16 +207,4 @@ ins_right({
     cond = conditions.hide_in_width,
 })
 
-ins_right({
-    function()
-        return " "
-    end,
-    color = function()
-        local mode_color = modecolor
-        return { fg = mode_color[vim.fn.mode()] }
-    end,
-
-    padding = { left = 1 },
-})
-
 lualine.setup(config)

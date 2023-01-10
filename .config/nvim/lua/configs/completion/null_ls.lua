@@ -34,6 +34,7 @@ null_ls.setup({
         formatting.rustfmt,
         formatting.isort,
         formatting.beautysh,
+        formatting.taplo,
         diagnostics.flake8,
         diagnostics.djlint,
         formatting.djlint,

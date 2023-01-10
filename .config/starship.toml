@@ -1,5 +1,5 @@
 format = "$directory$character"
-right_format = """$nodejs$rust$lua$python$git_branch$git_status$cmd_duration"""
+right_format = """$ruby$php$kotlin$java$golang$c$nodejs$rust$lua$python$git_branch$git_status$cmd_duration"""
 
 
 [line_break]
@@ -27,13 +27,13 @@ style = "fg:#cba6f7 bg:#24273a"
 format = "(fg:#24273a bg:#24273a)[](fg:#f5c2e7 bg:#24273a)[ $path](fg:#24273a bg:#f5c2e7)[](fg:#f5c2e7 bg:none) "
 style = "fg:#d9d7d6 bg:#24273a"
 truncation_length = 3
-truncate_to_repo=true
+truncate_to_repo = true
 
 [git_status]
-format="(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[ $all_status](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
+format = "(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[ $all_status](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
 style = "fg:#b4befe bg:#24273a"
 conflicted = "="
-ahead ="${count}"
+ahead = "${count}"
 behind = "${count}"
 diverged = "${ahead_count}${behind_count}"
 up_to_date = ""
@@ -45,7 +45,11 @@ renamed = "»${count}"
 deleted = "${count}"
 
 [package]
-disabled=true
+disabled = true
+
+[git_branch]
+format = "(fg:#24273a bg:#24273a)[](fg:#f9e2af bg:#24273a)[ $branch](fg:#282c34 bg:#f9e2af)[](fg:#f9e2af bg:none) "
+style = "fg:#f9e2af bg:#24273a"
 
 [python]
 format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[${symbol}${pyenv_prefix}(${version} )(${virtualenv} )](fg:#24273a bg:#a6e3a1)[](fg:#a6e3a1 bg:none) "
@@ -67,8 +71,32 @@ format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[$symbol$version](f
 style = "fg:#a6e3a1 bg:#24273a"
 symbol = ' '
 
-[git_branch]
-format = "(fg:#24273a bg:#24273a)[](fg:#f9e2af bg:#24273a)[ $branch](fg:#282c34 bg:#f9e2af)[](fg:#f9e2af bg:none) "
-style = "fg:#f9e2af bg:#24273a"
+[c]
+format = "(fg:#24273a bg:#24273a)[](fg:#89dceb bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#89dceb)[](fg:#89dceb bg:none) "
+style = "fg:#89dceb bg:#24273a"
+symbol = ' '
 
+[golang]
+format = "(fg:#24273a bg:#24273a)[](fg:#74c7ec bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#74c7ec)[](fg:#74c7ec bg:none) "
+style = "fg:#74c7ec bg:#24273a"
+symbol = ' '
 
+[java]
+format = "(fg:#24273a bg:#24273a)[](fg:#f2cdcd bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#f2cdcd)[](fg:#f2cdcd bg:none) "
+style = "fg:#f2cdcd bg:#24273a"
+symbol = ' '
+
+[kotlin]
+format = "(fg:#24273a bg:#24273a)[](fg:#fab387 bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#fab387)[](fg:#fab387 bg:none) "
+style = "fg:#fab387 bg:#24273a"
+symbol = ' '
+
+[php]
+format = "(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
+style = "fg:#b4befe bg:#24273a"
+symbol = ' '
+
+[ruby]
+format = "(fg:#24273a bg:#24273a)[](fg:#f5e0dc bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#f5e0dc)[](fg:#f5e0dc bg:none) "
+style = "fg:#f5e0dc bg:#24273a"
+symbol = ' '

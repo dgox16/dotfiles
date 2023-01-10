@@ -106,7 +106,7 @@ cmp.setup({
     }),
 })
 
-vim.api.nvim_set_hl(0, "Normal", { fg = "#585b70" })
+vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#585b70" })
 
 cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources({

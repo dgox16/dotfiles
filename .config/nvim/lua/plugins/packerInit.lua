@@ -15,16 +15,6 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-local group = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = { "plugins.lua", "packer.lua" },
-    group = group,
-    callback = function()
-        R("plugins")
-        vim.cmd("PackerSync")
-    end,
-})
-
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
     return

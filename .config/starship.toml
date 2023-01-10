@@ -29,6 +29,24 @@ style = "fg:#d9d7d6 bg:#24273a"
 truncation_length = 3
 truncate_to_repo=true
 
+[git_status]
+format="(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[ $all_status](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
+style = "fg:#b4befe bg:#24273a"
+conflicted = "="
+ahead ="${count}"
+behind = "${count}"
+diverged = "${ahead_count}${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
+
+[package]
+disabled=true
+
 [python]
 format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[${symbol}${pyenv_prefix}(${version} )(${virtualenv} )](fg:#24273a bg:#a6e3a1)[](fg:#a6e3a1 bg:none) "
 style = "fg:#a6e3a1 bg:#24273a"
@@ -52,23 +70,5 @@ symbol = ' '
 [git_branch]
 format = "(fg:#24273a bg:#24273a)[](fg:#f9e2af bg:#24273a)[ $branch](fg:#282c34 bg:#f9e2af)[](fg:#f9e2af bg:none) "
 style = "fg:#f9e2af bg:#24273a"
-
-[git_status]
-format="(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[ $all_status](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
-style = "fg:#b4befe bg:#24273a"
-conflicted = "="
-ahead ="${count}"
-behind = "${count}"
-diverged = "${ahead_count}${behind_count}"
-up_to_date = ""
-untracked = "?${count}"
-stashed = ""
-modified = "!${count}"
-staged = "+${count}"
-renamed = "»${count}"
-deleted = "${count}"
-
-# [package]
-# disabled=true
 
 

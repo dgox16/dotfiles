@@ -65,6 +65,38 @@ catppuccin_setting.setup({
         markdown = true,
         ts_rainbow = true,
     },
+    custom_highlights = function(C)
+        return {
+            PmenuSel = { bg = C.blue, fg = C.base },
+            Pmenu = { fg = C.text, bg = C.base },
+            CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
+            CmpItemKindKeyword = { fg = C.base, bg = C.red },
+            CmpItemKindText = { fg = C.base, bg = C.teal },
+            CmpItemKindMethod = { fg = C.base, bg = C.pink },
+            CmpItemKindConstructor = { fg = C.base, bg = C.pink },
+            CmpItemKindFunction = { fg = C.base, bg = C.pink },
+            CmpItemKindFolder = { fg = C.base, bg = C.pink },
+            CmpItemKindModule = { fg = C.base, bg = C.pink },
+            CmpItemKindConstant = { fg = C.base, bg = C.peach },
+            CmpItemKindField = { fg = C.base, bg = C.green },
+            CmpItemKindProperty = { fg = C.base, bg = C.green },
+            CmpItemKindEnum = { fg = C.base, bg = C.green },
+            CmpItemKindUnit = { fg = C.base, bg = C.green },
+            CmpItemKindClass = { fg = C.base, bg = C.yellow },
+            CmpItemKindVariable = { fg = C.base, bg = C.yellow },
+            CmpItemKindFile = { fg = C.base, bg = C.pink },
+            CmpItemKindInterface = { fg = C.base, bg = C.yellow },
+            CmpItemKindColor = { fg = C.base, bg = C.red },
+            CmpItemKindReference = { fg = C.base, bg = C.red },
+            CmpItemKindEnumMember = { fg = C.base, bg = C.red },
+            CmpItemKindStruct = { fg = C.base, bg = C.pink },
+            CmpItemKindValue = { fg = C.base, bg = C.peach },
+            CmpItemKindEvent = { fg = C.base, bg = C.pink },
+            CmpItemKindOperator = { fg = C.base, bg = C.pink },
+            CmpItemKindTypeParameter = { fg = C.base, bg = C.pink },
+            CmpItemKindCopilot = { fg = C.base, bg = C.teal },
+        }
+    end,
     highlight_overrides = {
         mocha = function(cp)
             return {
@@ -119,7 +151,7 @@ catppuccin_setting.setup({
                 IncSearch = { bg = cp.pink, fg = cp.surface1 },
 
                 CmpItemAbbr = { fg = cp.text },
-                CmpItemAbbrMatch = { fg = cp.blue, style = { "bold" } },
+                CmpItemAbbrMatch = { fg = cp.lavender, style = { "bold" } },
             }
         end,
     },

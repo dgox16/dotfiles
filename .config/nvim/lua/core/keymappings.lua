@@ -18,8 +18,6 @@ keymap("n", "<Leader>w", ":w<CR>", opts)
 keymap("n", "<Leader>q", ":q<CR>", opts)
 -- Abrir explorador de archivos
 keymap("n", "<Leader>n", ":NvimTreeToggle<cr>", opts)
--- Nuevo Archivo
-keymap("n", "<Leader>es", "<CMD>ene!<CR>", opts)
 -- Manejo de Buffers
 keymap("n", "<M-d>", ":bd<CR>", opts)
 keymap("n", "<M-h>", ":bp<CR>", opts)

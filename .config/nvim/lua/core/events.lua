@@ -1,24 +1,44 @@
 local vim = vim
 local autocmd = {}
 
-vim.cmd([[
-   autocmd StdinReadPre * let s:std_in=1
-   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-       \ execute 'cd '.argv()[0] | execute 'NvimTree' | 
-   ]])
-
 vim.api.nvim_create_autocmd("BufEnter", {
-    group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
-    pattern = "NvimTree_*",
+    group = vim.api.nvim_create_augroup("NvimTree", { clear = true }),
     callback = function()
-        local layout = vim.api.nvim_call_function("winlayout", {})
-        if
-            layout[1] == "leaf"
-            and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree"
-            and layout[3] == nil
-        then
-            vim.cmd("confirm quit")
+        local stats = vim.loop.fs_stat(vim.api.nvim_buf_get_name(0))
+        if stats and stats.type == "directory" then
+            vim.cmd("cd" .. vim.api.nvim_buf_get_name(0))
+            vim.cmd("NvimTree")
+            local old_laststatus = vim.opt.laststatus
+            local prev_showtabline = vim.opt.showtabline
+            vim.opt_local.winbar = nil
+            vim.api.nvim_create_autocmd("BufUnload", {
+                buffer = 0,
+                callback = function()
+                    vim.opt.laststatus = old_laststatus
+                    vim.opt.showtabline = prev_showtabline
+                end,
+            })
+            vim.opt.showtabline = 0
+            vim.opt.laststatus = 0
         end
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "alpha",
+    callback = function()
+        local old_laststatus = vim.opt.laststatus
+        local prev_showtabline = vim.opt.showtabline
+        vim.opt_local.winbar = nil
+        vim.api.nvim_create_autocmd("BufUnload", {
+            buffer = 0,
+            callback = function()
+                vim.opt.laststatus = old_laststatus
+                vim.opt.showtabline = prev_showtabline
+            end,
+        })
+        vim.opt.showtabline = 0
+        vim.opt.laststatus = 0
     end,
 })
 

@@ -58,7 +58,7 @@ dashboard.section.buttons.val = {
 dashboard.section.buttons.opts.hl = "String"
 
 local function footer()
-    local total_plugins = #vim.tbl_keys(packer_plugins)
+    local stats = require("lazy").stats()
     return "   Have fun with Neovim"
         .. "   v"
         .. vim.version().major
@@ -66,9 +66,9 @@ local function footer()
         .. vim.version().minor
         .. "."
         .. vim.version().patch
-        .. "   "
-        .. total_plugins
-        .. " plugins"
+        .. "   "
+        .. stats.count
+        .. " plugins "
 end
 
 dashboard.section.footer.val = footer()
@@ -92,17 +92,3 @@ alpha.setup(dashboard.opts)
 
 vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#89b4fa" })
 vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#b4befe" })
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "alpha",
-    callback = function()
-        local old_laststatus = vim.opt.laststatus
-        vim.api.nvim_create_autocmd("BufUnload", {
-            buffer = 0,
-            callback = function()
-                vim.opt.laststatus = old_laststatus
-            end,
-        })
-        vim.opt.laststatus = 0
-    end,
-})

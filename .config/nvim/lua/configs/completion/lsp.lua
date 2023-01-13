@@ -5,10 +5,6 @@ end
 
 local root_pattern = require("lspconfig").util.root_pattern
 
-vim.api.nvim_command([[packadd lsp_signature.nvim]])
-vim.api.nvim_command([[packadd lspsaga.nvim]])
-vim.api.nvim_command([[packadd cmp-nvim-lsp]])
-
 vim.diagnostic.config({
     virtual_text = false,
     update_in_insert = true,

@@ -1,41 +1,3 @@
-local disable_distribution_plugins = function()
-    local default_plugins = {
-        "2html_plugin",
-        "getscript",
-        "getscriptPlugin",
-        "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-        "matchit",
-        "matchparen",
-        "tar",
-        "tarPlugin",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
-        "zipPlugin",
-        "tutor",
-        "rplugin",
-        "syntax",
-        "synmenu",
-        "optwin",
-        "compiler",
-        "bugreport",
-        "ftplugin",
-        "archlinux",
-        "fzf",
-    }
-
-    for _, plugin in pairs(default_plugins) do
-        vim.g["loaded_" .. plugin] = 1
-    end
-end
-
 local disable_providers = function()
     local default_providers = {
         "node",
@@ -72,7 +34,6 @@ local clipboard_config = function()
 end
 
 local load_core = function()
-    disable_distribution_plugins()
     disable_providers()
     leader_map()
     clipboard_config()

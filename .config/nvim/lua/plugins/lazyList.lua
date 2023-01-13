@@ -1,12 +1,12 @@
-local M = {}
-
-M.plugins = {
+return {
 
     -- UI
     { "kyazdani42/nvim-web-devicons" },
 
     {
         "catppuccin/nvim",
+        lazy = false,
+        priority = 1000,
         as = "catppuccin",
         run = ":CatppuccinCompile",
         config = function()
@@ -16,7 +16,7 @@ M.plugins = {
 
     {
         "hoob3rt/lualine.nvim",
-        after = "nvim-lspconfig",
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("configs.ui.lualine")
         end,
@@ -41,7 +41,7 @@ M.plugins = {
 
     {
         "lewis6991/gitsigns.nvim",
-        event = { "BufReadPost", "BufNewFile" },
+        event = { "BufRead" },
         config = function()
             require("configs.ui.gitsigns")
         end,
@@ -57,8 +57,8 @@ M.plugins = {
 
     {
         "akinsho/bufferline.nvim",
-        event = "BufWinEnter",
-        tag = "*",
+        event = { "BufReadPost", "BufNewFile" },
+        version = "*",
         config = function()
             require("configs.ui.bufferline")
         end,
@@ -72,12 +72,12 @@ M.plugins = {
         end,
     },
 
-    { "stevearc/dressing.nvim" },
+    { "stevearc/dressing.nvim", event = "VeryLazy" },
 
     -- Editor
     {
         "numToStr/Comment.nvim",
-        event = "BufReadPost",
+        keys = { "gc", { "gc", mode = "x" } },
         config = function()
             require("configs.editor.comment")
         end,
@@ -86,6 +86,13 @@ M.plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         event = "BufReadPost",
+        dependencies = {
+
+            "p00f/nvim-ts-rainbow",
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            "windwp/nvim-ts-autotag",
+        },
         config = function()
             require("configs.editor.treesitter")
         end,
@@ -93,24 +100,9 @@ M.plugins = {
     },
 
     {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        after = "nvim-treesitter",
-    },
-
-    {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        after = "nvim-treesitter",
-    },
-
-    {
-        "p00f/nvim-ts-rainbow",
-        after = "nvim-treesitter",
-    },
-
-    {
         "kylechui/nvim-surround",
-        tag = "*",
-        event = "BufReadPost",
+        version = "*",
+        keys = { "cs", "ys", "ds" },
         config = function()
             require("configs.editor.surround")
         end,
@@ -118,7 +110,7 @@ M.plugins = {
 
     {
         "phaazon/hop.nvim",
-        event = "BufReadPost",
+        cmd = "HopWord",
         config = function()
             require("configs.editor.hop")
         end,
@@ -133,29 +125,23 @@ M.plugins = {
     },
 
     {
-        "windwp/nvim-ts-autotag",
-        after = "nvim-treesitter",
-    },
-
-    {
         "akinsho/toggleterm.nvim",
-        cmd = { "ToggleTerm", "lua _lazygit_toggle()" },
-        tag = "v2.*",
+        cmd = { "ToggleTerm" },
+        version = "v2.*",
         config = function()
             require("configs.editor.toggleterm")
         end,
     },
 
     -- Completion
-
-    {
-        "barreiroleo/ltex-extra.nvim",
-        event = "BufReadPre",
-    },
-
     {
         "neovim/nvim-lspconfig",
         event = "BufReadPre",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "barreiroleo/ltex-extra.nvim",
+            "ray-x/lsp_signature.nvim",
+        },
         config = function()
             require("configs.completion.lsp")
         end,
@@ -177,47 +163,38 @@ M.plugins = {
     },
 
     {
-        "ray-x/lsp_signature.nvim",
-        after = "nvim-lspconfig",
-    },
-
-    {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
         config = function()
             require("configs.completion.cmp")
         end,
-        requires = {
-            { "onsails/lspkind.nvim" },
-            { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
-            { "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" },
-            { "hrsh7th/cmp-nvim-lua", after = "cmp-nvim-lsp" },
-            { "hrsh7th/cmp-path", after = "cmp-nvim-lua" },
-            { "hrsh7th/cmp-buffer", after = "cmp-path" },
-            { "hrsh7th/cmp-cmdline", after = "cmp-buffer" },
+        dependencies = {
+            "onsails/lspkind.nvim",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-cmdline",
         },
     },
 
     {
-        "L3MON4D3/LuaSnip",
-        after = "nvim-cmp",
-        config = function()
-            require("configs.completion.luasnip")
-        end,
-    },
-
-    {
         "windwp/nvim-autopairs",
-        after = "nvim-cmp",
+        event = "InsertEnter",
         config = function()
             require("configs.completion.autopairs")
         end,
     },
 
     {
-        "rafamadriz/friendly-snippets",
-        after = "nvim-cmp",
-        module = { "cmp", "cmp_nvim_lsp" },
+        "L3MON4D3/LuaSnip",
+        event = "InsertEnter",
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+        },
+        config = function()
+            require("configs.completion.luasnip")
+        end,
     },
 
     {
@@ -229,11 +206,14 @@ M.plugins = {
     },
 
     -- Tools
-    { "nvim-lua/plenary.nvim" },
+    { "nvim-lua/plenary.nvim", event = "VeryLazy" },
 
     {
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
+        dependencies = {
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        },
         config = function()
             require("configs.tools.telescope")
         end,
@@ -241,16 +221,10 @@ M.plugins = {
 
     {
         "folke/trouble.nvim",
-        cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
+        cmd = { "TroubleToggle" },
         config = function()
             require("configs.tools.trouble")
         end,
-    },
-
-    {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        after = "telescope.nvim",
-        run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
 
     {
@@ -267,11 +241,6 @@ M.plugins = {
     },
 
     {
-        "dstein64/vim-startuptime",
-        cmd = "StartupTime",
-    },
-
-    {
         "iamcco/markdown-preview.nvim",
         run = "cd app && npm install",
         setup = function()
@@ -280,5 +249,3 @@ M.plugins = {
         ft = { "markdown" },
     },
 }
-
-return vim.tbl_extend("error", M, {})

@@ -28,7 +28,7 @@ keymap("n", "<Leader>m", ":HopWord<CR>", opts)
 keymap("n", "<M-q>", ":ToggleTerm<CR>", opts)
 keymap("t", "<M-q>", ":ToggleTerm<CR>", opts)
 --Actualizar Plugins
-keymap("n", "<Leader>ps", ":PackerSync<CR>", opts)
+keymap("n", "<Leader>l", ":Lazy<CR>", opts)
 -- LSP
 keymap("n", "K", ":Lspsaga hover_doc<CR>", opts)
 keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)

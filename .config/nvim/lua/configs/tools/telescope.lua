@@ -1,5 +1,3 @@
-vim.api.nvim_command([[packadd telescope-fzf-native.nvim]])
-
 require("telescope").setup({
     defaults = {
         entry_prefix = " ",

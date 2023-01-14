@@ -1,9 +1,7 @@
 # Dotfiles
 
 ## ZSH y Starship
-
-![image](https://user-images.githubusercontent.com/90411765/211435356-7561356b-6d51-4646-a815-c02ad7dbdd4b.png)
-![image](https://user-images.githubusercontent.com/90411765/211435777-0dfd8dc5-78a6-4670-adff-e3c33434505a.png)
+![imagen](https://user-images.githubusercontent.com/90411765/212497734-6c2e984d-7608-4705-ae42-f540a2e3a292.png)
 
 ## Neovim
 

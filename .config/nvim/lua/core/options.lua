@@ -1,6 +1,6 @@
 local global_local = {
     backup = false,
-    cmdheight = 1,
+    cmdheight = 0,
     clipboard = "unnamedplus",
     hidden = true,
     hlsearch = true,

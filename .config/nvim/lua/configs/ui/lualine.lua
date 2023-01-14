@@ -105,9 +105,9 @@ ins_left({
     sources = { "nvim_diagnostic" },
     symbols = { error = " ", warn = " ", info = " ", hint = " " },
     diagnostics_color = {
-        color_error = { fg = colors.pink },
-        color_warn = { fg = colors.orange },
-        color_info = { fg = colors.sky },
+        error = { fg = colors.red },
+        warn = { fg = colors.orange },
+        info = { fg = colors.sky },
         hint = { fg = colors.teal },
     },
 })

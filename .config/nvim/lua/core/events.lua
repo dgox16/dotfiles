@@ -2,24 +2,11 @@ local vim = vim
 local autocmd = {}
 
 vim.api.nvim_create_autocmd("BufEnter", {
-    group = vim.api.nvim_create_augroup("NvimTree", { clear = true }),
     callback = function()
         local stats = vim.loop.fs_stat(vim.api.nvim_buf_get_name(0))
         if stats and stats.type == "directory" then
             vim.cmd("cd" .. vim.api.nvim_buf_get_name(0))
-            vim.cmd("NvimTree")
-            local old_laststatus = vim.opt.laststatus
-            local prev_showtabline = vim.opt.showtabline
-            vim.opt_local.winbar = nil
-            vim.api.nvim_create_autocmd("BufUnload", {
-                buffer = 0,
-                callback = function()
-                    vim.opt.laststatus = old_laststatus
-                    vim.opt.showtabline = prev_showtabline
-                end,
-            })
-            vim.opt.showtabline = 0
-            vim.opt.laststatus = 0
+            vim.cmd("Alpha")
         end
     end,
 })

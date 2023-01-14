@@ -6,7 +6,7 @@ end
 local root_pattern = require("lspconfig").util.root_pattern
 
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     update_in_insert = true,
     underline = true,
     severity_sort = true,
@@ -19,6 +19,18 @@ vim.diagnostic.config({
         prefix = "",
     },
 })
+
+local signs = {
+    Error = " ",
+    Warn = " ",
+    Hint = " ",
+    Info = " ",
+}
+
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
 
 require("lspconfig.ui.windows").default_options.border = "single"
 
@@ -33,17 +45,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     },
 }
 
-local function on_attach(client, bufnr)
-    require("lsp_signature").on_attach({
-        bind = true,
-        auto_close_after = 5,
-        toggle_key = "<C-e>",
-        use_lspsaga = false,
-        floating_window = true,
-        hint_enable = true,
-        handler_opts = { border = "rounded" },
-    })
-end
+local function on_attach(client, bufnr) end
 
 -- LSP SERVER
 lspconfig.sumneko_lua.setup({
@@ -130,6 +132,12 @@ lspconfig.jsonls.setup({
 
 lspconfig.ltex.setup({
     capabilities = capabilities,
+    handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            -- Disable virtual_text
+            virtual_text = false,
+        }),
+    },
     on_attach = function(client, bufnr)
         require("ltex_extra").setup({
             load_langs = { "es" },

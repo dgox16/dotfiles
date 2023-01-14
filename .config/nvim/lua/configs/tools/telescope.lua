@@ -21,6 +21,7 @@ require("telescope").setup({
         },
         file_ignore_patterns = {
             ".git/",
+            "venv",
             "node_modules/",
         },
         dynamic_preview_title = true,

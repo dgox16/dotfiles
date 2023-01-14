@@ -18,7 +18,7 @@ catppuccin_setting.setup({
         comments = { "italic" },
         conditionals = { "bold" },
         loops = { "bold" },
-        functions = { "bold" },
+        functions = { "italic", "bold" },
         keywords = { "italic" },
         strings = {},
         variables = {},
@@ -54,7 +54,7 @@ catppuccin_setting.setup({
         mason = true,
         nvimtree = {
             enabled = true,
-            show_root = true,
+            show_root = false,
             transparent_panel = false,
         },
         indent_blankline = {
@@ -64,6 +64,8 @@ catppuccin_setting.setup({
         bufferline = true,
         markdown = true,
         ts_rainbow = true,
+        noice = true,
+        notify = true,
     },
     custom_highlights = function(C)
         return {

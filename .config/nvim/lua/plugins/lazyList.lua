@@ -15,6 +15,29 @@ return {
     },
 
     {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            {
+                "rcarriga/nvim-notify",
+                opts = {
+                    timeout = 1000,
+                    max_height = function()
+                        return math.floor(vim.o.lines * 0.75)
+                    end,
+                    max_width = function()
+                        return math.floor(vim.o.columns * 0.75)
+                    end,
+                },
+            },
+        },
+        config = function()
+            require("configs.ui.noice")
+        end,
+    },
+
+    {
         "hoob3rt/lualine.nvim",
         event = { "BufReadPost", "BufNewFile" },
         config = function()
@@ -41,7 +64,7 @@ return {
 
     {
         "lewis6991/gitsigns.nvim",
-        event = { "BufRead" },
+        event = { "BufReadPost" },
         config = function()
             require("configs.ui.gitsigns")
         end,
@@ -72,7 +95,10 @@ return {
         end,
     },
 
-    { "stevearc/dressing.nvim", event = "VeryLazy" },
+    {
+        "stevearc/dressing.nvim",
+        event = "VeryLazy",
+    },
 
     -- Editor
     {
@@ -97,15 +123,6 @@ return {
             require("configs.editor.treesitter")
         end,
         run = ":TSUpdate",
-    },
-
-    {
-        "kylechui/nvim-surround",
-        version = "*",
-        keys = { "cs", "ys", "ds" },
-        config = function()
-            require("configs.editor.surround")
-        end,
     },
 
     {
@@ -140,7 +157,6 @@ return {
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "barreiroleo/ltex-extra.nvim",
-            "ray-x/lsp_signature.nvim",
         },
         config = function()
             require("configs.completion.lsp")
@@ -151,14 +167,6 @@ return {
         "williamboman/mason.nvim",
         config = function()
             require("configs.completion.mason")
-        end,
-    },
-
-    {
-        "glepnir/lspsaga.nvim",
-        event = "LspAttach",
-        config = function()
-            require("configs.completion.lspsaga")
         end,
     },
 
@@ -174,7 +182,6 @@ return {
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-cmdline",
         },
     },
 
@@ -206,7 +213,10 @@ return {
     },
 
     -- Tools
-    { "nvim-lua/plenary.nvim", event = "VeryLazy" },
+    {
+        "nvim-lua/plenary.nvim",
+        event = "VeryLazy",
+    },
 
     {
         "nvim-telescope/telescope.nvim",

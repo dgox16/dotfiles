@@ -23,6 +23,7 @@ keymap("n", "<M-d>", ":bd<CR>", opts)
 keymap("n", "<M-h>", ":bp<CR>", opts)
 keymap("n", "<M-l>", ":bn<CR>", opts)
 keymap("n", "<leader>ñ", ":BufferLinePick<CR>", opts)
+-- Moverse a cualquier palabra
 keymap("n", "<Leader>m", ":HopWord<CR>", opts)
 -- Terminales
 keymap("n", "<M-q>", ":ToggleTerm<CR>", opts)
@@ -30,12 +31,11 @@ keymap("t", "<M-q>", ":ToggleTerm<CR>", opts)
 --Actualizar Plugins
 keymap("n", "<Leader>l", ":Lazy<CR>", opts)
 -- LSP
-keymap("n", "K", ":Lspsaga hover_doc<CR>", opts)
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("n", "g{", ":Lspsaga diagnostic_jump_prev<CR>", opts)
-keymap("n", "g}", ":Lspsaga diagnostic_jump_next<CR>", opts)
-keymap("n", "gs", ":Lspsaga signature_help<CR>", opts)
-keymap("n", "<C-k>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "g{", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+keymap("n", "g}", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+keymap("n", "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
@@ -51,6 +51,8 @@ keymap("n", "<Leader>fs", "<cmd>Telescope current_buffer_fuzzy_find case_mode=ig
 keymap("n", "<Leader>r", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>", { noremap = true, silent = false })
 -- Abrir ajustes nvim
 keymap("n", "<Leader>es", ":e $MYVIMRC | :cd %:p:h <CR>", opts)
+-- Cambiar al directorio actual
+keymap("n", "<Leader>ed", ":cd %:p:h <CR>", opts)
 -- Punto y coma al final
 keymap("n", "<Leader>;", "$a;<Esc>", opts)
 -- Abrir diferentes terminales
@@ -58,25 +60,28 @@ keymap("n", "<M-Q>", ":ToggleTerm ", { noremap = true, silent = false })
 -- Scroll mas rapido
 keymap("n", "<C-e>", "2<C-e>", opts)
 keymap("n", "<C-y>", "2<C-y>", opts)
-
+-- Mover lineas arriba o abajo
 keymap("n", "<M-p>", ":m .-2<CR>==", opts)
 keymap("n", "<M-n>", ":m .+1<CR>==", opts)
-
+-- Moverse de forma normal en lineas largas con wrap
 keymap("n", "k", "(v:count == 0 ? 'gk' : 'k')", { silent = true, expr = true })
 keymap("n", "j", "(v:count == 0 ? 'gj' : 'j')", { silent = true, expr = true })
 keymap("n", "<Down>", "(v:count == 0 ? 'gj' : 'j')", { silent = true, expr = true })
 keymap("n", "<Up>", "(v:count == 0 ? 'gk' : 'k')", { silent = true, expr = true })
-
+-- Abrir panel de errores
 keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
--- Remove highlights
+-- Remover highlights
 keymap("n", "<CR>", ":noh<CR><CR>", opts)
--- MODO INSERTAR
-keymap("i", "<C-d>", "<C-O>dw", opts)
 
+-- MODO INSERTAR
+-- Mover la palabra de adelante
+keymap("i", "<C-d>", "<C-O>dw", opts)
+-- Mover lineas arriba o abajo
 keymap("i", "<M-p>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("i", "<M-n>", "<Esc>:m .+1<CR>==gi", opts)
-
+-- Mover al inicio de linea
 keymap("i", "<C-b>", "<Esc>^i", opts)
+-- Mover al final de la linea
 keymap("i", "<C-e>", "<End>", opts)
 
 keymap("i", "<C-h>", "<Left>", opts)
@@ -85,17 +90,16 @@ keymap("i", "<C-j>", "<Down>", opts)
 keymap("i", "<C-k>", "<Up>", opts)
 
 -- MODO VISUAL
+-- Mejor indentacion
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
--- Mover lineas
+-- Mover lineas arriba o abajo
 keymap("x", "<M-p>", ":m '<-2<CR>gv=gv", opts)
 keymap("x", "<M-n>", ":m '>+1<CR>gv=gv", opts)
-
--- J K just move
+-- J y K solo para moverse
 keymap("x", "J", "j", opts)
 keymap("x", "K", "k", opts)
-
+-- Moverse de forma normal en lineas largas con wrap
 keymap("v", "j", "(v:count == 0 ? 'gj' : 'j')", { silent = true, expr = true })
 keymap("v", "k", "(v:count == 0 ? 'gk' : 'k')", { silent = true, expr = true })
 keymap("v", "<Down>", "(v:count == 0 ? 'gj' : 'j')", { silent = true, expr = true })

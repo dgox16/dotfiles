@@ -3,6 +3,13 @@ require("trouble").setup({
     height = 10,
     width = 50,
     icons = true,
+    signs = {
+        error = " ",
+        warning = " ",
+        hint = " ",
+        information = " ",
+        other = " ",
+    },
     mode = "document_diagnostics",
     action_keys = {
         close = "q",
@@ -27,6 +34,7 @@ require("trouble").setup({
     auto_open = false,
     auto_close = false,
     auto_preview = true,
+    use_diagnostic_signs = false,
     auto_fold = false,
     use_lsp_diagnostic_signs = false,
 })

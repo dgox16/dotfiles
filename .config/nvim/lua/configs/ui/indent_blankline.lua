@@ -1,3 +1,6 @@
+vim.g.indent_blankline_char = "▎"
+vim.g.indent_blankline_char_blankline = "▎"
+
 require("indent_blankline").setup({
     char = "▏",
     show_first_indent_level = true,
@@ -24,10 +27,18 @@ require("indent_blankline").setup({
         "flutterToolsOutline",
         "", -- for all buffers without a file type
     },
+    space_char_blankline = " ",
+    show_foldtext = false,
+    strict_tabs = true,
+    max_indent_increase = 1,
+    -- show_current_context = false,
+    show_current_context_start = false,
+    context_highlight_list = { "IndentBlanklineContext" },
+    viewport_buffer = 100,
     buftype_exclude = { "terminal", "nofile" },
     show_trailing_blankline_indent = false,
-    use_treesitter = true,
-    -- show_current_context = true,
+    use_treesitter_scope = true,
+    show_current_context = true,
     context_patterns = {
         "class",
         "function",

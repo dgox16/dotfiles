@@ -126,6 +126,15 @@ return {
     },
 
     {
+        "kylechui/nvim-surround",
+        version = "*",
+        keys = { "cs", "ys", "ds" },
+        config = function()
+            require("configs.editor.surround")
+        end,
+    },
+
+    {
         "phaazon/hop.nvim",
         cmd = "HopWord",
         config = function()
@@ -252,7 +261,9 @@ return {
 
     {
         "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
+        run = function()
+            vim.fn["mkdp#util#install"]()
+        end,
         setup = function()
             require("configs.tools.md_preview")
         end,

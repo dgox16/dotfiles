@@ -5,9 +5,9 @@ require("trouble").setup({
     icons = true,
     signs = {
         error = " ",
-        warning = " ",
-        hint = " ",
-        information = " ",
+        warning = " ",
+        information = " ",
+        hint = " ",
         other = " ",
     },
     mode = "document_diagnostics",

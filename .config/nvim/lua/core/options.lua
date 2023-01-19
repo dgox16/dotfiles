@@ -15,7 +15,11 @@ local global_local = {
     swapfile = false,
     termguicolors = true,
     timeoutlen = 400,
-    -- title = true,
+    foldmethod = "indent",
+    foldenable = true,
+    foldlevel = 99, -- was 1
+    foldtext = "v:lua.get_fold_text()",
+    foldnestmax = 10,
     undofile = true,
     updatetime = 100,
     writebackup = false,
@@ -36,6 +40,7 @@ local global_local = {
     linebreak = true,
 }
 
+-- vim.opt.fillchars = { fold = " ", foldclose = "▸", foldopen = "▾", foldsep = " " }
 for name, value in pairs(global_local) do
     vim.o[name] = value
 end

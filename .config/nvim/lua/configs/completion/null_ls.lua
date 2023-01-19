@@ -35,7 +35,7 @@ null_ls.setup({
         formatting.isort,
         formatting.beautysh,
         formatting.taplo,
-        diagnostics.flake8,
+        diagnostics.flake8.with({ extra_args = { "--max-line-length", "99" } }),
         diagnostics.djlint,
         formatting.djlint,
         formatting.djlint,

@@ -1,6 +1,7 @@
 local vim = vim
 local autocmd = {}
 
+-- Cambiar directorio en caso de abrir con argumentos
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
         local stats = vim.loop.fs_stat(vim.api.nvim_buf_get_name(0))
@@ -11,6 +12,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 
+-- No mostrar statusline ni bufferline en pantalla de inicio
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "alpha",
     callback = function()
@@ -53,7 +55,7 @@ function autocmd.load_autocmds()
             {
                 "TextYankPost",
                 "*",
-                [[silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=100})]],
+                [[silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=150})]],
             },
         },
     }

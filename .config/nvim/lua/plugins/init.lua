@@ -14,3 +14,5 @@ vim.opt.rtp:prepend(lazypath)
 local options = require("plugins.lazyConfig").opts
 
 require("lazy").setup("plugins.lazyList", options)
+
+require("configs.ui.statuscolumn")

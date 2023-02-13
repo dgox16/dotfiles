@@ -1,46 +1,31 @@
 format = "$directory$character"
-right_format = """$ruby$php$kotlin$java$golang$c$nodejs$rust$lua$python$git_branch$git_status$cmd_duration"""
+right_format = """$ruby$php$kotlin$java$golang$c$nodejs$rust$lua$python$git_branch$cmd_duration"""
 
 [line_break]
 disabled = true
 
 [character]
-success_symbol = '[](bold blue) '
-error_symbol = '[](bold red) '
-vimcmd_symbol = '[](bold green) '
-vimcmd_replace_one_symbol = '[](bold purple) '
-vimcmd_replace_symbol = '[](bold purple) '
-vimcmd_visual_symbol = '[](bold yellow) '
+success_symbol = '[🞈](bold green) '
+error_symbol = '[🞈](bold red) '
+vimcmd_symbol = '[🞈](bold blue) '
+vimcmd_replace_one_symbol = '[🞈](bold purple) '
+vimcmd_replace_symbol = '[🞈](bold purple) '
+vimcmd_visual_symbol = '[🞈](bold yellow) '
 
 [hostname]
 disabled = true
 
 [cmd_duration]
 min_time = 1
-format = "(fg:#24273a bg:#24273a)[](fg:#cba6f7 bg:#24273a)[ $duration](fg:#24273a bg:#cba6f7)[](fg:#cba6f7 bg:none) "
+format = "(fg:#24273a bg:#24273a)[](fg:#cba6f7 bg:#24273a)[ $duration](fg:#24273a bg:#cba6f7)[](fg:#cba6f7 bg:none) "
 disabled = false
 style = "fg:#cba6f7 bg:#24273a"
 
 [directory]
-format = "(fg:#24273a bg:#24273a)[](fg:#f5c2e7 bg:#24273a)[ $path](fg:#24273a bg:#f5c2e7)[](fg:#f5c2e7 bg:none) "
+format = "(fg:#24273a bg:#24273a)[](fg:#f5c2e7 bg:#24273a)[  $path](fg:#24273a bg:#f5c2e7)[](fg:#f5c2e7 bg:none) "
 style = "fg:#d9d7d6 bg:#24273a"
 truncation_length = 3
 truncate_to_repo = true
-
-[git_status]
-format = "(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[ $all_status](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
-style = "fg:#b4befe bg:#24273a"
-conflicted = "="
-ahead = "${count}"
-behind = "${count}"
-diverged = "${ahead_count}${behind_count}"
-up_to_date = ""
-untracked = "?${count}"
-stashed = ""
-modified = "!${count}"
-staged = "+${count}"
-renamed = "»${count}"
-deleted = "${count}"
 
 [package]
 disabled = true

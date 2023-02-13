@@ -9,9 +9,10 @@ source ~/.config/zsh/configs/catppuccin.zsh
 [ -f ~/.config/zsh/configs/functions.sh ] && source ~/.config/zsh/configs/functions.sh
 
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
 precmd () {print -Pn "\e]0;%~\a"}
 
 plug "zsh-users/zsh-autosuggestions"

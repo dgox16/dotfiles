@@ -13,6 +13,12 @@
             },
             {
                 "language": [
+                    "markdown"
+                ],
+                "path": "./markdown.json"
+            },
+            {
+                "language": [
                     "javascript",
                     "javascriptreact",
                     "vue",

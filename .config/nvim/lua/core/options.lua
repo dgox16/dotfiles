@@ -40,7 +40,6 @@ local global_local = {
     linebreak = true,
 }
 
--- vim.opt.fillchars = { fold = " ", foldclose = "▸", foldopen = "▾", foldsep = " " }
 for name, value in pairs(global_local) do
     vim.o[name] = value
 end

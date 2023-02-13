@@ -1,0 +1,16 @@
+{
+    "Create title header": {
+        "prefix": "title",
+        "body": [
+            "---",
+            "title: '${1:title}'",
+            "author: '${2:autor}'",
+            "date: '${3:fecha}'",
+            "---"
+        ]
+    },
+    "LTEX en ingles": {
+        "prefix": "eng",
+        "body": ["<!-- LTeX: language=en-US -->"]
+    }
+}

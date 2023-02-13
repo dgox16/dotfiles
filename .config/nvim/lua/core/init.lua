@@ -38,7 +38,9 @@ local load_core = function()
     leader_map()
     clipboard_config()
 
-    require("core.events")
+    require("core.statuscolumn")
+    require("core.lazy")
+    require("core.autocmds")
     require("core.options")
     require("core.keymappings")
 end

@@ -24,17 +24,8 @@ return {
 
         vim.diagnostic.config({
             virtual_text = true,
-            update_in_insert = true,
             underline = true,
             severity_sort = true,
-            float = {
-                focusable = false,
-                style = "minimal",
-                border = "rounded",
-                source = "always",
-                header = "",
-                prefix = "",
-            },
         })
 
         local signs = {
@@ -63,6 +54,7 @@ return {
         }
 
         local function on_attach(client, bufnr) end
+
         -- LSP SERVER
         lspconfig.lua_ls.setup({
             capabilities = capabilities,
@@ -84,6 +76,18 @@ return {
                     },
                 },
             },
+        })
+
+        lspconfig.eslint.setup({
+            settings = {
+                packageManager = "yarn",
+            },
+            on_attach = function(client, bufnr)
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    buffer = bufnr,
+                    command = "EslintFixAll",
+                })
+            end,
         })
 
         lspconfig.jsonls.setup({
@@ -150,7 +154,6 @@ return {
             capabilities = capabilities,
             handlers = {
                 ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-                    -- Disable virtual_text
                     virtual_text = false,
                 }),
             },
@@ -191,7 +194,6 @@ return {
                     },
                 },
             },
-
             root_dir = root_pattern("*.tex"),
         })
 
@@ -217,7 +219,7 @@ return {
             on_attach = on_attach,
         })
 
-        for _, server in ipairs({ "bashls", "cssls", "pyright", "rust_analyzer", "tsserver" }) do
+        for _, server in ipairs({ "bashls", "cssls", "pyright", "tsserver", "phpactor" }) do
             lspconfig[server].setup({
                 on_attach = on_attach,
                 capabilities = capabilities,

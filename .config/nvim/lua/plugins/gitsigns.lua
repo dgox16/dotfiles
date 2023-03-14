@@ -11,10 +11,15 @@ return {
                     numhl = "GitSignsChangeNr",
                     linehl = "GitSignsChangeLn",
                 },
-                delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-                topdelete = {
+                delete = {
                     hl = "GitSignsDelete",
                     text = "│",
+                    numhl = "GitSignsDeleteNr",
+                    linehl = "GitSignsDeleteLn",
+                },
+                topdelete = {
+                    hl = "GitSignsDelete",
+                    text = "契",
                     numhl = "GitSignsDeleteNr",
                     linehl = "GitSignsDeleteLn",
                 },

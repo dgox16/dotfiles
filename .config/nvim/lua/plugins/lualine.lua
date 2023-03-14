@@ -7,7 +7,7 @@ return {
 
             local modecolor = {
                 n = colors.pink,
-                i = colors.green,
+                i = colors.teal,
                 v = colors.mauve,
                 [""] = colors.mauve,
                 V = colors.blue,
@@ -25,7 +25,7 @@ return {
                 rm = colors.teal,
                 ["r?"] = colors.teal,
                 ["!"] = colors.red,
-                t = colors.teal,
+                t = colors.rosewater,
             }
 
             local theme = {
@@ -87,7 +87,7 @@ return {
                 end,
                 color = function()
                     local mode_color = modecolor
-                    return { bg = mode_color[vim.fn.mode()], fg = colors.mantle, gui = "bold" }
+                    return { bg = mode_color[vim.fn.mode()], fg = colors.mantle }
                 end,
                 separator = { left = "", right = "" },
             }
@@ -157,7 +157,7 @@ return {
                     hint = { fg = colors.teal },
                 },
                 color = { bg = colors.surface0, fg = colors.blue },
-                separator = { left = "", right = "" },
+                separator = { left = "" },
             }
 
             local lsp = {

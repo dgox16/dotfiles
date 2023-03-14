@@ -1,12 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Destaca texto al copiar
-autocmd("TextYankPost", {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-})
-
 -- Keymaps para el rest client
 autocmd("FileType", {
     pattern = "http",
@@ -58,9 +51,6 @@ autocmd("FileType", {
 -- Ocultar statuscolumn en el gestor de archivos
 autocmd({ "BufWinEnter", "BufAdd" }, {
     callback = function(opts)
-        if vim.bo[opts.buf].filetype == "NvimTree" then
-            vim.o.statuscolumn = ""
-        end
         if vim.bo[opts.buf].filetype == "toggleterm" then
             vim.o.statuscolumn = ""
         end

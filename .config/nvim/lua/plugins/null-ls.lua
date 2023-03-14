@@ -34,17 +34,31 @@ return {
                 end,
 
                 sources = {
+                    -- LUA
                     formatting.stylua.with({ extra_args = { "--indent-type", "Spaces" } }),
-                    formatting.prettier.with({ extra_args = { "--tab-width", "4" } }),
-                    formatting.rustfmt,
+                    -- HTML, CSS y JSON
+                    formatting.prettier.with({
+                        extra_args = { "--tab-width", "4" },
+                        disabled_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+                    }),
+                    -- JS y TS
+                    formatting.rome.with({ extra_args = { "--indent-style", "space", "--indent-size", "4" } }),
+                    -- diagnostics.eslint_d,
+                    -- Python
                     formatting.isort,
+                    diagnostics.ruff,
+                    formatting.black,
+                    -- Bash
                     formatting.beautysh,
+                    -- TOML
                     formatting.taplo,
-                    diagnostics.flake8.with({ extra_args = { "--max-line-length", "99" } }),
+                    -- HTMLDjango
                     diagnostics.djlint,
                     formatting.djlint,
-                    formatting.djlint,
-                    formatting.black,
+                    -- PHP
+                    diagnostics.php,
+                    formatting.phpcsfixer,
+                    -- Latex
                     formatting.latexindent,
                 },
             })

@@ -15,7 +15,7 @@ return {
     {
         "phaazon/hop.nvim",
         cmd = "HopWord",
-        keys = { { "<leader>m", "<cmd>HopWord<cr>" } },
+        keys = { { "m", "<cmd>HopWord<cr>" } },
         opts = {
             keys = "etovxqpdygfblzhckisuran",
         },

@@ -1,12 +1,8 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     event = "BufReadPost",
-    keys = {
-        { "<c-space>", desc = "Increment selection" },
-        { "<bs>", desc = "Schrink selection", mode = "x" },
-    },
     dependencies = {
-        "p00f/nvim-ts-rainbow",
+        "HiPhish/nvim-ts-rainbow2",
         "windwp/nvim-ts-autotag",
     },
     config = function()
@@ -16,6 +12,10 @@ return {
                 "c",
                 "cpp",
                 "lua",
+                "vim",
+                "regex",
+                "markdown",
+                "markdown_inline",
                 "json",
                 "http",
                 "yaml",
@@ -37,8 +37,17 @@ return {
             },
             rainbow = {
                 enable = true,
-                extended_mode = true,
-                max_file_lines = 2000,
+                max_file_lines = 3000,
+                strategy = require("ts-rainbow.strategy.global"),
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "<C-space>",
+                    node_incremental = "<C-space>",
+                    scope_incremental = "<nop>",
+                    node_decremental = "<bs>",
+                },
             },
         })
     end,

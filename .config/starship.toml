@@ -47,7 +47,7 @@ symbol = ' '
 [rust]
 format = "(fg:#24273a bg:#24273a)[](fg:#f38ba8 bg:#24273a)[$symbol$version](fg:#24273a bg:#f38ba8)[](fg:#f38ba8 bg:none) "
 style = "fg:#f38ba8 bg:#24273a"
-symbol = ' '
+symbol = ' '
 
 [nodejs]
 format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[$symbol$version](fg:#24273a bg:#a6e3a1)[](fg:#a6e3a1 bg:none) "

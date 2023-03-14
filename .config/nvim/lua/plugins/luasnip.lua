@@ -5,10 +5,7 @@ return {
         "rafamadriz/friendly-snippets",
     },
     config = function()
-        local present, luasnip = pcall(require, "luasnip")
-        if not present then
-            return
-        end
+        local luasnip = require("luasnip")
 
         local options = {
             history = true,

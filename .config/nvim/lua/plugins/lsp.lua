@@ -2,6 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
     dependencies = {
+        "mason.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "barreiroleo/ltex-extra.nvim",
     },
@@ -42,15 +43,10 @@ return {
 
         require("lspconfig.ui.windows").default_options.border = "single"
 
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-        capabilities.textDocument.completion.completionItem.resolveSupport = {
-            properties = {
-                "documentation",
-                "detail",
-                "additionalTextEdits",
-            },
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        capabilities.textDocument.foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
         }
 
         local function on_attach(client, bufnr) end
@@ -152,6 +148,7 @@ return {
 
         lspconfig.ltex.setup({
             capabilities = capabilities,
+            flags = { debounce_text_changes = 300 },
             handlers = {
                 ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
                     virtual_text = false,
@@ -192,6 +189,7 @@ return {
                         executable = "zathura",
                         args = { "--synctex-forward", "%l:1:%f", "%p" },
                     },
+                    bibtexFormatter = "latexindent",
                 },
             },
             root_dir = root_pattern("*.tex"),
@@ -203,23 +201,7 @@ return {
             on_attach = on_attach,
         })
 
-        lspconfig.emmet_ls.setup({
-            filetypes = {
-                "html",
-                "typescriptreact",
-                "javascriptreact",
-                "css",
-                "sass",
-                "scss",
-                "less",
-                "eruby",
-                "htmldjango",
-            },
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        for _, server in ipairs({ "bashls", "cssls", "pyright", "tsserver", "phpactor" }) do
+        for _, server in ipairs({ "bashls", "cssls", "pyright", "tsserver", "phpactor", "tailwindcss" }) do
             lspconfig[server].setup({
                 on_attach = on_attach,
                 capabilities = capabilities,

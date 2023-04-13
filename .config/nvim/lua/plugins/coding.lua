@@ -5,6 +5,10 @@ return {
         config = true,
     },
 
+    -- { "ibhagwan/fzf-lua", opts = {
+    --     "max-perf",
+    -- } },
+
     {
         "kylechui/nvim-surround",
         version = "*",

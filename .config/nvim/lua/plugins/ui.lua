@@ -1,6 +1,13 @@
 return {
     { "nvim-tree/nvim-web-devicons", lazy = true },
 
+    -- {
+    --     "luukvbaal/statuscol.nvim",
+    --     config = function()
+    --         require("statuscol").setup()
+    --     end,
+    -- },
+
     {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufReadPost",

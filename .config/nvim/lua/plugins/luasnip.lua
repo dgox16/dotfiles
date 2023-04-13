@@ -1,9 +1,6 @@
 return {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",
-    dependencies = {
-        "rafamadriz/friendly-snippets",
-    },
     config = function()
         local luasnip = require("luasnip")
 
@@ -28,13 +25,6 @@ return {
             end,
         })
 
-        require("luasnip.loaders.from_vscode").lazy_load()
         require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
-
-        luasnip.filetype_extend("handlebars", { "html" })
-        luasnip.filetype_extend("javascript", { "html" })
-        luasnip.filetype_extend("javascriptreact", { "html" })
-        luasnip.filetype_extend("typescriptreact", { "html" })
-        luasnip.filetype_extend("javascript", { "javascriptreact" })
     end,
 }

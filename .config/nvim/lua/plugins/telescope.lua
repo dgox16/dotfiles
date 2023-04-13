@@ -3,7 +3,8 @@ return {
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
         keys = {
-            { "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>" },
+            { "<leader>ff", "<cmd>Telescope find_files<cr>" },
+            { "<leader>fh", "<cmd>Telescope find_files hidden=true no_ignore=true<CR>" },
             { "<leader>fo", "<cmd>Telescope oldfiles<CR>" },
             { "<leader>fw", "<cmd>Telescope live_grep <CR>" },
             { "<leader>ft", "<cmd>Telescope treesitter<CR>" },

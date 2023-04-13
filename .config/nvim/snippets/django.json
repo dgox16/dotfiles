@@ -2,20 +2,12 @@
     "adminview": {
         "prefix": "adminview",
         "body": [
-            "@admin.register(${1})",
-            "class ${1}Admin(admin.ModelAdmin):",
-            "\t'''Admin View for ${1}'''",
-            "",
-            "\tlist_display = ('${2}',)",
-            "\tlist_filter = ('${3}',)",
-            "\tinlines = [",
-            "\t\t${4}Inline,",
-            "\t]",
-            "\traw_id_fields = ('${5}',)",
-            "\treadonly_fields = ('${6}',)",
-            "\tsearch_fields = ('${7}',)",
-            "\tdate_hierarchy = '${8}'",
-            "\tordering = ('${9}',)"
+            "@admin.register(${1})", "class ${1}Admin(admin.ModelAdmin):",
+            "\t'''Admin View for ${1}'''", "", "\tlist_display = ('${2}',)",
+            "\tlist_filter = ('${3}',)", "\tinlines = [", "\t\t${4}Inline,",
+            "\t]", "\traw_id_fields = ('${5}',)",
+            "\treadonly_fields = ('${6}',)", "\tsearch_fields = ('${7}',)",
+            "\tdate_hierarchy = '${8}'", "\tordering = ('${9}',)"
         ],
         "description": "Model Admin View",
         "scope": "source.python"
@@ -24,12 +16,8 @@
         "prefix": "stackedinline",
         "body": [
             "class ${1}Inline(admin.StackedInline):",
-            "\t'''Stacked Inline View for ${1}'''",
-            "",
-            "\tmodel = ${2:${1}}",
-            "\tmin_num = ${3:3}",
-            "\tmax_num = ${4:20}",
-            "\textra = ${5:1}",
+            "\t'''Stacked Inline View for ${1}'''", "", "\tmodel = ${2:${1}}",
+            "\tmin_num = ${3:3}", "\tmax_num = ${4:20}", "\textra = ${5:1}",
             "\traw_id_fields = (${6},)"
         ],
         "description": "Stacked Inline",
@@ -39,12 +27,8 @@
         "prefix": "tabularinline",
         "body": [
             "class ${1}Inline(admin.TabularInline):",
-            "\t'''Tabular Inline View for ${1}'''",
-            "",
-            "\tmodel = ${2:${1}}",
-            "\tmin_num = ${3:3}",
-            "\tmax_num = ${4:20}",
-            "\textra = ${5:1}",
+            "\t'''Tabular Inline View for ${1}'''", "", "\tmodel = ${2:${1}}",
+            "\tmin_num = ${3:3}", "\tmax_num = ${4:20}", "\textra = ${5:1}",
             "\traw_id_fields = (${6},)"
         ],
         "description": "Tabular Inline",
@@ -53,16 +37,10 @@
     "simplelistfilter": {
         "prefix": "simplelistfilter",
         "body": [
-            "class ${1:NAME}Filter(admin.SimpleListFilter):",
-            "",
-            "\ttitle = '$2'",
-            "\tparameter_name = '$0'",
-            "",
-            "\tdef lookups(self, request, model_admin):",
-            "\t\tpass",
-            "",
-            "\tdef queryset(self, request, queryset):",
-            "\t\treturn queryset"
+            "class ${1:NAME}Filter(admin.SimpleListFilter):", "",
+            "\ttitle = '$2'", "\tparameter_name = '$0'", "",
+            "\tdef lookups(self, request, model_admin):", "\t\tpass", "",
+            "\tdef queryset(self, request, queryset):", "\t\treturn queryset"
         ],
         "description": "Admin SimpleList Filter",
         "scope": "source.python"
@@ -94,13 +72,8 @@
     "fieldsets": {
         "prefix": "fieldsets",
         "body": [
-            "fieldsets = (",
-            "\t(None, {",
-            "\t\t'fields': (",
-            "\t\t\t$1",
-            "\t\t),",
-            "\t}),",
-            ")"
+            "fieldsets = (", "\t(None, {", "\t\t'fields': (", "\t\t\t$1",
+            "\t\t),", "\t}),", ")"
         ],
         "description": "",
         "scope": "source.python"
@@ -109,10 +82,8 @@
         "prefix": "Form",
         "body": [
             "class ${1:FORMNAME}(forms.Form):",
-            "\t\"\"\"${2:$1 definition}.\"\"\"",
-            "",
-            "\t${3:# TODO: Define form fields here}",
-            ""
+            "\t\"\"\"${2:$1 definition}.\"\"\"", "",
+            "\t${3:# TODO: Define form fields here}", ""
         ],
         "description": "Form",
         "scope": "source.python"
@@ -121,14 +92,9 @@
         "prefix": "ModelForm",
         "body": [
             "class ${1:MODELNAME}Form(forms.ModelForm):",
-            "\t\"\"\"${2:Form definition for $1}.\"\"\"",
-            "",
-            "\tclass Meta:",
-            "\t\t\"\"\"Meta definition for ${1}form.\"\"\"",
-            "",
-            "\t\tmodel = $1",
-            "\t\tfields = ('$3',)",
-            ""
+            "\t\"\"\"${2:Form definition for $1}.\"\"\"", "", "\tclass Meta:",
+            "\t\t\"\"\"Meta definition for ${1}form.\"\"\"", "",
+            "\t\tmodel = $1", "\t\tfields = ('$3',)", ""
         ],
         "description": "ModelForm",
         "scope": "source.python"
@@ -384,8 +350,7 @@
         "body": [
             "def clean_${1:FIELD}(self):",
             "\t${1:FIELD} = self.cleaned_data.get('${1:FIELD}')",
-            "\n\n\t # TODO Validation\n",
-            "\treturn ${1:FIELD}"
+            "\n\n\t # TODO Validation\n", "\treturn ${1:FIELD}"
         ],
         "description": "",
         "scope": "source.python"
@@ -394,30 +359,17 @@
         "prefix": "Model_full",
         "body": [
             "class ${1:MODELNAME}(models.Model):",
-            "\t\"\"\"${2:Model definition for $1}.\"\"\"",
-            "",
-            "\t${3:# TODO: Define fields here}",
-            "",
-            "\tclass Meta:",
-            "\t\t\"\"\"Meta definition for $1.\"\"\"",
-            "",
-            "\t\tverbose_name = '$1'",
-            "\t\tverbose_name_plural = '$1s'",
-            "",
+            "\t\"\"\"${2:Model definition for $1}.\"\"\"", "",
+            "\t${3:# TODO: Define fields here}", "", "\tclass Meta:",
+            "\t\t\"\"\"Meta definition for $1.\"\"\"", "",
+            "\t\tverbose_name = '$1'", "\t\tverbose_name_plural = '$1s'", "",
             "\tdef ${4|__str__,__unicode__|}(self):",
             "\t\t\"\"\"Unicode representation of $1.\"\"\"",
             "\t\t${7|pass,return '{}'.format(self. ) # TODO,return f'{self. }' # TODO|}",
-            "",
-            "\tdef save(self):",
-            "\t\t\"\"\"Save method for $1.\"\"\"",
-            "\t\tpass",
-            "",
-            "\tdef get_absolute_url(self):",
-            "\t\t\"\"\"Return absolute url for $1.\"\"\"",
-            "\t\treturn ('')",
-            "",
-            "\t${6:# TODO: Define custom methods here}",
-            ""
+            "", "\tdef save(self):", "\t\t\"\"\"Save method for $1.\"\"\"",
+            "\t\tpass", "", "\tdef get_absolute_url(self):",
+            "\t\t\"\"\"Return absolute url for $1.\"\"\"", "\t\treturn ('')",
+            "", "\t${6:# TODO: Define custom methods here}", ""
         ],
         "description": "Model (full)",
         "scope": "source.python"
@@ -426,16 +378,10 @@
         "prefix": "Model",
         "body": [
             "class ${1:MODELNAME}(models.Model):",
-            "\t\"\"\"${2:Model definition for $1}.\"\"\"",
-            "",
-            "\t${3:# TODO: Define fields here}",
-            "",
-            "\tclass Meta:",
-            "\t\t\"\"\"Meta definition for $1.\"\"\"",
-            "",
-            "\t\tverbose_name = '$1'",
-            "\t\tverbose_name_plural = '$1s'",
-            "",
+            "\t\"\"\"${2:Model definition for $1}.\"\"\"", "",
+            "\t${3:# TODO: Define fields here}", "", "\tclass Meta:",
+            "\t\t\"\"\"Meta definition for $1.\"\"\"", "",
+            "\t\tverbose_name = '$1'", "\t\tverbose_name_plural = '$1s'", "",
             "\tdef ${4|__str__,__unicode__|}(self):",
             "\t\t\"\"\"Unicode representation of $1.\"\"\"",
             "\t\t${5|pass,return '{}'.format(self. ) # TODO,return f'{self. }' # TODO|}",
@@ -447,10 +393,8 @@
     "modelmixin": {
         "prefix": "modelmixin",
         "body": [
-            "class $1Mixin(models.Model):",
-            "\t${2:# TODO}\r\n",
-            "\tclass Meta:",
-            "\t\tabstract = True"
+            "class $1Mixin(models.Model):", "\t${2:# TODO}\r\n",
+            "\tclass Meta:", "\t\tabstract = True"
         ],
         "description": "",
         "scope": "source.python"
@@ -464,8 +408,7 @@
     "manager": {
         "prefix": "mngr",
         "body": [
-            "class $1Manager(models.Manager):",
-            "\tdef get_queryset(self):",
+            "class $1Manager(models.Manager):", "\tdef get_queryset(self):",
             "\t\treturn super ($1Manager, self).get_queryset().${2|filter,exclude,order_by,distinct,reverse|}($3)"
         ],
         "description": "Add extra Manager methods",
@@ -474,8 +417,7 @@
     "queryset_from_manager": {
         "prefix": "qs_mngr",
         "body": [
-            "class $1Manager(models.Manager):",
-            "\tdef get_queryset(self):",
+            "class $1Manager(models.Manager):", "\tdef get_queryset(self):",
             "\t\treturn $1QuerySet(self.model, using=self._db)"
         ],
         "description": "Modify the initial QuerySet the Manager returns.",
@@ -810,8 +752,7 @@
     "ilib": {
         "prefix": "ilib",
         "body": [
-            "from django import template",
-            "register = template.Library()"
+            "from django import template", "register = template.Library()"
         ],
         "description": "",
         "scope": "source.python"
@@ -837,10 +778,8 @@
     "register_assignment_tag": {
         "prefix": "register_assignment_tag",
         "body": [
-            "def get_$1(context):",
-            "\trequest = context.get('request')",
-            "\t$1 = ${2:[]}",
-            "\treturn ${3:$1}"
+            "def get_$1(context):", "\trequest = context.get('request')",
+            "\t$1 = ${2:[]}", "\treturn ${3:$1}"
         ],
         "description": "",
         "scope": "source.python"
@@ -855,13 +794,8 @@
         "prefix": "register_inclusion_tag",
         "body": [
             "@register.inclusion_tag(${2:'$1.html'}, takes_context=True)",
-            "def $1(context):",
-            "\trequest = context.get('request')",
-            "\t$3",
-            "\treturn {",
-            "\t\t'request': request,",
-            "\t\t$4",
-            "\t}"
+            "def $1(context):", "\trequest = context.get('request')", "\t$3",
+            "\treturn {", "\t\t'request': request,", "\t\t$4", "\t}"
         ],
         "description": "",
         "scope": "source.python"
@@ -869,10 +803,8 @@
     "register_simple_tag": {
         "prefix": "register_simple_tag",
         "body": [
-            "@register.simple_tag(takes_context=True)",
-            "def $1(context):",
-            "\trequest = context.get('request')",
-            "\treturn ${2:'It Works!'}"
+            "@register.simple_tag(takes_context=True)", "def $1(context):",
+            "\trequest = context.get('request')", "\treturn ${2:'It Works!'}"
         ],
         "description": "",
         "scope": "source.python"
@@ -910,11 +842,8 @@
     "url_stack": {
         "prefix": "url_stack",
         "body": [
-            "${1|url,re_path|}(",
-            "\tr'^${2:REGEX}/$',",
-            "\t${3:VIEW}${4:.as_view()},",
-            "\tname='$5'",
-            "),"
+            "${1|url,re_path|}(", "\tr'^${2:REGEX}/$',",
+            "\t${3:VIEW}${4:.as_view()},", "\tname='$5'", "),"
         ],
         "description": "url(regex, view, kwargs=None, name=None)\n\n*url is an alias to re_path*\n\n",
         "scope": "source.python"
@@ -930,11 +859,8 @@
     "path_stack": {
         "prefix": "path_stack",
         "body": [
-            "path(",
-            "\t'${1:ROUTE}/',",
-            "\t${2:VIEW}${3:.as_view()},",
-            "\tname='$4'",
-            "),"
+            "path(", "\t'${1:ROUTE}/',", "\t${2:VIEW}${3:.as_view()},",
+            "\tname='$4'", "),"
         ],
         "description": "path(route, view, kwargs=None, name=None)",
         "scope": "source.python"
@@ -1046,8 +972,7 @@
         "body": [
             "def get_queryset(self):",
             "\tqueryset = super(${1:CLASS_NAME}, self).get_queryset()",
-            "\tqueryset = queryset${3: # TODO}",
-            "\treturn queryset"
+            "\tqueryset = queryset${3: # TODO}", "\treturn queryset"
         ],
         "description": "",
         "scope": "source.python"

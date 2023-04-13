@@ -27,7 +27,7 @@ return {
                     booleans = { "bold", "italic" },
                     properties = { "italic" },
                     types = {},
-                    operators = { "bold" },
+                    operators = {},
                 },
                 integrations = {
                     treesitter = true,

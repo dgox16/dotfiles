@@ -2,14 +2,10 @@
     "Figure in the place": {
         "prefix": "figh",
         "body": [
-            "\\begin{figure}[H]",
-            "\t\\begin{center}",
+            "\\begin{figure}[H]", "\t\\begin{center}",
             "\t\t\\includegraphics[width=0.95\\textwidth]{figures/$1}",
-            "\t\\end{center}",
-            "\t\\caption{$2.}",
-            "\t\\label{fig:$3}",
-            "\\end{figure}",
-            "$0"
+            "\t\\end{center}", "\t\\caption{$2.}", "\t\\label{fig:$3}",
+            "\\end{figure}", "$0"
         ]
     },
 
@@ -21,18 +17,12 @@
     "Figura doble en linea": {
         "prefix": "doublefig",
         "body": [
-            "\\begin{figure}[H]",
-            "\t\\begin{center}",
-            "\t\t\\subfigure[$5.]{",
+            "\\begin{figure}[H]", "\t\\begin{center}", "\t\t\\subfigure[$5.]{",
             "\t\t\t\\includegraphics[width=0.45\\textwidth]{figures/$1}",
-            "\t\t\t\\label{$4:sub1}}",
-            "\t\t\\subfigure[$6.]{",
+            "\t\t\t\\label{$4:sub1}}", "\t\t\\subfigure[$6.]{",
             "\t\t\t\\includegraphics[width=0.45\\textwidth]{figures/$2}",
-            "\t\t\t\\label{$4:sub2}}",
-            "\t\t\\caption{$3.}",
-            "\t\t\\label{fig:$4}",
-            "\t\\end{center}",
-            "\\end{figure}"
+            "\t\t\t\\label{$4:sub2}}", "\t\t\\caption{$3.}",
+            "\t\t\\label{fig:$4}", "\t\\end{center}", "\\end{figure}"
         ],
         "description": "Inserta dos figuras en linea"
     },
@@ -64,17 +54,14 @@
     "Tabla con estilo": {
         "prefix": "tabla",
         "body": [
-            "\\begin{table}[!htb] \\centering",
-            "\t\\begin{tabular}{+l^c}",
+            "\\begin{table}[!htb] \\centering", "\t\\begin{tabular}{+l^c}",
             "\t\t\\toprule",
             "\t\t\\multicolumn{2}{c}{\\textbf{${1:Title}}} \\\\\\",
             "\t\t~     & Col 1      \\\\\\ \\midrule",
-            "\t\tRow 1 & Row1-Col1  \\\\\\",
-            "\t\t\\bottomrule",
+            "\t\tRow 1 & Row1-Col1  \\\\\\", "\t\t\\bottomrule",
             "\t\\end{tabular}",
             "\t\\caption[${2:caption}${3: shortCaption}]{${2:caption}${4: longCaption}}",
-            "\t\\label{tab:${5:label}}",
-            "\\end{table}"
+            "\t\\label{tab:${5:label}}", "\\end{table}"
         ]
     }
 }

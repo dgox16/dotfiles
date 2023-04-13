@@ -1,0 +1,349 @@
+{
+    "#!/usr/bin/env python": {
+        "prefix": "env",
+        "body": "#!/usr/bin/env python\n$0",
+        "description": "Adds shebang line for default python interpreter."
+    },
+    "#!/usr/bin/env python3": {
+        "prefix": "env3",
+        "body": "#!/usr/bin/env python3\n$0",
+        "description": "Adds shebang line for default python 3 interpreter."
+    },
+    "# -*- coding=utf-8 -*-": {
+        "prefix": "enc",
+        "body": "# -*- coding=utf-8 -*-\n$0",
+        "description": "set default python2.x encoding specification to utf-8 as it is mentioned in pep-0263."
+    },
+    "# coding=utf-8": {
+        "prefix": "enco",
+        "body": "# coding=utf-8\n$0",
+        "description": "Set default python3 encoding specification to utf-8, by default this is the encoding for python3.x as it is mentioned in pep-3120."
+    },
+    "from future import ...": {
+        "prefix": "fenc",
+        "body": [
+            "# -*- coding: utf-8 -*-",
+            "from __future__ import absolute_import, division, print_function, unicode_literals"
+        ],
+        "description": "Import future statement definitions for python2.x scripts using utf-8 as encoding."
+    },
+    "from future import ... v1": {
+        "prefix": "fenco",
+        "body": [
+            "# coding: utf-8",
+            "from __future__ import absolute_import, division, print_function, unicode_literals"
+        ],
+        "description": "Import future statement definitions for python3.x scripts using utf-8 as encoding."
+    },
+    "import": {
+        "prefix": "im",
+        "body": "import ${1:package/module}$0",
+        "description": "Import a package or module"
+    },
+    "from ... import ...": {
+        "prefix": "fim",
+        "body": "from ${1:package/module} import ${2:names}$0",
+        "description": "Import statement that allows individual objects from the module to be imported directly into the caller’s symbol table."
+    },
+    "class": {
+        "prefix": "class",
+        "body": ["class ${1:classname}(${2:object}):", "\t${3:pass}"],
+        "description": "Code snippet for a class definition"
+    },
+    "New class": {
+        "prefix": "classi",
+        "body": "class ${1:ClassName}(${2:object}):\n\t\"\"\"${3:docstring for $1.}\"\"\"\n\tdef __init__(self, ${4:arg}):\n\t\t${5:super($1, self).__init__()}\n\t\tself.arg = arg\n\t\t$0",
+        "description": "Code snippet for a class definition."
+    },
+    "New method": {
+        "prefix": "defs",
+        "body": "def ${1:mname}(self, ${2:arg}):\n\t${3:pass}$0",
+        "description": "Code snippet for a class method definition."
+    },
+    "New method w/ return": {
+        "prefix": "defst",
+        "body": "def ${1:mname}(self, ${2:arg}) -> ${3:return_type}:\n\t${4:pass}$0",
+        "description": "Code snippet for a class method definition."
+    },
+    "New function": {
+        "prefix": "def",
+        "body": "def ${1:fname}(${2:arg}):\n\t${3:pass}$0",
+        "description": "Code snippet for function definition."
+    },
+    "New function w/ return": {
+        "prefix": "deft",
+        "body": "def ${1:fname}(${2:arg}) -> ${3:return_type}:\n\t${4:pass}$0",
+        "description": "Code snippet for function definition."
+    },
+    "New async function": {
+        "prefix": "adef",
+        "body": "async def ${1:fname}(${2:arg}):\n\t${3:pass}$0",
+        "description": "Code snippet for async function definition."
+    },
+    "New property": {
+        "prefix": "property",
+        "body": "@property\ndef ${1:foo}(self):\n    \"\"\"${2:The $1 property.}\"\"\"\n    ${3:return self._$1}\n@${4:$1}.setter\ndef ${5:$1}(self, value):\n    ${6:self._$1} = value",
+        "description": "New property: get and set via decorator"
+    },
+    "if": {
+        "prefix": "if",
+        "body": "if ${1:condition}:\n\t${2:pass}$0",
+        "description": "Code snippet for the if statement."
+    },
+    "if/else": {
+        "prefix": "if/else",
+        "body": ["if ${1:condition}:", "\t${2:pass}", "else:", "\t${3:pass}"],
+        "description": "Code snippet for an if statement with else"
+    },
+    "elif": {
+        "prefix": "elif",
+        "body": ["elif ${1:expression}:", "\t${2:pass}"],
+        "description": "Code snippet for an elif"
+    },
+    "else": {
+        "prefix": "else",
+        "body": ["else:", "\t${1:pass}"],
+        "description": "Code snippet for an else"
+    },
+    "for": {
+        "prefix": "for",
+        "body": "for ${1:value} in ${2:iterable}:\n\t${3:pass}$0",
+        "description": "Code snippet to create a for loop structure."
+    },
+    "for/else": {
+        "prefix": "for/else",
+        "body": [
+            "for ${1:target_list} in ${2:expression_list}:",
+            "\t${3:pass}",
+            "else:",
+            "\t${4:pass}"
+        ],
+        "description": "Code snippet for a for loop with else"
+    },
+    "while": {
+        "prefix": "while",
+        "body": "while ${1:condition}:\n\t${2:pass}$0",
+        "description": "Code snippet to create a while loop structure."
+    },
+    "while/else": {
+        "prefix": "while/else",
+        "body": [
+            "while ${1:expression}:",
+            "\t${2:pass}",
+            "else:",
+            "\t${3:pass}"
+        ],
+        "description": "Code snippet for a while loop with else"
+    },
+    "try:except:": {
+        "prefix": "try",
+        "body": "try:\n\t${1:pass}\nexcept ${2:Exception} as ${3:e}:\n\t${4:raise $3}$0",
+        "description": "Code Snippet for a try and except blocks."
+    },
+    "try:except:else:finally": {
+        "prefix": "tryef",
+        "body": "try:\n\t${1:pass}\nexcept${2: ${3:Exception} as ${4:e}}:\n\t${5:raise}\nelse:\n\t${6:pass}\nfinally:\n\t${7:pass}$0",
+        "description": "Code Snippet for a try/except/finally with else statement."
+    },
+    "try:except:else": {
+        "prefix": "trye",
+        "body": "try:\n\t${1:pass}\nexcept ${2:Exception} as ${3:e}:\n\t${4:raise $3}\nelse:\n\t${5:pass}$0",
+        "description": "Code Snippet for a try/except with else statement."
+    },
+    "try:except:finally": {
+        "prefix": "tryf",
+        "body": "try:\n\t${1:pass}\nexcept ${2:Exception} as ${3:e}:\n\t${4:raise $3}\nfinally:\n\t${5:pass}$0",
+        "description": "Code Snippet for a try/except/finally."
+    },
+    "with": {
+        "prefix": "with",
+        "body": ["with ${1:expression} as ${2:target}:", "\t${3:pass}"],
+        "description": "Code snippet for a with statement"
+    },
+    "self": {
+        "prefix": ".",
+        "body": "self.$0",
+        "description": "Shortend snippet to reference the self property in an object."
+    },
+    "__magic__": {
+        "prefix": "__",
+        "body": "__${1:init}__$0",
+        "description": "Code snippet to create magic methods."
+    },
+    "if __name__ == \"__main__\"": {
+        "prefix": "ifmain",
+        "body": "if __name__ == \"__main__\":\n\t${1:main()}$0",
+        "description": "Create implicitly all the code at the top level using the __name__ special variable."
+    },
+    "List comprehension": {
+        "prefix": "lc",
+        "body": "[${1:value} for ${2:value} in ${3:iterable}]$0",
+        "description": "List comprehension for creating a list based on existing lists."
+    },
+    "List comprehension if else": {
+        "prefix": "lcie",
+        "body": "[${1:value} if ${2:condition} else ${3:condition} for ${4:value} in ${5:iterable}]$0",
+        "description": "List comprehension for creating a list based on existing lists, with conditional if-else statement."
+    },
+    "List comprehension if filter": {
+        "prefix": "lci",
+        "body": "[${1:value} for ${2:value} in ${3:iterable} if ${4:condition}$0]",
+        "description": "List comprehension for creating a list based on existing lists, with conditional if statement."
+    },
+    "Dictionary comprehension": {
+        "prefix": "dc",
+        "body": "{${1:key}: ${2:value} for ${3:key}, ${4:value} in ${5:iterable}}$0",
+        "description": "Handy and faster way to create dictories based on existing dictionaries."
+    },
+    "Dictionary comprehension if filter": {
+        "prefix": "dci",
+        "body": "{${1:key}: ${2:value} for ${3:key}, ${4:value} in ${5:iterable} if ${6:condition}}$0",
+        "description": "Handy and faster way to create dictories based on existing dictionaries, with conditional if statement."
+    },
+    "Set comprehension": {
+        "prefix": "sc",
+        "body": "{${1:value} for ${2:value} in ${3:iterable}}$0",
+        "description": "Create a set based on existing iterables."
+    },
+    "Set Comprehension if filter": {
+        "prefix": "sci",
+        "body": "{${1:value} for ${2:value} in ${3:iterable} if ${4:condition}}$0",
+        "description": "Create a set based on existing iterables, with condition if statement."
+    },
+    "Generator comprehension": {
+        "prefix": "gc",
+        "body": "(${1:key} for ${2:value} in ${3:iterable})$0",
+        "description": "Create a generator based on existing iterables."
+    },
+    "Generator comprehension if filter": {
+        "prefix": "gci",
+        "body": "(${1:key} for ${2:value} in ${3:iterable} if ${4:condition})$0",
+        "description": "Create a generator based on existing iterables, with condition if statement."
+    },
+    "try/except": {
+        "prefix": "try/except",
+        "body": [
+            "try:",
+            "\t${1:pass}",
+            "except ${2:expression} as ${3:identifier}:",
+            "\t${4:pass}"
+        ],
+        "description": "Code snippet for a try/except statement"
+    },
+    "try/finally": {
+        "prefix": "try/finally",
+        "body": ["try:", "\t${1:pass}", "finally:", "\t${2:pass}"],
+        "description": "Code snippet for a try/finally statement"
+    },
+    "try/except/else": {
+        "prefix": "try/except/else",
+        "body": [
+            "try:",
+            "\t${1:pass}",
+            "except ${2:expression} as ${3:identifier}:",
+            "\t${4:pass}",
+            "else:",
+            "\t${5:pass}"
+        ],
+        "description": "Code snippet for a try/except/else statement"
+    },
+    "try/except/finally": {
+        "prefix": "try/except/finally",
+        "body": [
+            "try:",
+            "\t${1:pass}",
+            "except ${2:expression} as ${3:identifier}:",
+            "\t${4:pass}",
+            "finally:",
+            "\t${5:pass}"
+        ],
+        "description": "Code snippet for a try/except/finally statement"
+    },
+    "try/except/else/finally": {
+        "prefix": "try/except/else/finally",
+        "body": [
+            "try:",
+            "\t${1:pass}",
+            "except ${2:expression} as ${3:identifier}:",
+            "\t${4:pass}",
+            "else:",
+            "\t${5:pass}",
+            "finally:",
+            "\t${6:pass}"
+        ],
+        "description": "Code snippet for a try/except/else/finally statement"
+    },
+    "def(class method)": {
+        "prefix": "def class method",
+        "body": [
+            "def ${1:funcname}(self, ${2:parameter_list}):",
+            "\t${3:pass}"
+        ],
+        "description": "Code snippet for a class method"
+    },
+    "def(static class method)": {
+        "prefix": "def static class method",
+        "body": [
+            "@staticmethod",
+            "def ${1:funcname}(${2:parameter_list}):",
+            "\t${3:pass}"
+        ],
+        "description": "Code snippet for a static class method"
+    },
+    "def(abstract class method)": {
+        "prefix": "def abstract class method",
+        "body": [
+            "def ${1:funcname}(self, ${2:parameter_list}):",
+            "\traise NotImplementedError"
+        ],
+        "description": "Code snippet for an abstract class method"
+    },
+    "lambda": {
+        "prefix": "lambda",
+        "body": ["lambda ${1:parameter_list}: ${2:expression}"],
+        "description": "Code snippet for a lambda statement"
+    },
+    "if(main)": {
+        "prefix": "__main__",
+        "body": ["if __name__ == \"__main__\":", "    ${1:pass}"],
+        "description": "Code snippet for a `if __name__ == \"__main__\": ...` block"
+    },
+    "async/def": {
+        "prefix": "async/def",
+        "body": [
+            "async def ${1:funcname}(${2:parameter_list}):",
+            "\t${3:pass}"
+        ],
+        "description": "Code snippet for an async statement"
+    },
+    "async/for": {
+        "prefix": "async/for",
+        "body": ["async for ${1:target} in ${2:iter}:", "\t${3:block}"],
+        "description": "Code snippet for an async for statement"
+    },
+    "async/for/else": {
+        "prefix": "async/for/else",
+        "body": [
+            "async for ${1:target} in ${2:iter}:",
+            "\t${3:block}",
+            "else:",
+            "\t${4:block}"
+        ],
+        "description": "Code snippet for an async for statement with else"
+    },
+    "async/with": {
+        "prefix": "async/with",
+        "body": ["async with ${1:expr} as ${2:var}:", "\t${3:block}"],
+        "description": "Code snippet for an async with statement"
+    },
+    "add/new/cell": {
+        "prefix": "add/new/cell",
+        "body": "# %%",
+        "description": "Code snippet to add a new cell"
+    },
+    "mark/markdown": {
+        "prefix": "mark/markdown",
+        "body": "# %% [markdown]",
+        "description": "Code snippet to add a new markdown cell"
+    }
+}

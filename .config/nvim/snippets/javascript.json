@@ -1,0 +1,349 @@
+{
+    "addEventListener": {
+        "prefix": "ae",
+        "body": "${1:document}.addEventListener('${2:event}', ${3:ev} => {\n\t${0}\n})"
+    },
+    "removeEventListener": {
+        "prefix": "rel",
+        "body": "${1:document}.removeEventListener('${2:event}', ${3:listener})"
+    },
+    "getElementById": {
+        "prefix": "gi",
+        "body": "${1:document}.getElementById('${2:id}')"
+    },
+    "getElementsByClassName": {
+        "prefix": "gc",
+        "body": "Array.from(${1:document}.getElementsByClassName('${2:class}'))"
+    },
+    "getElementsByTagName": {
+        "prefix": "gt",
+        "body": "Array.from(${1:document}.getElementsByTagName('${2:tag}'))"
+    },
+    "querySelector": {
+        "prefix": "qs",
+        "body": "${1:document}.querySelector('${2:selector}')"
+    },
+    "querySelectorAll": {
+        "prefix": "qsa",
+        "body": "Array.from(${1:document}.querySelectorAll('${2:selector}'))"
+    },
+    "createDocumentFragment": {
+        "prefix": "cdf",
+        "body": "${1:document}.createDocumentFragment(${2:elem})"
+    },
+    "createElement": {
+        "prefix": "cel",
+        "body": "${1:document}.createElement(${2:elem})"
+    },
+    "await Promise.all": {
+        "prefix": "apa",
+        "body": "await Promise.all(${1:value})"
+    },
+    "await Promise.all with destructuring": {
+        "prefix": "apad",
+        "body": "const [${0}] = await Promise.all(${1:value})"
+    },
+    "await Promise.all map": {
+        "prefix": "apm",
+        "body": "await Promise.all(${1:array}.map(async (${2:value}) => {\n\t${0}\n}))"
+    },
+    "await sleep": {
+        "prefix": "ast",
+        "body": "await new Promise((r) => setTimeout(r, ${0}))"
+    },
+    "Node callback": {
+        "prefix": "cb",
+        "body": "function (err, ${1:value}) {\n\tif (err) throw err\n\t${0}\n}"
+    },
+    "process.env": {
+        "prefix": "pe",
+        "body": "process.env"
+    },
+    "Promise.all": {
+        "prefix": "pa",
+        "body": "Promise.all(${1:value})"
+    },
+    "Promise.resolve": {
+        "prefix": "prs",
+        "body": "Promise.resolve(${1:value})"
+    },
+    "Promise.reject": {
+        "prefix": "prj",
+        "body": "Promise.reject(${1:value})"
+    },
+    "Promise": {
+        "prefix": "p",
+        "body": "Promise"
+    },
+    "new Promise": {
+        "prefix": "np",
+        "body": "new Promise((resolve, reject) => {\n\t${0}\n})"
+    },
+    "Promise.then": {
+        "prefix": "pt",
+        "body": "${1:promise}.then((${2:value}) => {\n\t${0}\n})"
+    },
+    "Promise.catch": {
+        "prefix": "pc",
+        "body": "${1:promise}.catch(error => {\n\t${0}\n})"
+    },
+    "await": {
+        "prefix": "a",
+        "body": "await ${0}"
+    },
+    "If Statement": {
+        "prefix": "if",
+        "body": ["if (${1:condition}) {", "\t$0", "}"],
+        "description": "If Statement"
+    },
+    "If-Else Statement": {
+        "prefix": "ifelse",
+        "body": ["if (${1:condition}) {", "\t$0", "} else {", "\t", "}"],
+        "description": "If-Else Statement"
+    },
+    "While Statement": {
+        "prefix": "while",
+        "body": ["while (${1:condition}) {", "\t$0", "}"],
+        "description": "While Statement"
+    },
+    "Do-While Statement": {
+        "prefix": "dowhile",
+        "body": ["do {", "\t$0", "} while (${1:condition});"],
+        "description": "Do-While Statement"
+    },
+    "try/catch": {
+        "prefix": "tc",
+        "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n}"
+    },
+    "Function Statement": {
+        "prefix": "fun",
+        "body": ["function ${1:name}(${2:params}) {", "\t$0", "}"],
+        "description": "Function Statement"
+    },
+    "console.log a variable": {
+        "prefix": "cv",
+        "body": "console.log('${1}:', ${1})"
+    },
+    "Express GET": {
+        "prefix": "eget",
+        "body": ["router.get('${1:route}', ${2:unimplemented!})"]
+    },
+
+    "Express POST": {
+        "prefix": "epost",
+        "body": ["router.post('${1:route}', ${2:unimplemented!})"]
+    },
+
+    "Express DELETE": {
+        "prefix": "edel",
+        "body": ["router.delete('${1:route}', ${2:unimplemented!})"]
+    },
+
+    "Express PUT": {
+        "prefix": "eput",
+        "body": ["router.put('${1:route}', ${2:unimplemented!})"]
+    },
+    "consoleAssert": {
+        "prefix": "cas",
+        "body": ["console.assert(${1:first}, ${2:second})"],
+        "description": "If the specified expression is false, the message is written to the console along with a stack trace"
+    },
+    "consoleClear": {
+        "prefix": "ccl",
+        "body": ["console.clear()"],
+        "description": "Clears the console"
+    },
+    "consoleCount": {
+        "prefix": "cco",
+        "body": ["console.count(${1:first})"],
+        "description": "Writes the the number of times that count() has been invoked at the same line and with the same label"
+    },
+    "consoleDir": {
+        "prefix": "cdi",
+        "body": ["console.dir(${1:first})"],
+        "description": "Prints a JavaScript representation of the specified object"
+    },
+    "consoleError": {
+        "prefix": "cer",
+        "body": ["console.error(${1:first})"],
+        "description": "Displays a message in the console and also includes a stack trace from where the method was called"
+    },
+    "consoleGroup": {
+        "prefix": "cgr",
+        "body": ["console.group('${1:first}')"],
+        "description": "Groups and indents all following output by an additional level, until console.groupEnd() is called."
+    },
+    "consoleGroupEnd": {
+        "prefix": "cge",
+        "body": ["console.groupEnd()"],
+        "description": "Closes out the corresponding console.group()."
+    },
+    "consoleLog": {
+        "prefix": "clg",
+        "body": ["console.log(${1:first})"],
+        "description": "Displays a message in the console"
+    },
+    "consoleTrace": {
+        "prefix": "ctr",
+        "body": ["console.trace(${1:first})"],
+        "description": "Prints a stack trace from the point where the method was called"
+    },
+    "consoleLogObject": {
+        "prefix": "clo",
+        "body": ["console.log('${1:first}', ${1:first})"],
+        "description": "Logs property with name."
+    },
+    "consoleLogJson": {
+        "prefix": "clj",
+        "body": ["console.log('${1:first}', JSON.stringify(${1:first}, null, 2))"],
+        "description": "Logs stringified JSON property with name."
+    },
+    "consoleTime": {
+        "prefix": "ctm",
+        "body": ["console.time('${1:first}')"],
+        "description": "Console time wrapper"
+    },
+    "consoleTimeEnd": {
+        "prefix": "cte",
+        "body": ["console.timeEnd('${1:first}')"],
+        "description": "Console time end wrapper"
+    },
+    "consoleWarn": {
+        "prefix": "cwa",
+        "body": ["console.warn(${1:first})"],
+        "description": "Displays a message in the console but also displays a yellow warning icon along with the logged message"
+    },
+    "consoleInfo": {
+        "prefix": "cin",
+        "body": ["console.info(${1:first})"],
+        "description": "Displays a message in the console but also displays a blue information icon along with the logged message"
+    },
+    "consoleTable": {
+        "prefix": "ctl",
+        "body": ["console.table([${1:first}])"],
+        "description": "Logs table to console"
+    },
+    "importAs": {
+        "prefix": "ima",
+        "body": ["import { ${2:second} as ${3:third} } from '${1:first}'"]
+    },
+    "importDestructing": {
+        "prefix": "imd",
+        "body": ["import { ${2:second} } from '${1:first}'"]
+    },
+    "importEverything": {
+        "prefix": "ime",
+        "body": ["import * as ${2:second} from '${1:first}'"]
+    },
+    "importNoModuleName": {
+        "prefix": "imn",
+        "body": ["import '${1:first}'"]
+    },
+    "import": {
+        "prefix": "imp",
+        "body": ["import ${2:second} from '${1:first}'"]
+    },
+    "destructingObject": {
+        "prefix": "dob",
+        "body": ["const {${2:second}} = ${1:first}"],
+        "description": "Creates and assigns a local variable using object destructing"
+    },
+    "destructingArray": {
+        "prefix": "dar",
+        "body": ["const [${2:second}] = ${1:first}"],
+        "description": "Creates and assigns a local variable using array destructing"
+    },
+    "forOf": {
+        "prefix": "fof",
+        "body": ["for(let ${1:first} of ${2:second}) {${3:third}}"],
+        "description": "Iterating over property names of iterable objects"
+    },
+    "forIn": {
+        "prefix": "fin",
+        "body": ["for(let ${1:first} in ${2:second}) {${3:third}}"],
+        "description": "Iterating over property values of iterable objects"
+    },
+    "try/catch/finally": {
+        "prefix": "tcf",
+        "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n} finally {\n\t\n}"
+    },
+    "anonymousFunction": {
+        "prefix": "anfn",
+        "body": ["(${1:first}) => { ${2:second} }"],
+        "description": "Creates an anonymous function"
+    },
+    "namedFunction": {
+        "prefix": "nfn",
+        "body": ["const ${1:first} = (${2:second}) => { ${3:third} }"],
+        "description": "Creates a named function"
+    },
+    "forEach": {
+        "prefix": "fre",
+        "body": ["${1:first}.forEach(${2:second} => {${3:third}})"],
+        "description": "Creates a forEach statement"
+    },
+    "map": {
+        "prefix": "map",
+        "body": "${1:iterable}.map((${2:item}) => {\n\t${0}\n})"
+    },
+    "reduce": {
+        "prefix": "reduce",
+        "body": "${1:iterable}.reduce((${2:previous}, ${3:current}) => {\n\t${0}\n}${4:, initial})"
+    },
+    "filter": {
+        "prefix": "filter",
+        "body": "${1:iterable}.filter((${2:item}) => {\n\t${0}\n})"
+    },
+    "find": {
+        "prefix": "find",
+        "body": "${1:iterable}.find((${2:item}) => {\n\t${0}\n})"
+    },
+    "every": {
+        "prefix": "every",
+        "body": "${1:iterable}.every((${2:item}) => {\n\t${0}\n})"
+    },
+    "some": {
+        "prefix": "some",
+        "body": "${1:iterable}.some((${2:item}) => {\n\t${0}\n})"
+    },
+    "appendChild": {
+        "prefix": "heac",
+        "body": "${1:el}.appendChild(${2:elem})"
+    },
+    "removeChild": {
+        "prefix": "herc",
+        "body": "${1:el}.removeChild(${2:elem})"
+    },
+    "exportDefault": {
+        "prefix": "exp",
+        "body": ["export default ${1:first}"]
+    },
+    "exportDestructing": {
+        "prefix": "exd",
+        "body": ["export { ${2:second} } from '${1:first}'"]
+    },
+    "exportAs": {
+        "prefix": "exa",
+        "body": ["export { ${2:second} as ${3:third} } from '${1:first}'"]
+    },
+    "exportNamedFunction": {
+        "prefix": "enf",
+        "body": ["export const ${1:first} = (${2:second}) => {${3:third}}"],
+        "description": "Export named function"
+    },
+    "exportDefaultFunction": {
+        "prefix": "edf",
+        "body": ["export default (${1:first}) => {${2:second}}"],
+        "description": "Export default function"
+    },
+    "exportDefaultNamedFunction": {
+        "prefix": "ednf",
+        "body": ["export default function ${1:first}(${2:second}) {${3:third}}"],
+        "description": "Export default named function"
+    },
+    "method": {
+        "prefix": "met",
+        "body": ["${1:first} = (${2:second}) => {${3:third}}"],
+        "description": "Creates a method inside a class"
+    }
+}

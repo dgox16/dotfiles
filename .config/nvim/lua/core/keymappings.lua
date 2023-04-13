@@ -39,8 +39,10 @@ keymap("n", "<Up>", "(v:count == 0 ? 'gk' : 'k')", { silent = true, expr = true 
 keymap("n", "<esc>", "<cmd>noh<cr><esc>", opts)
 
 -- MODO INSERTAR
--- Mover la palabra de adelante
+-- Eliminar la palabra de adelante
 keymap("i", "<C-d>", "<C-O>dw", opts)
+-- Eliminar el resto de linea
+keymap("i", "<C-D>", "<C-o>D", opts)
 -- Mover lineas arriba o abajo
 keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -71,5 +73,3 @@ keymap("v", "<Down>", "(v:count == 0 ? 'gj' : 'j')", { silent = true, expr = tru
 keymap("v", "<Up>", "(v:count == 0 ? 'gk' : 'k')", { silent = true, expr = true })
 
 keymap("x", "<Leader>r", 'y:%s/<C-r><C-r>"//g<Left><Left>', { noremap = true, silent = false })
-
-keymap("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', opts)

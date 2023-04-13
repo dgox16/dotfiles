@@ -36,12 +36,6 @@ return {
                 },
                 window = {
                     width = 35,
-                    mappings = {
-                        ["<space>"] = false, -- disable space until we figure out which-key disabling
-                        o = "open",
-                        H = "prev_source",
-                        L = "next_source",
-                    },
                 },
                 filesystem = {
                     follow_current_file = true,

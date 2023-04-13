@@ -36,14 +36,21 @@ return {
                 sources = {
                     -- LUA
                     formatting.stylua.with({ extra_args = { "--indent-type", "Spaces" } }),
-                    -- HTML, CSS y JSON
+                    -- HTML y CSS
                     formatting.prettier.with({
                         extra_args = { "--tab-width", "4" },
-                        disabled_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+                        disabled_filetypes = {
+                            "javascript",
+                            "javascriptreact",
+                            "typescript",
+                            "typescriptreact",
+                            "json",
+                        },
                     }),
-                    -- JS y TS
-                    formatting.rome.with({ extra_args = { "--indent-style", "space", "--indent-size", "4" } }),
-                    -- diagnostics.eslint_d,
+                    -- JS, TS y JSON
+                    formatting.rome.with({
+                        extra_args = { "--indent-style", "space", "--indent-size", "4", "--line-width", "90" },
+                    }),
                     -- Python
                     formatting.isort,
                     diagnostics.ruff,
@@ -60,6 +67,7 @@ return {
                     formatting.phpcsfixer,
                     -- Latex
                     formatting.latexindent,
+                    formatting.bibclean.with({ extra_args = { "-max-width", "0" } }),
                 },
             })
         end,

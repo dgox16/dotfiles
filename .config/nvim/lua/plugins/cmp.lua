@@ -35,6 +35,7 @@ return {
 
         local cmp = require("cmp")
 
+        local luasnip = require("luasnip")
         local cmp_window = require("cmp.utils.window")
 
         cmp_window.info_ = cmp_window.info
@@ -90,8 +91,8 @@ return {
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif require("luasnip").expand_or_jumpable() then
-                        vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
+                    elseif luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
                     elseif has_words_before() then
                         cmp.complete()
                     else
@@ -101,15 +102,15 @@ return {
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    elseif require("luasnip").jumpable(-1) then
-                        vim.fn.feedkeys(t("<Plug>luasnip-jump-prev"), "")
+                    elseif luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
                     else
                         fallback()
                     end
                 end, { "i", "s" }),
             }),
             sources = cmp.config.sources({
-                { name = "nvim_lsp", keyboard_length = 3 },
+                { name = "nvim_lsp", keyboard_length = 3, max_item_count = 40 },
                 { name = "luasnip", keyboard_length = 2 },
                 { name = "buffer", keyboard_length = 3 },
                 { name = "nvim_lua" },

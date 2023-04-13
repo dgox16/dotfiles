@@ -18,25 +18,9 @@ local leader_map = function()
     vim.g.mapleader = " "
 end
 
-local clipboard_config = function()
-    vim.g.clipboard = {
-        name = "xsel",
-        copy = {
-            ["+"] = "xsel --nodetach -i -b",
-            ["*"] = "xsel --nodetach -i -p",
-        },
-        paste = {
-            ["+"] = "xsel -o -b",
-            ["*"] = "xsel -o -p",
-        },
-        cache_enabled = 1,
-    }
-end
-
 local load_core = function()
     disable_providers()
     leader_map()
-    clipboard_config()
 
     require("core.statuscolumn")
     require("core.lazy")

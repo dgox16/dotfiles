@@ -13,6 +13,12 @@
             },
             {
                 "language": [
+                    "lua"
+                ],
+                "path": "./lua.json"
+            },
+            {
+                "language": [
                     "markdown"
                 ],
                 "path": "./markdown.json"
@@ -28,7 +34,16 @@
                     "typescriptreact",
                     "typescript.tsx"
                 ],
-                "path": "./typescript.json"
+                "path": "./javascript.json"
+            },
+            {
+                "language": [
+                    "javascriptreact",
+                    "javascript.jsx",
+                    "typescriptreact",
+                    "typescript.tsx"
+                ],
+                "path": "./javascriptreact.json"
             },
             {
                 "language": [
@@ -41,6 +56,12 @@
                     "python"
                 ],
                 "path": "./django.json"
+            },
+            {
+                "language": [
+                    "python"
+                ],
+                "path": "./python.json"
             },
             {
                 "language": [

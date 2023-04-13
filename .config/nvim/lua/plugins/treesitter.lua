@@ -4,6 +4,7 @@ return {
     dependencies = {
         "HiPhish/nvim-ts-rainbow2",
         "windwp/nvim-ts-autotag",
+        "nvim-treesitter/playground",
     },
     config = function()
         require("nvim-treesitter.configs").setup({
@@ -30,6 +31,7 @@ return {
             autotag = { enable = true },
             indent = {
                 enable = true,
+                disable = { "python" },
             },
             highlight = {
                 enable = true,

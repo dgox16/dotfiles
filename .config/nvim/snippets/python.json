@@ -127,12 +127,7 @@
     },
     "while/else": {
         "prefix": "while/else",
-        "body": [
-            "while ${1:expression}:",
-            "\t${2:pass}",
-            "else:",
-            "\t${3:pass}"
-        ],
+        "body": ["while ${1:expression}:", "\t${2:pass}", "else:", "\t${3:pass}"],
         "description": "Code snippet for a while loop with else"
     },
     "try:except:": {
@@ -275,27 +270,17 @@
     },
     "def(class method)": {
         "prefix": "def class method",
-        "body": [
-            "def ${1:funcname}(self, ${2:parameter_list}):",
-            "\t${3:pass}"
-        ],
+        "body": ["def ${1:funcname}(self, ${2:parameter_list}):", "\t${3:pass}"],
         "description": "Code snippet for a class method"
     },
     "def(static class method)": {
         "prefix": "def static class method",
-        "body": [
-            "@staticmethod",
-            "def ${1:funcname}(${2:parameter_list}):",
-            "\t${3:pass}"
-        ],
+        "body": ["@staticmethod", "def ${1:funcname}(${2:parameter_list}):", "\t${3:pass}"],
         "description": "Code snippet for a static class method"
     },
     "def(abstract class method)": {
         "prefix": "def abstract class method",
-        "body": [
-            "def ${1:funcname}(self, ${2:parameter_list}):",
-            "\traise NotImplementedError"
-        ],
+        "body": ["def ${1:funcname}(self, ${2:parameter_list}):", "\traise NotImplementedError"],
         "description": "Code snippet for an abstract class method"
     },
     "lambda": {
@@ -310,10 +295,7 @@
     },
     "async/def": {
         "prefix": "async/def",
-        "body": [
-            "async def ${1:funcname}(${2:parameter_list}):",
-            "\t${3:pass}"
-        ],
+        "body": ["async def ${1:funcname}(${2:parameter_list}):", "\t${3:pass}"],
         "description": "Code snippet for an async statement"
     },
     "async/for": {
@@ -323,12 +305,7 @@
     },
     "async/for/else": {
         "prefix": "async/for/else",
-        "body": [
-            "async for ${1:target} in ${2:iter}:",
-            "\t${3:block}",
-            "else:",
-            "\t${4:block}"
-        ],
+        "body": ["async for ${1:target} in ${2:iter}:", "\t${3:block}", "else:", "\t${4:block}"],
         "description": "Code snippet for an async for statement with else"
     },
     "async/with": {

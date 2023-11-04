@@ -4,7 +4,6 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd("FileType", {
     pattern = "http",
     callback = function()
-        vim.o.wrap = true
         local buff = tonumber(vim.fn.expand("<abuf>"), 10)
         vim.keymap.set("n", "<leader>rn", require("rest-nvim").run, { noremap = true, buffer = buff })
         vim.keymap.set("n", "<leader>rl", require("rest-nvim").last, { noremap = true, buffer = buff })
@@ -70,14 +69,6 @@ autocmd({ "BufWinEnter", "BufAdd" }, {
         if vim.bo[opts.buf].filetype == "toggleterm" then
             vim.o.statuscolumn = ""
         end
-    end,
-})
-
--- Wrap en algunos tipos de archivos
-autocmd("FileType", {
-    pattern = { "tex", "markdown" },
-    callback = function()
-        vim.o.wrap = true
     end,
 })
 

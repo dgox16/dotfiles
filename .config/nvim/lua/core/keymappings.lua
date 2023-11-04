@@ -16,14 +16,12 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Diferentes formas de guardar y salir
 keymap("n", "<Leader>w", ":w<CR>", opts)
 keymap("n", "<Leader>q", ":q<CR>", opts)
--- Manejo de Buffers
-keymap("n", "<M-d>", ":bd<CR>", opts)
 --Actualizar Plugins
 keymap("n", "<Leader>l", ":Lazy<CR>", opts)
 -- Buscar y remplazar
 keymap("n", "<Leader>r", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>", { noremap = true, silent = false })
 -- Abrir ajustes nvim
-keymap("n", "<Leader>es", ":e $MYVIMRC | :cd %:p:h <CR>", opts)
+-- keymap("n", "<Leader>n", ":e $MYVIMRC | :cd %:p:h <CR>", opts)
 -- Scroll mas rapido
 keymap("n", "<C-e>", "2<C-e>", opts)
 keymap("n", "<C-y>", "2<C-y>", opts)
@@ -37,6 +35,7 @@ keymap("n", "<Down>", "(v:count == 0 ? 'gj' : 'j')", { silent = true, expr = tru
 keymap("n", "<Up>", "(v:count == 0 ? 'gk' : 'k')", { silent = true, expr = true })
 -- Remover highlights
 keymap("n", "<esc>", "<cmd>noh<cr><esc>", opts)
+keymap("n", "<Leader>bb", "<cmd>e #<cr>", opts)
 
 -- MODO INSERTAR
 -- Eliminar la palabra de adelante
@@ -71,5 +70,3 @@ keymap("v", "j", "(v:count == 0 ? 'gj' : 'j')", { silent = true, expr = true })
 keymap("v", "k", "(v:count == 0 ? 'gk' : 'k')", { silent = true, expr = true })
 keymap("v", "<Down>", "(v:count == 0 ? 'gj' : 'j')", { silent = true, expr = true })
 keymap("v", "<Up>", "(v:count == 0 ? 'gk' : 'k')", { silent = true, expr = true })
-
-keymap("x", "<Leader>r", 'y:%s/<C-r><C-r>"//g<Left><Left>', { noremap = true, silent = false })

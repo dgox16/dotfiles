@@ -5,10 +5,6 @@ return {
         config = true,
     },
 
-    -- { "ibhagwan/fzf-lua", opts = {
-    --     "max-perf",
-    -- } },
-
     {
         "kylechui/nvim-surround",
         version = "*",
@@ -19,7 +15,7 @@ return {
     {
         "phaazon/hop.nvim",
         cmd = "HopWord",
-        keys = { { "m", "<cmd>HopWord<cr>" } },
+        keys = { { "ñ", "<cmd>HopWord<cr>" } },
         opts = {
             keys = "etovxqpdygfblzhckisuran",
         },

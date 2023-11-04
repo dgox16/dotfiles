@@ -6,20 +6,19 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "barreiroleo/ltex-extra.nvim",
     },
+    keys = {
+        { "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true } },
+        { "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true } },
+        { "g{", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true } },
+        { "g{", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true } },
+        { "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true } },
+        { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true } },
+        { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true } },
+        { "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true } },
+        { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true } },
+    },
     config = function()
         local lspconfig = require("lspconfig")
-
-        -- stylua: ignore start
-        vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "g{", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "g}", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
-        vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-        -- stylua: ignore end
 
         local root_pattern = require("lspconfig").util.root_pattern
 
@@ -74,18 +73,6 @@ return {
             },
         })
 
-        lspconfig.eslint.setup({
-            settings = {
-                packageManager = "yarn",
-            },
-            on_attach = function(client, bufnr)
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                    buffer = bufnr,
-                    command = "EslintFixAll",
-                })
-            end,
-        })
-
         lspconfig.jsonls.setup({
             flags = { debounce_text_changes = 500 },
             capabilities = capabilities,
@@ -103,7 +90,6 @@ return {
                         },
                         {
                             fileMatch = {
-
                                 ".prettierrc",
                                 ".prettierrc.json",
                                 "prettier.config.json",
@@ -148,7 +134,7 @@ return {
 
         lspconfig.ltex.setup({
             capabilities = capabilities,
-            flags = { debounce_text_changes = 300 },
+            -- flags = { debounce_text_changes = 300 },
             handlers = {
                 ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
                     virtual_text = false,
@@ -159,14 +145,13 @@ return {
                     load_langs = { "es" },
                     init_check = true,
                     path = ".ltex",
-                    log_level = "none",
+                    log_level = "error",
                 })
             end,
             settings = {
                 ltex = {
                     language = "es",
-                    diagnosticSeverity = "information",
-                    sentenceCacheSize = 2000,
+                    checkFrequency = "save",
                     additionalRules = {
                         enablePickyRules = true,
                         motherTongue = "es",
@@ -201,7 +186,11 @@ return {
             on_attach = on_attach,
         })
 
-        for _, server in ipairs({ "bashls", "cssls", "pyright", "tsserver", "phpactor", "tailwindcss" }) do
+        lspconfig.tailwindcss.setup({
+            filetypes = { "html", "javascriptreact", "typescriptreact" },
+        })
+
+        for _, server in ipairs({ "bashls", "biome", "cssls", "pylance", "emmet_language_server" }) do
             lspconfig[server].setup({
                 on_attach = on_attach,
                 capabilities = capabilities,

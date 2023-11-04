@@ -61,10 +61,12 @@ return {
                     leader,
                     ":Telescope find_files hidden=true no_ignore=true<CR>"
                 ),
-                button("space f o", "  Recent File  ", leader, ":Telescope oldfiles<CR>"),
-                button("space f w", "  Find Word  ", leader, ":Telescope live_grep<CR>"),
-                button("space f n", "  New File  ", leader, "<CMD>ene!<CR>"),
-                button("space e s", "  Settings", leader, ":e $MYVIMRC | :cd %:p:h <CR>"),
+                button("space f o", "󱋡  Recent File  ", leader, ":Telescope oldfiles<CR>"),
+                button("space f w", "󱀽  Find Word  ", leader, ":Telescope live_grep<CR>"),
+                button("space f n", "󱇧  New File  ", leader, ":ene <BAR> startinsert <CR>"),
+                button("space n", "  Settings", leader, ":e $MYVIMRC | :cd %:p:h <CR>"),
+                button("space l", "󰒲  Lazy", leader, ":Lazy<CR>"),
+                button("space q", "  Quit", leader, ":qa<CR>"),
             }
             dashboard.section.buttons.opts.hl = "String"
 
@@ -72,13 +74,7 @@ return {
                 local stats = require("lazy").stats()
                 local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
                 return "   Have fun with Neovim"
-                    .. "   v"
-                    .. vim.version().major
-                    .. "."
-                    .. vim.version().minor
-                    .. "."
-                    .. vim.version().patch
-                    .. "   "
+                    .. "  ⚡ Neovim loaded "
                     .. stats.count
                     .. " plugins in "
                     .. ms

@@ -36,9 +36,9 @@ format = "(fg:#24273a bg:#24273a)[](fg:#f9e2af bg:#24273a)[ $branch](fg:#2
 style = "fg:#f9e2af bg:#24273a"
 
 [python]
-format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[${symbol}${pyenv_prefix}(${version} )(${virtualenv} )](fg:#24273a bg:#a6e3a1)[](fg:#a6e3a1 bg:none) "
+format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[${symbol}${pyenv_prefix}(${version})( - ${virtualenv})](fg:#24273a bg:#a6e3a1)[](fg:#a6e3a1 bg:none) "
 style = "fg:#a6e3a1 bg:#24273a"
-symbol = ' '
+symbol = '󰌠 '
 
 [lua]
 format = "(fg:#24273a bg:#24273a)[](fg:#89b4fa bg:#24273a)[$symbol$version](fg:#24273a bg:#89b4fa)[](fg:#89b4fa bg:none) "
@@ -53,7 +53,7 @@ symbol = ' '
 [nodejs]
 format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[$symbol$version](fg:#24273a bg:#a6e3a1)[](fg:#a6e3a1 bg:none) "
 style = "fg:#a6e3a1 bg:#24273a"
-symbol = ' '
+symbol = '󰎙 '
 
 [c]
 format = "(fg:#24273a bg:#24273a)[](fg:#89dceb bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#89dceb)[](fg:#89dceb bg:none) "
@@ -76,9 +76,9 @@ style = "fg:#fab387 bg:#24273a"
 symbol = ' '
 
 [php]
-format = "(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
+format = "(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[$symbol$version](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
 style = "fg:#b4befe bg:#24273a"
-symbol = ' '
+symbol = '󰟆 '
 
 [ruby]
 format = "(fg:#24273a bg:#24273a)[](fg:#f5e0dc bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#f5e0dc)[](fg:#f5e0dc bg:none) "

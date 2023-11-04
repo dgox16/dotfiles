@@ -1,17 +1,13 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = "BufReadPost",
+    -- event = "BufReadPost",
     dependencies = {
-        "HiPhish/nvim-ts-rainbow2",
         "windwp/nvim-ts-autotag",
-        "nvim-treesitter/playground",
+        "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
-                "bash",
-                "c",
-                "cpp",
                 "lua",
                 "vim",
                 "regex",
@@ -19,10 +15,9 @@ return {
                 "markdown_inline",
                 "json",
                 "http",
-                "yaml",
                 "latex",
                 "python",
-                "rust",
+                "html",
                 "html",
                 "javascript",
                 "typescript",
@@ -37,11 +32,10 @@ return {
                 enable = true,
                 additional_vim_regex_highlighting = false,
             },
-            rainbow = {
-                enable = true,
-                max_file_lines = 3000,
-                strategy = require("ts-rainbow.strategy.global"),
-            },
+            -- rainbow = {
+            --     enable = true,
+            --     strategy = require("ts-rainbow.strategy.global"),
+            -- },
             incremental_selection = {
                 enable = true,
                 keymaps = {
@@ -49,6 +43,26 @@ return {
                     node_incremental = "<C-space>",
                     scope_incremental = "<nop>",
                     node_decremental = "<bs>",
+                },
+            },
+            textobjects = {
+                select = {
+                    enable = true,
+                    lookahead = true,
+
+                    keymaps = {
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ac"] = "@class.outer",
+                        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+                    },
+                    selection_modes = {
+                        ["@parameter.outer"] = "v",
+                        ["@function.outer"] = "V",
+                        ["@class.outer"] = "<c-v>",
+                    },
+                    include_surrounding_whitespace = true,
                 },
             },
         })

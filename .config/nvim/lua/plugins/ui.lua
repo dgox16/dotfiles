@@ -1,20 +1,43 @@
 return {
     { "nvim-tree/nvim-web-devicons", lazy = true },
 
-    -- {
-    --     "luukvbaal/statuscol.nvim",
-    --     config = function()
-    --         require("statuscol").setup()
-    --     end,
-    -- },
+    {
+        "folke/todo-comments.nvim",
+        cmd = { "TodoTrouble", "TodoTelescope" },
+        event = { "BufReadPost", "BufNewFile" },
+        config = true,
+        keys = {
+            {
+                "]t",
+                function()
+                    require("todo-comments").jump_next()
+                end,
+                desc = "Next todo comment",
+            },
+            {
+                "[t",
+                function()
+                    require("todo-comments").jump_prev()
+                end,
+                desc = "Previous todo comment",
+            },
+            { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
+            { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
+            { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+            { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+        },
+    },
 
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = "BufReadPost",
+        main = "ibl",
+        event = { "BufReadPost", "BufNewFile" },
         opts = {
-            filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-            show_trailing_blankline_indent = false,
-            show_current_context = true,
+            exclude = {
+                filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+            },
+            -- show_trailing_blankline_indent = false,
+            -- show_current_context = true,
         },
     },
 
@@ -26,6 +49,23 @@ return {
                 names = false,
             },
         },
+    },
+
+    {
+        "hiphish/rainbow-delimiters.nvim",
+        config = function()
+            local rainbow_delimiters = require("rainbow-delimiters")
+            vim.g.rainbow_delimiters = {
+                strategy = {
+                    [""] = rainbow_delimiters.strategy["global"],
+                    vim = rainbow_delimiters.strategy["local"],
+                },
+                query = {
+                    [""] = "rainbow-delimiters",
+                    lua = "rainbow-blocks",
+                },
+            }
+        end,
     },
 
     {

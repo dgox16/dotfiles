@@ -15,4 +15,9 @@ return {
         config = true,
         ft = "markdown",
     },
+
+    {
+        "LunarVim/bigfile.nvim",
+        event = "VeryLazy",
+    },
 }

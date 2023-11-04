@@ -4,37 +4,12 @@ return {
         event = "BufReadPre",
         opts = {
             signs = {
-                add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-                change = {
-                    hl = "GitSignsChange",
-                    text = "│",
-                    numhl = "GitSignsChangeNr",
-                    linehl = "GitSignsChangeLn",
-                },
-                delete = {
-                    hl = "GitSignsDelete",
-                    text = "│",
-                    numhl = "GitSignsDeleteNr",
-                    linehl = "GitSignsDeleteLn",
-                },
-                topdelete = {
-                    hl = "GitSignsDelete",
-                    text = "契",
-                    numhl = "GitSignsDeleteNr",
-                    linehl = "GitSignsDeleteLn",
-                },
-                changedelete = {
-                    hl = "GitSignsChange",
-                    text = "~",
-                    numhl = "GitSignsChangeNr",
-                    linehl = "GitSignsChangeLn",
-                },
-                untracked = {
-                    hl = "GitSignsUntracked",
-                    text = "│",
-                    numhl = "GitSignsUntrackedNr",
-                    linehl = "GitSignsUntrackedLn",
-                },
+                add = { text = "▎" },
+                change = { text = "▎" },
+                delete = { text = "" },
+                topdelete = { text = "" },
+                changedelete = { text = "▎" },
+                untracked = { text = "▎" },
             },
             diff_opts = { internal = true },
             preview_config = { border = "rounded" },

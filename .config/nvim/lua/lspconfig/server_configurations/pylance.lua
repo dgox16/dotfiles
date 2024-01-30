@@ -6,42 +6,42 @@ local root_files = {
     "setup.cfg",
     "requirements.txt",
     "Pipfile",
+    "pyrightconfig.json",
+    ".git",
 }
-
 local function organize_imports()
     local params = {
-        command = "pylance.organizeimports",
+        command = "pyright.organizeimports",
         arguments = { vim.uri_from_bufnr(0) },
     }
     vim.lsp.buf.execute_command(params)
 end
 
-local function set_python_path(path)
-    local clients = vim.lsp.get_active_clients({
-        bufnr = vim.api.nvim_get_current_buf(),
-        name = "pylance",
-    })
-    for _, client in ipairs(clients) do
-        client.config.settings =
-            vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
-        client.notify("workspace/didChangeConfiguration", { settings = nil })
-    end
-end
-
 return {
     default_config = {
-        cmd = {
-            "node",
-            vim.fn.expand("~/.vscode/extensions/ms-python.vscode-pylance-2023.8.40/dist/server.bundle.js", false, true)[1],
-            "--stdio",
-        },
         filetypes = { "python" },
-        single_file_support = true,
         root_dir = util.root_pattern(unpack(root_files)),
+        cmd = { "pylance", "--stdio" },
+        single_file_support = true,
+        capabilities = vim.lsp.protocol.make_client_capabilities(),
         settings = {
+            editor = { formatOnType = true },
             python = {
                 analysis = {
                     autoImportCompletions = true,
+                    autoSearchPaths = true,
+                    useLibraryCodeForTypes = true,
+                    diagnosticMode = "workspace",
+                    typeCheckingMode = "basic",
+                    completeFunctionParens = true,
+                    autoFormatStrings = true,
+                    indexing = true,
+                    inlayHints = {
+                        variableTypes = true,
+                        functionReturnTypes = true,
+                        callArgumentNames = true,
+                        pytestParameters = true,
+                    },
                 },
             },
         },
@@ -51,17 +51,5 @@ return {
             organize_imports,
             description = "Organize Imports",
         },
-        PylanceSetPythonPath = {
-            set_python_path,
-            description = "Reconfigure Pylance with the provided python path",
-            nargs = 1,
-            complete = "file",
-        },
-    },
-    docs = {
-        description = [[
-            https://github.com/microsoft/pylance-release
-            `pylance`, Fast, feature-rich language support for Python
-            ]],
     },
 }

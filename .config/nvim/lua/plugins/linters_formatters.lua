@@ -1,5 +1,14 @@
 return {
     {
+        "stevearc/conform.nvim",
+        event = { "BufWritePre" },
+        opts = {},
+        config = function()
+            require("configs.conform")
+        end,
+    },
+
+    {
         "mfussenegger/nvim-lint",
         event = "BufReadPre",
         config = function()
@@ -7,7 +16,7 @@ return {
                 python = { "ruff" },
                 htmldjango = { "djlint" },
             }
-            vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
+            vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "BufReadPost" }, {
                 callback = function()
                     local lint_status, lint = pcall(require, "lint")
                     if lint_status then

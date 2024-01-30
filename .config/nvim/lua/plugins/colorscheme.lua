@@ -17,7 +17,7 @@ return {
                     variables = {},
                     numbers = {},
                     booleans = { "bold", "italic" },
-                    properties = { "italic" },
+                    -- properties = { "italic" },
                     types = {},
                     operators = {},
                 },
@@ -45,7 +45,8 @@ return {
                         enabled = true,
                         style = "nvchad",
                     },
-                    hop = true,
+                    -- hop = true,
+                    flash = true,
                     mason = true,
                     indent_blankline = {
                         enabled = true,
@@ -58,6 +59,13 @@ return {
                     notify = true,
                     illuminate = true,
                     rainbow_delimiters = true,
+                },
+                color_overrides = {
+                    mocha = {
+                        base = "#131020",
+                        mantle = "#110e1c",
+                        crust = "#0f0c19",
+                    },
                 },
                 custom_highlights = function(C)
                     return {

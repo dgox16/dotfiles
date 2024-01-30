@@ -1,32 +1,58 @@
 return {
-    { "nvim-tree/nvim-web-devicons", lazy = true },
+    {
+        "hoob3rt/lualine.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+            require("configs.lualine")
+        end,
+    },
 
     {
-        "folke/todo-comments.nvim",
-        cmd = { "TodoTrouble", "TodoTelescope" },
+        "goolord/alpha-nvim",
+        event = "BufWinEnter",
+        config = function()
+            require("configs.alpha")
+        end,
+    },
+
+    {
+        "akinsho/bufferline.nvim",
         event = { "BufReadPost", "BufNewFile" },
-        config = true,
         keys = {
+            { "<leader>bv", "<cmd>BufferLinePick<CR>", { noremap = true, silent = true } },
+            { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>" },
+            { "<leader>br", "<Cmd>BufferLineCloseRight<CR>" },
+            { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>" },
+            { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true } },
+            { "<tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true } },
+        },
+        config = function()
+            require("configs.bufferline")
+        end,
+        dependencies = {
             {
-                "]t",
-                function()
-                    require("todo-comments").jump_next()
-                end,
-                desc = "Next todo comment",
+                "echasnovski/mini.bufremove",
+                keys = {
+                    {
+                        "<leader>bd",
+                        function()
+                            require("mini.bufremove").delete(0, false)
+                        end,
+                        desc = "Delete Buffer",
+                    },
+                    {
+                        "<leader>bD",
+                        function()
+                            require("mini.bufremove").delete(0, true)
+                        end,
+                        desc = "Delete Buffer (Force)",
+                    },
+                },
             },
-            {
-                "[t",
-                function()
-                    require("todo-comments").jump_prev()
-                end,
-                desc = "Previous todo comment",
-            },
-            { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-            { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme (Trouble)" },
-            { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-            { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
         },
     },
+
+    { "nvim-tree/nvim-web-devicons", lazy = true },
 
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -36,8 +62,6 @@ return {
             exclude = {
                 filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
             },
-            -- show_trailing_blankline_indent = false,
-            -- show_current_context = true,
         },
     },
 
@@ -53,6 +77,7 @@ return {
 
     {
         "hiphish/rainbow-delimiters.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             local rainbow_delimiters = require("rainbow-delimiters")
             vim.g.rainbow_delimiters = {
@@ -92,5 +117,55 @@ return {
         config = function(_, opts)
             require("illuminate").configure(opts)
         end,
+    },
+
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            { "MunifTanjim/nui.nvim", lazy = true },
+            {
+                "rcarriga/nvim-notify",
+                lazy = true,
+                event = "VeryLazy",
+                keys = {
+                    {
+                        "<leader>un",
+                        function()
+                            require("notify").dismiss({ silent = true, pending = true })
+                        end,
+                        desc = "Delete all Notifications",
+                    },
+                },
+                opts = {
+                    timeout = 3000,
+                    max_height = function()
+                        return math.floor(vim.o.lines * 0.75)
+                    end,
+                    max_width = function()
+                        return math.floor(vim.o.columns * 0.75)
+                    end,
+                },
+            },
+        },
+        opts = {
+            presets = {
+                bottom_search = true,
+                command_palette = true,
+                long_message_to_split = true,
+                inc_rename = false,
+                lsp_doc_border = true,
+            },
+            lsp = {
+                progress = {
+                    enabled = false,
+                },
+                override = {
+                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                    ["vim.lsp.util.stylize_markdown"] = true,
+                    ["cmp.entry.get_documentation"] = true,
+                },
+            },
+        },
     },
 }

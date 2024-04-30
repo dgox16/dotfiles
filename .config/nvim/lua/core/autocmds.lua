@@ -1,6 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Keymaps para el rest client
 autocmd("FileType", {
     pattern = "http",
     callback = function()

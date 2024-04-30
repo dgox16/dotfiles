@@ -13,6 +13,11 @@ return {
             require("configs.cmp")
         end,
     },
+    {
+        "chrisgrieser/nvim-various-textobjs",
+        event = "BufReadPost",
+        opts = { useDefaultKeymaps = true },
+    },
 
     {
         "L3MON4D3/LuaSnip",
@@ -53,8 +58,8 @@ return {
         event = "InsertEnter",
         config = function()
             require("nvim-autopairs").setup({})
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            -- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            -- require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
     },
 

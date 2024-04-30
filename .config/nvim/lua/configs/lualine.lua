@@ -83,31 +83,11 @@ local diff = {
 
 local modes = {
     "mode",
-    fmt = function(str)
-        if str == "NORMAL" then
-            return "Here we go!"
-        end
-        if str == "VISUAL" then
-            return "Selecting..."
-        end
-        if str == "V-LINE" then
-            return "Selecting..."
-        end
-        if str == "INSERT" then
-            return "Just write"
-        end
-        if str == "TERMINAL" then
-            return "sudo rm -rf /"
-        end
-        if str == "COMMAND" then
-            return "Give me orders"
-        end
-    end,
     color = function()
         local mode_color = modecolor
-        return { bg = mode_color[vim.fn.mode()], fg = colors.crust, gui = "bold,italic" }
+        return { bg = mode_color[vim.fn.mode()], fg = colors.crust, gui = "bold" }
     end,
-    separator = { left = "", right = "" },
+    separator = { right = "" },
 }
 
 local penguin = {
@@ -122,7 +102,7 @@ local penguin = {
 }
 
 local function getLspName()
-    local buf_clients = vim.lsp.buf_get_clients()
+    local buf_clients = vim.lsp.get_active_clients()
     local buf_ft = vim.bo.filetype
     if next(buf_clients) == nil then
         return "  No servers"
@@ -153,9 +133,7 @@ local function getLspName()
     end
 
     local ok, conform = pcall(require, "conform")
-    local formatters = table.concat(conform.formatters_by_ft[vim.bo.filetype], " ")
-    local formatters2 = formatters:gsub("_", " ")
-    -- print(formatters2)
+    local formatters = table.concat(conform.list_formatters_for_buffer(), " ")
     if ok then
         for formatter in formatters:gmatch("%w+") do
             if formatter then
@@ -179,9 +157,9 @@ local function getLspName()
 end
 
 local macro = {
-    require("noice").api.statusline.mode.get,
-    cond = require("noice").api.statusline.mode.has,
-    color = { fg = colors.red, gui = "italic,bold" },
+    require("noice").api.status.mode.get,
+    cond = require("noice").api.status.mode.has,
+    color = { fg = colors.red, bg = colors.crust, gui = "italic,bold" },
 }
 
 local dia = {
@@ -223,7 +201,7 @@ require("lualine").setup({
 
     sections = {
         lualine_a = {
-            penguin,
+            -- penguin,
             -- space,
             modes,
         },

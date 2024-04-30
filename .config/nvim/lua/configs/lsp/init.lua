@@ -1,7 +1,5 @@
 local lspconfig = require("lspconfig")
 
-local root_pattern = require("lspconfig").util.root_pattern
-
 vim.diagnostic.config({
     virtual_text = true,
     underline = true,
@@ -48,6 +46,7 @@ lspconfig.lua_ls.setup({
 
 lspconfig.pylance.setup({
     capabilities = capabilities,
+    on_attach = on_attach,
 })
 
 lspconfig.jsonls.setup({
@@ -109,54 +108,6 @@ lspconfig.jsonls.setup({
     },
 })
 
-lspconfig.ltex.setup({
-    capabilities = capabilities,
-    -- flags = { debounce_text_changes = 300 },
-    handlers = {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-            virtual_text = false,
-        }),
-    },
-    on_attach = function(client, bufnr)
-        require("ltex_extra").setup({
-            load_langs = { "es" },
-            init_check = true,
-            path = ".ltex",
-            log_level = "error",
-        })
-    end,
-    settings = {
-        ltex = {
-            language = "es",
-            checkFrequency = "save",
-            additionalRules = {
-                enablePickyRules = true,
-                motherTongue = "es",
-            },
-        },
-    },
-})
-
-lspconfig.texlab.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        texlab = {
-            rootDirectory = ".",
-            build = {
-                args = { "-pdf", "-interaction=nonstopmode", "-shell-escape", "-synctex=1", "%f" },
-                onSave = true,
-            },
-            forwardSearch = {
-                executable = "zathura",
-                args = { "--synctex-forward", "%l:1:%f", "%p" },
-            },
-            bibtexFormatter = "latexindent",
-        },
-    },
-    root_dir = root_pattern("*.tex"),
-})
-
 lspconfig.html.setup({
     filetypes = { "html", "htmldjango" },
     capabilities = capabilities,
@@ -166,8 +117,7 @@ lspconfig.html.setup({
 lspconfig.tailwindcss.setup({
     filetypes = { "html", "javascriptreact", "typescriptreact" },
 })
-
-for _, server in ipairs({ "bashls", "biome", "cssls" }) do
+for _, server in ipairs({ "bashls", "biome", "cssls", "astro" }) do
     lspconfig[server].setup({
         on_attach = on_attach,
         capabilities = capabilities,

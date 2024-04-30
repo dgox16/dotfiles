@@ -1,12 +1,8 @@
-#!/bin/sh
 export EDITOR="nvim"
 export TERMINAL="kitty"
 # export BROWSER="brave"
-export PATH="$HOME/.local/bin":$PATH
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$PATH:/home/dgox16/.spicetify
 export BAT_THEME="Catppuccin-mocha"
 export KITTY_SHELL_INTEGRATION="enabled"
 export FZF_DEFAULT_OPTS=" \

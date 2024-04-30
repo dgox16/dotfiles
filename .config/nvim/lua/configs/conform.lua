@@ -6,7 +6,7 @@ require("conform").setup({
     },
     formatters_by_ft = {
         lua = { "stylua" },
-        python = { "ruff", "usort" },
+        python = { "ruff_format", "usort" },
         json = { "biome" },
         javascript = { "biome" },
         javascriptreact = { "biome" },
@@ -19,6 +19,7 @@ require("conform").setup({
         handlebars = { "prettier" },
         bib = { "bibclean" },
         tex = { "latexindent" },
+        rust = { "rustfmt" },
     },
     formatters = {
         djhtml = {
@@ -37,20 +38,20 @@ require("conform").setup({
             },
             stdin = true,
         },
-        ruff = {
-            command = "ruff",
-            args = {
-                "format",
-                "--stdin-filename",
-                "$FILENAME",
-                "-",
-            },
-            stdin = true,
-            cwd = require("conform.util").root_file({
-                "pyproject.toml",
-                "ruff.toml",
-            }),
-        },
+        -- ruff = {
+        --     command = "ruff",
+        --     args = {
+        --         "format",
+        --         "--stdin-filename",
+        --         "$FILENAME",
+        --         "-",
+        --     },
+        --     stdin = true,
+        --     cwd = require("conform.util").root_file({
+        --         "pyproject.toml",
+        --         "ruff.toml",
+        --     }),
+        -- },
     },
 })
 

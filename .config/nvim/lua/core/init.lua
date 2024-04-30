@@ -11,6 +11,14 @@ local disable_providers = function()
     end
 end
 
+local add_filetype = function()
+    vim.filetype.add({
+        extension = {
+            hurl = "hurl",
+        },
+    })
+end
+
 local leader_map = function()
     vim.api.nvim_set_keymap("n", "<Space>", "", { noremap = true })
     vim.api.nvim_set_keymap("x", "<Space>", "", { noremap = true })
@@ -37,6 +45,7 @@ local load_core = function()
     disable_providers()
     leader_map()
     clipboard_config()
+    add_filetype()
 
     vim.cmd([[ let g:omni_sql_no_default_maps = 1 ]])
     require("core.lazy")
@@ -46,10 +55,3 @@ local load_core = function()
 end
 
 load_core()
-
--- vim.api.nvim_create_autocmd("LspAttach", {
---     callback = function(args)
---         local client = vim.lsp.get_client_by_id(args.data.client_id)
---         client.server_capabilities.semanticTokensProvider = nil
---     end,
--- })

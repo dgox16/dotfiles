@@ -3,7 +3,6 @@ return {
         "neovim/nvim-lspconfig",
         event = "BufReadPre",
         dependencies = {
-
             {
                 "williamboman/mason.nvim",
                 lazy = true,
@@ -11,8 +10,8 @@ return {
                     require("configs.mason")
                 end,
             },
+            "williamboman/mason-lspconfig.nvim",
             "hrsh7th/cmp-nvim-lsp",
-            "barreiroleo/ltex-extra.nvim",
             { "folke/neodev.nvim", config = true },
         },
         keys = {
@@ -30,36 +29,16 @@ return {
             require("configs.lsp")
         end,
     },
-
     {
-
-        {
-            "barreiroleo/ltex_extra.nvim",
-            dev = false,
-            ft = { "markdown", "tex" },
-            opts = {
-                log_level = "error",
-                server_opts = {
-                    on_attach = function(client, bufnr) end,
-                    filetypes = { "bib", "markdown", "org", "plaintex", "rst", "rnoweb", "tex" },
-                    settings = {
-                        ltex = {
-                            language = "es",
-                            checkFrequency = "save",
-                            additionalRules = {
-                                enablePickyRules = true,
-                                motherTongue = "es",
-                            },
-                        },
-                    },
-                },
-            },
-        },
+        "mrcjkb/rustaceanvim",
+        version = "^4",
+        lazy = false,
     },
 
     {
         "pmizio/typescript-tools.nvim",
         event = "BufReadPre",
+
         dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
         opts = {
             settings = {

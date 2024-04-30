@@ -23,3 +23,5 @@ require("mason").setup({
     },
     max_concurrent_installers = 10,
 })
+
+require("mason-lspconfig").setup()

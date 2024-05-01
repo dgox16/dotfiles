@@ -102,7 +102,7 @@ local penguin = {
 }
 
 local function getLspName()
-    local buf_clients = vim.lsp.get_active_clients()
+    local buf_clients = vim.lsp.buf_get_clients()
     local buf_ft = vim.bo.filetype
     if next(buf_clients) == nil then
         return "  No servers"

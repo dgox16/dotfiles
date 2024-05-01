@@ -3,6 +3,7 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- NORMAL MODE
+vim.api.nvim_set_keymap("n", "ZZ", "<Nop>", opts)
 -- Redimensionar
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)

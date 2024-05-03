@@ -115,7 +115,7 @@ lspconfig.html.setup({
 })
 
 lspconfig.tailwindcss.setup({
-    filetypes = { "html", "javascriptreact", "typescriptreact" },
+    filetypes = { "html", "javascriptreact", "typescriptreact", "astro" },
 })
 for _, server in ipairs({ "bashls", "biome", "cssls", "astro" }) do
     lspconfig[server].setup({

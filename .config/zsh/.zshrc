@@ -4,9 +4,8 @@ DISABLE_AUTO_TITLE="true"
 # source
 plug "$HOME/.config/zsh/configs/aliases.zsh"
 plug "$HOME/.config/zsh/configs/exports.zsh"
-source ~/.config/zsh/configs/catppuccin.zsh
+plug "$HOME/.config/zsh/configs/colors.zsh"
 
-[ -f ~/.config/zsh/configs/functions.sh ] && source ~/.config/zsh/configs/functions.sh
 
 HISTFILE=~/.histfile
 HISTSIZE=1000000

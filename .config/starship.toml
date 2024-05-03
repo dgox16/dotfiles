@@ -1,12 +1,12 @@
-format = "$directory$character"
-right_format = """$ruby$php$kotlin$java$golang$c$nodejs$rust$lua$python$git_branch$cmd_duration"""
+format = """$directory$git_branch$ruby$php$kotlin$java$golang$c$nodejs$rust$lua$python$character"""
+
 
 [line_break]
 disabled = true
 
 [character]
 success_symbol = '[🞈](bold green) '
-error_symbol = '[🞈](bold red) '
+error_symbol = '[🞈](bold purple) '
 vimcmd_symbol = '[🞈](bold blue) '
 vimcmd_replace_one_symbol = '[🞈](bold purple) '
 vimcmd_replace_symbol = '[🞈](bold purple) '
@@ -17,14 +17,13 @@ disabled = true
 
 [cmd_duration]
 min_time = 1
-format = "(fg:#24273a bg:#24273a)[](fg:#cba6f7 bg:#24273a)[ $duration](fg:#24273a bg:#cba6f7)[](fg:#cba6f7 bg:none) "
+format = "(fg:#161617 bg:#161617)[](fg:#cba6f7 bg:#161617)[ $duration](fg:#161617 bg:#cba6f7)[](fg:#cba6f7 bg:none) "
 disabled = true
-style = "fg:#cba6f7 bg:#24273a"
-
+style = "fg:#cba6f7 bg:#161617"
 
 [directory]
-format = "(fg:#24273a bg:#24273a)[](fg:#f5c2e7 bg:#24273a)[  $path](fg:#24273a bg:#f5c2e7 italic)[](fg:#f5c2e7 bg:none) "
-style = "fg:#d9d7d6 bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#aca1cf bg:#161617)[  $path](fg:#161617 bg:#aca1cf italic)[](fg:#aca1cf bg:none) "
+style = "fg:#d9d7d6 bg:#161617"
 truncation_length = 2
 truncate_to_repo = true
 
@@ -32,55 +31,55 @@ truncate_to_repo = true
 disabled = true
 
 [git_branch]
-format = "(fg:#24273a bg:#24273a)[](fg:#f9e2af bg:#24273a)[ $branch](fg:#282c34 bg:#f9e2af)[](fg:#f9e2af bg:none) "
-style = "fg:#f9e2af bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#e6b99d bg:#161617)[ $branch](fg:#282c34 bg:#e6b99d)[](fg:#e6b99d bg:none) "
+style = "fg:#e6b99d bg:#161617"
 
 [python]
-format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[${symbol}${pyenv_prefix}(${version})( - ${virtualenv})](fg:#24273a bg:#a6e3a1)[](fg:#a6e3a1 bg:none) "
-style = "fg:#a6e3a1 bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#90b99f bg:#161617)[${symbol}${pyenv_prefix}(${version})( - ${virtualenv})](fg:#161617 bg:#90b99f)[](fg:#90b99f bg:none) "
+style = "fg:#90b99f bg:#161617"
 symbol = '󰌠 '
 
 [lua]
-format = "(fg:#24273a bg:#24273a)[](fg:#89b4fa bg:#24273a)[$symbol$version](fg:#24273a bg:#89b4fa)[](fg:#89b4fa bg:none) "
-style = "fg:#89b4fa bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#92a2d5 bg:#161617)[$symbol$version](fg:#161617 bg:#92a2d5)[](fg:#92a2d5 bg:none) "
+style = "fg:#92a2d5 bg:#161617"
 symbol = ' '
 
 [rust]
-format = "(fg:#24273a bg:#24273a)[](fg:#f38ba8 bg:#24273a)[$symbol$version](fg:#24273a bg:#f38ba8)[](fg:#f38ba8 bg:none) "
-style = "fg:#f38ba8 bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#ea83a5 bg:#161617)[$symbol$version](fg:#161617 bg:#ea83a5)[](fg:#ea83a5 bg:none) "
+style = "fg:#ea83a5 bg:#161617"
 symbol = ' '
 
 [nodejs]
-format = "(fg:#24273a bg:#24273a)[](fg:#a6e3a1 bg:#24273a)[$symbol$version](fg:#24273a bg:#a6e3a1)[](fg:#a6e3a1 bg:none) "
-style = "fg:#a6e3a1 bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#90b99f bg:#161617)[$symbol$version](fg:#161617 bg:#90b99f)[](fg:#90b99f bg:none) "
+style = "fg:#90b99f bg:#161617"
 symbol = '󰎙 '
 
 [c]
-format = "(fg:#24273a bg:#24273a)[](fg:#89dceb bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#89dceb)[](fg:#89dceb bg:none) "
-style = "fg:#89dceb bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#85b5ba bg:#161617)[$symbol$version-$name](fg:#161617 bg:#85b5ba)[](fg:#85b5ba bg:none) "
+style = "fg:#85b5ba bg:#161617"
 symbol = ' '
 
 [golang]
-format = "(fg:#24273a bg:#24273a)[](fg:#74c7ec bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#74c7ec)[](fg:#74c7ec bg:none) "
-style = "fg:#74c7ec bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#92a2d5 bg:#161617)[$symbol$version-$name](fg:#161617 bg:#92a2d5)[](fg:#92a2d5 bg:none) "
+style = "fg:#92a2d5 bg:#161617"
 symbol = ' '
 
 [java]
-format = "(fg:#24273a bg:#24273a)[](fg:#f2cdcd bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#f2cdcd)[](fg:#f2cdcd bg:none) "
-style = "fg:#f2cdcd bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#f5a191 bg:#161617)[$symbol$version-$name](fg:#161617 bg:#f5a191)[](fg:#f5a191 bg:none) "
+style = "fg:#f5a191 bg:#161617"
 symbol = ' '
 
 [kotlin]
-format = "(fg:#24273a bg:#24273a)[](fg:#fab387 bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#fab387)[](fg:#fab387 bg:none) "
-style = "fg:#fab387 bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:##f5a191 bg:#161617)[$symbol$version-$name](fg:#161617 bg:##f5a191)[](fg:##f5a191 bg:none) "
+style = "fg:##f5a191 bg:#161617"
 symbol = ' '
 
 [php]
-format = "(fg:#24273a bg:#24273a)[](fg:#b4befe bg:#24273a)[$symbol$version](fg:#24273a bg:#b4befe)[](fg:#b4befe bg:none) "
-style = "fg:#b4befe bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#92a2d5 bg:#161617)[$symbol$version](fg:#161617 bg:#92a2d5)[](fg:#92a2d5 bg:none) "
+style = "fg:#92a2d5 bg:#161617"
 symbol = '󰟆 '
 
 [ruby]
-format = "(fg:#24273a bg:#24273a)[](fg:#f5e0dc bg:#24273a)[$symbol$version-$name](fg:#24273a bg:#f5e0dc)[](fg:#f5e0dc bg:none) "
-style = "fg:#f5e0dc bg:#24273a"
+format = "(fg:#161617 bg:#161617)[](fg:#e6b99d bg:#161617)[$symbol$version-$name](fg:#161617 bg:#e6b99d)[](fg:#e6b99d bg:none) "
+style = "fg:#e6b99d bg:#161617"
 symbol = ' '

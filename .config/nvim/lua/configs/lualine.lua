@@ -1,10 +1,10 @@
-local colors = require("catppuccin.palettes").get_palette()
+local colors = require("oldworld.palette")
 
 local modecolor = {
-    n = colors.pink,
-    i = colors.teal,
-    v = colors.mauve,
-    [""] = colors.mauve,
+    n = colors.red,
+    i = colors.cyan,
+    v = colors.purple,
+    [""] = colors.purple,
     V = colors.red,
     c = colors.yellow,
     no = colors.red,
@@ -13,64 +13,64 @@ local modecolor = {
     [""] = colors.yellow,
     ic = colors.yellow,
     R = colors.green,
-    Rv = colors.mauve,
+    Rv = colors.purple,
     cv = colors.red,
     ce = colors.red,
-    r = colors.teal,
-    rm = colors.teal,
-    ["r?"] = colors.teal,
+    r = colors.cyan,
+    rm = colors.cyan,
+    ["r?"] = colors.cyan,
     ["!"] = colors.red,
-    t = colors.rosewater,
+    t = colors.bright_red,
 }
 
 local theme = {
     normal = {
-        a = { fg = colors.crust, bg = colors.blue },
-        b = { fg = colors.blue, bg = colors.text },
-        c = { fg = colors.text, bg = colors.crust },
-        z = { fg = colors.text, bg = colors.crust },
+        a = { fg = colors.bg_dark, bg = colors.blue },
+        b = { fg = colors.blue, bg = colors.white },
+        c = { fg = colors.white, bg = colors.bg_dark },
+        z = { fg = colors.white, bg = colors.bg_dark },
     },
-    insert = { a = { fg = colors.crust, bg = colors.peach } },
-    visual = { a = { fg = colors.crust, bg = colors.green } },
-    replace = { a = { fg = colors.crust, bg = colors.green } },
+    insert = { a = { fg = colors.bg_dark, bg = colors.orange } },
+    visual = { a = { fg = colors.bg_dark, bg = colors.green } },
+    replace = { a = { fg = colors.bg_dark, bg = colors.green } },
 }
 
 local space = {
     function()
         return " "
     end,
-    color = { bg = colors.crust, fg = colors.blue },
+    color = { bg = colors.bg_dark, fg = colors.blue },
 }
 
 local filename = {
     "filename",
-    color = { bg = colors.blue, fg = colors.surface0, gui = "bold" },
+    color = { bg = colors.blue, fg = colors.bg, gui = "bold" },
     separator = { left = "", right = "" },
 }
 
 local filetype = {
     "filetype",
     icons_enabled = false,
-    color = { bg = colors.surface0, fg = colors.blue, gui = "italic,bold" },
+    color = { bg = colors.gray02, fg = colors.blue, gui = "italic,bold" },
     separator = { left = "", right = "" },
 }
 
 local branch = {
     "branch",
     icon = "",
-    color = { bg = colors.green, fg = colors.surface0, gui = "bold" },
+    color = { bg = colors.green, fg = colors.bg, gui = "bold" },
     separator = { left = "", right = "" },
 }
 
 local location = {
     "location",
-    color = { bg = colors.sky, fg = colors.surface0, gui = "bold" },
+    color = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
     separator = { left = "", right = "" },
 }
 
 local diff = {
     "diff",
-    color = { bg = colors.surface0, fg = colors.surface0, gui = "bold" },
+    color = { bg = colors.gray02, fg = colors.bg, gui = "bold" },
     separator = { left = "", right = "" },
     symbols = { added = " ", modified = " ", removed = " " },
 
@@ -85,20 +85,9 @@ local modes = {
     "mode",
     color = function()
         local mode_color = modecolor
-        return { bg = mode_color[vim.fn.mode()], fg = colors.crust, gui = "bold" }
+        return { bg = mode_color[vim.fn.mode()], fg = colors.bg_dark, gui = "bold" }
     end,
-    separator = { right = "" },
-}
-
-local penguin = {
-    function()
-        return "󰻀"
-    end,
-    color = function()
-        local mode_color = modecolor
-        return { fg = mode_color[vim.fn.mode()], bg = colors.surface0 }
-    end,
-    separator = { right = "" },
+    separator = { left = "", right = "" },
 }
 
 local function getLspName()
@@ -159,7 +148,7 @@ end
 local macro = {
     require("noice").api.status.mode.get,
     cond = require("noice").api.status.mode.has,
-    color = { fg = colors.red, bg = colors.crust, gui = "italic,bold" },
+    color = { fg = colors.red, bg = colors.bg_dark, gui = "italic,bold" },
 }
 
 local dia = {
@@ -168,11 +157,11 @@ local dia = {
     symbols = { error = " ", warn = " ", info = " ", hint = " " },
     diagnostics_color = {
         error = { fg = colors.red },
-        warn = { fg = colors.peach },
-        info = { fg = colors.sky },
-        hint = { fg = colors.teal },
+        warn = { fg = colors.orange },
+        info = { fg = colors.yellow },
+        hint = { fg = colors.cyan },
     },
-    color = { bg = colors.surface0, fg = colors.blue, gui = "bold" },
+    color = { bg = colors.gray02, fg = colors.blue, gui = "bold" },
     separator = { left = "" },
 }
 
@@ -180,8 +169,8 @@ local lsp = {
     function()
         return getLspName()
     end,
-    separator = { left = "" },
-    color = { bg = colors.mauve, fg = colors.surface0, gui = "italic,bold" },
+    separator = { left = "", right = "" },
+    color = { bg = colors.purple, fg = colors.bg, gui = "italic,bold" },
 }
 
 require("lualine").setup({
@@ -201,8 +190,6 @@ require("lualine").setup({
 
     sections = {
         lualine_a = {
-            -- penguin,
-            -- space,
             modes,
         },
         lualine_b = {

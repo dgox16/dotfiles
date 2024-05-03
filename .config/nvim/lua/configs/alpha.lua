@@ -24,7 +24,7 @@ local function button(sc, txt, leader_txt, keybind, keybind_opts)
         cursor = 5,
         width = 36,
         align_shortcut = "right",
-        hl_shortcut = "Keyword",
+        hl_shortcut = "AlphaShortcut",
     }
 
     if nil == keybind then
@@ -63,7 +63,7 @@ dashboard.section.buttons.opts.hl = "String"
 local function footer()
     local stats = require("lazy").stats()
     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-    return "   Have fun with Neovim" .. "  ⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
+    return "   Have fun with Neovim" .. "  󱐋 Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
 end
 
 dashboard.section.footer.val = footer()
@@ -92,6 +92,3 @@ vim.api.nvim_create_autocmd("User", {
         pcall(vim.cmd.AlphaRedraw)
     end,
 })
-
-vim.api.nvim_set_hl(0, "AlphaHeader", { fg = "#89b4fa" })
-vim.api.nvim_set_hl(0, "AlphaFooter", { fg = "#b4befe" })

@@ -1,7 +1,7 @@
 return {
     {
         "catppuccin/nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         name = "catppuccin",
         config = function()
@@ -9,16 +9,17 @@ return {
                 flavour = "mocha",
                 styles = {
                     comments = { "italic" },
+                    functions = { "bold" },
+                    keywords = { "italic" },
+                    operators = { "bold" },
                     conditionals = { "bold" },
                     loops = { "bold" },
-                    functions = { "italic" },
-                    keywords = {},
+                    booleans = { "bold", "italic" },
+                    numbers = {},
+                    types = {},
                     strings = {},
                     variables = {},
-                    numbers = {},
-                    booleans = { "bold", "italic" },
-                    types = {},
-                    operators = {},
+                    properties = {},
                 },
                 integrations = {
                     treesitter = true,
@@ -132,7 +133,12 @@ return {
                     end,
                 },
             })
-            vim.cmd.colorscheme("catppuccin")
         end,
+    },
+    {
+        dir = "~/Documentos/project_nvim/oldworld.nvim",
+        lazy = false,
+        priority = 1000,
+        config = true,
     },
 }

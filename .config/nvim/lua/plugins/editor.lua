@@ -43,6 +43,7 @@ return {
             { "<leader>fh", "<cmd>Telescope find_files hidden=true no_ignore=true<CR>" },
             { "<leader>fo", "<cmd>Telescope oldfiles<CR>" },
             { "<leader>fw", "<cmd>Telescope live_grep <CR>" },
+            { "<leader>fc", "<cmd>Telescope colorscheme <CR>" },
             { "<leader>ft", "<cmd>Telescope treesitter<CR>" },
             -- git
             { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },

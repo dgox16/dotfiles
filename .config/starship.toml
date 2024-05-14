@@ -22,7 +22,7 @@ disabled = true
 style = "fg:#cba6f7 bg:#161617"
 
 [directory]
-format = "(fg:#161617 bg:#161617)[](fg:#aca1cf bg:#161617)[  $path](fg:#161617 bg:#aca1cf italic)[](fg:#aca1cf bg:none) "
+format = "(fg:#161617 bg:#161617)[](fg:#e29eca bg:#161617)[  $path](fg:#161617 bg:#e29eca italic)[](fg:#e29eca bg:none) "
 style = "fg:#d9d7d6 bg:#161617"
 truncation_length = 2
 truncate_to_repo = true

@@ -1,17 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd("FileType", {
-    pattern = "http",
-    callback = function()
-        local buff = tonumber(vim.fn.expand("<abuf>"), 10)
-        vim.keymap.set("n", "<leader>rn", require("rest-nvim").run, { noremap = true, buffer = buff })
-        vim.keymap.set("n", "<leader>rl", require("rest-nvim").last, { noremap = true, buffer = buff })
-        vim.keymap.set("n", "<leader>rp", function()
-            require("rest-nvim").run(true)
-        end, { noremap = true, buffer = buff })
-    end,
-})
-
 -- Keymaps para usar javascriptreact
 autocmd("FileType", {
     pattern = "javascript",

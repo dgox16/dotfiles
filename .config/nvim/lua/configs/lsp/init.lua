@@ -44,11 +44,6 @@ lspconfig.lua_ls.setup({
     },
 })
 
-lspconfig.pylance.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-
 lspconfig.jsonls.setup({
     flags = { debounce_text_changes = 500 },
     capabilities = capabilities,
@@ -82,11 +77,9 @@ lspconfig.jsonls.setup({
                         ".babelrc.json",
                         "babel.config.json",
                     },
-
                     url = "https://json.schemastore.org/babelrc.json",
                 },
                 {
-
                     fileMatch = { "lerna.json" },
                     url = "https://json.schemastore.org/lerna.json",
                 },
@@ -96,7 +89,6 @@ lspconfig.jsonls.setup({
                         ".stylelintrc.json",
                         "stylelint.config.json",
                     },
-
                     url = "http://json.schemastore.org/stylelintrc.json",
                 },
                 {
@@ -115,9 +107,9 @@ lspconfig.html.setup({
 })
 
 lspconfig.tailwindcss.setup({
-    filetypes = { "html", "javascriptreact", "typescriptreact", "astro" },
+    filetypes = { "html", "javascriptreact", "typescriptreact", "astro", "svelte" },
 })
-for _, server in ipairs({ "bashls", "biome", "cssls", "astro" }) do
+for _, server in ipairs({ "bashls", "biome", "cssls", "astro", "svelte" }) do
     lspconfig[server].setup({
         on_attach = on_attach,
         capabilities = capabilities,

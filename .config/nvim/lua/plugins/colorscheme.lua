@@ -135,10 +135,18 @@ return {
             })
         end,
     },
+
     {
-        dir = "~/Documentos/project_nvim/oldworld.nvim",
+        "dgox16/oldworld.nvim",
+        -- dir = "~/Documentos/project_nvim/oldworld.nvim/",
         lazy = false,
         priority = 1000,
-        config = true,
+        opts = {
+            styles = {
+                booleans = { bold = true },
+                functions = { italic = true },
+                comments = { italic = true },
+            },
+        },
     },
 }

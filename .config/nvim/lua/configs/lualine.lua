@@ -51,7 +51,7 @@ local filename = {
 local filetype = {
     "filetype",
     icons_enabled = false,
-    color = { bg = colors.gray02, fg = colors.blue, gui = "italic,bold" },
+    color = { bg = colors.gray2, fg = colors.blue, gui = "italic,bold" },
     separator = { left = "", right = "" },
 }
 
@@ -70,7 +70,7 @@ local location = {
 
 local diff = {
     "diff",
-    color = { bg = colors.gray02, fg = colors.bg, gui = "bold" },
+    color = { bg = colors.gray2, fg = colors.bg, gui = "bold" },
     separator = { left = "", right = "" },
     symbols = { added = " ", modified = " ", removed = " " },
 
@@ -157,11 +157,11 @@ local dia = {
     symbols = { error = " ", warn = " ", info = " ", hint = " " },
     diagnostics_color = {
         error = { fg = colors.red },
-        warn = { fg = colors.orange },
-        info = { fg = colors.yellow },
+        warn = { fg = colors.yellow },
+        info = { fg = colors.purple },
         hint = { fg = colors.cyan },
     },
-    color = { bg = colors.gray02, fg = colors.blue, gui = "bold" },
+    color = { bg = colors.gray2, fg = colors.blue, gui = "bold" },
     separator = { left = "" },
 }
 

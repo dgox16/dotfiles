@@ -1,14 +1,10 @@
 return {
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        cmd = "Neotree",
+        "echasnovski/mini.files",
+        version = false,
         keys = {
-            { "<leader>e", "<cmd>Neotree toggle reveal<cr>" },
+            { "-", "<cmd>lua require('mini.files').open()<CR>", { silent = true } },
         },
-        config = function()
-            require("configs.neo-tree")
-        end,
     },
     {
         "folke/todo-comments.nvim",
@@ -19,15 +15,16 @@ return {
             { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
         },
     },
-    {
-        "stevearc/oil.nvim",
-        keys = {
-            { "-", "<cmd>Oil<cr>" },
-        },
-        opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
+
+    -- {
+    --     "stevearc/oil.nvim",
+    --     keys = {
+    --         { "-", "<cmd>Oil<cr>" },
+    --     },
+    --     opts = {},
+    --     -- Optional dependencies
+    --     dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- },
 
     {
         "nvim-telescope/telescope.nvim",

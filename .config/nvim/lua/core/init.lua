@@ -52,7 +52,7 @@ local load_core = function()
     require("core.autocmds")
     require("core.options")
     require("core.keymappings")
-    vim.cmd([[colorscheme oldworld]])
+    vim.cmd.colorscheme("oldworld")
 end
 
 load_core()

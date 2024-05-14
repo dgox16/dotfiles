@@ -1,8 +1,4 @@
 require("mason").setup({
-    registries = {
-        "github:mason-org/mason-registry",
-        "lua:configs.mason.custom_source",
-    },
     ui = {
         icons = {
             package_pending = "󰥔 ",

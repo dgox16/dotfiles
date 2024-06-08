@@ -20,6 +20,7 @@ require("conform").setup({
         bib = { "bibclean" },
         tex = { "latexindent" },
         rust = { "rustfmt" },
+        -- sql = { "sql_formatter" },
     },
     formatters = {
         djhtml = {

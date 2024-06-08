@@ -8,6 +8,35 @@ return {
     },
 
     {
+        dir = "~/Documentos/project_nvim/devicon-colorscheme.nvim/",
+        -- "dgox16/devicon-colorscheme.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        opts = {
+            colors = {
+                blue = "#92a2d5",
+                cyan = "#85b5ba",
+                green = "#90b99f",
+                magenta = "#e29eca",
+                orange = "#f5a191",
+                purple = "#aca1cf",
+                red = "#ea83a5",
+                white = "#c9c7cd",
+                yellow = "#e6b99d",
+                bright_blue = "#a6b6e9",
+                bright_cyan = "#99c9ce",
+                bright_green = "#9dc6ac",
+                bright_magenta = "#ecaad6",
+                bright_orange = "#ffae9f",
+                bright_purple = "#b9aeda",
+                bright_red = "#f591b2",
+                bright_yellow = "#f0c5a9",
+            },
+        },
+    },
+
+    {
         "goolord/alpha-nvim",
         event = "BufWinEnter",
         config = function()
@@ -19,7 +48,7 @@ return {
         "akinsho/bufferline.nvim",
         event = { "BufReadPost", "BufNewFile" },
         keys = {
-            { "<leader>bv", "<cmd>BufferLinePick<CR>", { noremap = true, silent = true } },
+            { "<leader>bb", "<cmd>BufferLinePick<CR>", { noremap = true, silent = true } },
             { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>" },
             { "<leader>br", "<Cmd>BufferLineCloseRight<CR>" },
             { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>" },
@@ -54,7 +83,6 @@ return {
 
     {
         "nvim-tree/nvim-web-devicons",
-        lazy = true,
         config = true,
     },
 
@@ -114,14 +142,7 @@ return {
         end,
     },
 
-    {
-        "RRethy/vim-illuminate",
-        event = "BufReadPost",
-        opts = { delay = 200 },
-        config = function(_, opts)
-            require("illuminate").configure(opts)
-        end,
-    },
+    { "echasnovski/mini.cursorword", config = true },
 
     {
         "folke/noice.nvim",

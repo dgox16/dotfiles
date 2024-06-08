@@ -3,7 +3,7 @@ return {
         "echasnovski/mini.files",
         version = false,
         keys = {
-            { "-", "<cmd>lua require('mini.files').open()<CR>", { silent = true } },
+            { "-", "<cmd>lua require('mini.files').open(vim.api.nvim_buf_get_name(0))<CR>", { silent = true } },
         },
     },
     {
@@ -15,16 +15,6 @@ return {
             { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
         },
     },
-
-    -- {
-    --     "stevearc/oil.nvim",
-    --     keys = {
-    --         { "-", "<cmd>Oil<cr>" },
-    --     },
-    --     opts = {},
-    --     -- Optional dependencies
-    --     dependencies = { "nvim-tree/nvim-web-devicons" },
-    -- },
 
     {
         "nvim-telescope/telescope.nvim",

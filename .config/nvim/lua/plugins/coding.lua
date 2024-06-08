@@ -58,8 +58,8 @@ return {
         event = "InsertEnter",
         config = function()
             require("nvim-autopairs").setup({})
-            -- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            -- require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
     },
 
@@ -74,12 +74,12 @@ return {
         version = "*",
         keys = { "cs", "ys", "ds" },
         opts = {
-            aliases = {
-                ["b"] = ")",
-                ["a"] = "{",
-                ["r"] = "]",
-                ["q"] = { '"', "'", "`" },
-            },
+            -- aliases = {
+            --     ["b"] = ")",
+            --     ["a"] = "{",
+            --     ["r"] = "]",
+            --     ["q"] = { '"', "'", "`" },
+            -- },
         },
     },
 

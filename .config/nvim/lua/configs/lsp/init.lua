@@ -80,10 +80,6 @@ lspconfig.jsonls.setup({
                     url = "https://json.schemastore.org/babelrc.json",
                 },
                 {
-                    fileMatch = { "lerna.json" },
-                    url = "https://json.schemastore.org/lerna.json",
-                },
-                {
                     fileMatch = {
                         ".stylelintrc",
                         ".stylelintrc.json",
@@ -109,7 +105,8 @@ lspconfig.html.setup({
 lspconfig.tailwindcss.setup({
     filetypes = { "html", "javascriptreact", "typescriptreact", "astro", "svelte" },
 })
-for _, server in ipairs({ "bashls", "biome", "cssls", "astro", "svelte" }) do
+
+for _, server in ipairs({ "bashls", "biome", "cssls", "astro", "svelte", "basedpyright" }) do
     lspconfig[server].setup({
         on_attach = on_attach,
         capabilities = capabilities,

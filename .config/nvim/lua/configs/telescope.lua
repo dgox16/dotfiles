@@ -3,7 +3,7 @@ require("telescope").setup({
         entry_prefix = " ",
         scroll_strategy = "limit",
         prompt_prefix = "   ",
-        path_display = { "truncate" },
+        path_display = { "filename_first" },
         winblend = 0,
         border = {},
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },

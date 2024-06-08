@@ -1,0 +1,62 @@
+{
+	"INTEGER NOT NULL": {
+		"prefix": "int",
+		"body": ["INTEGER NOT NULL"]
+	},
+	"VARCHAR NOT NULL": {
+		"prefix": "varchar",
+		"body": ["VARCHAR($1) NOT NULL$0"]
+	},
+	"BOOLEAN NOT NULL": {
+		"prefix": "bool",
+		"body": ["BOOLEAN NOT NULL"]
+	},
+	"REAL NOT NULL": {
+		"prefix": "real",
+		"body": ["REAL NOT NULL"]
+	},
+	"SERIAL PRIMARY KEY": {
+		"prefix": "srk",
+		"body": ["SERIAL PRIMARY KEY"]
+	},
+	"FOREIGN KEY": {
+		"prefix": "fgk",
+		"body": [
+			"FOREIGN KEY (${1:attribute}) REFERENCES ${2:tableName}(${3:attribute}) ON DELETE RESTRICT"
+		],
+		"description": "Foreign Key"
+	},
+	"CREATE TABLE": {
+		"prefix": "ctt",
+		"body": ["CREATE TABLE ${1:tableName} (", "\t${2:attribute(s)}", ");"],
+		"description": "Create regular table"
+	},
+	"CREATE TYPE": {
+		"prefix": "cte",
+		"body": [
+			"CREATE TYPE ${1:typeName} AS ENUM (",
+			"\t${2:attribute(s)}",
+			");"
+		],
+		"description": "Create type enum"
+	},
+	"INSERT": {
+		"prefix": "ins",
+		"body": [
+			"INSERT INTO ${1:tableName} (",
+			"\t${2:attribute(s)}",
+			") VALUES ( ${3:values} )"
+		],
+		"description": "Insert value(s)"
+	},
+	"DROP TABLE": {
+		"prefix": "dpt",
+		"body": ["DROP TABLE ${1:tableName};"],
+		"description": "Drop table"
+	},
+	"DROP TYPE": {
+		"prefix": "dpe",
+		"body": ["DROP Tyupe ${1:typeNAme};"],
+		"description": "Drop type enum"
+	}
+}

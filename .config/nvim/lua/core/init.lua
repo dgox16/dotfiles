@@ -44,7 +44,7 @@ end
 local load_core = function()
     disable_providers()
     leader_map()
-    clipboard_config()
+    -- clipboard_config()
     add_filetype()
 
     vim.cmd([[ let g:omni_sql_no_default_maps = 1 ]])

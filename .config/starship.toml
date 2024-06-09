@@ -5,12 +5,12 @@ format = """$directory$git_branch$ruby$php$kotlin$java$golang$c$nodejs$rust$lua$
 disabled = true
 
 [character]
-success_symbol = '[🞈](bold green) '
-error_symbol = '[🞈](bold purple) '
-vimcmd_symbol = '[🞈](bold blue) '
-vimcmd_replace_one_symbol = '[🞈](bold purple) '
-vimcmd_replace_symbol = '[🞈](bold purple) '
-vimcmd_visual_symbol = '[🞈](bold yellow) '
+success_symbol = '[󰠠](bold green) '
+error_symbol = '[](bold red) '
+vimcmd_symbol = '[󰛿](bold blue) '
+vimcmd_replace_one_symbol = '[󰛿](bold purple) '
+vimcmd_replace_symbol = '[󰛿](bold purple) '
+vimcmd_visual_symbol = '[󰛿](bold yellow) '
 
 [hostname]
 disabled = true

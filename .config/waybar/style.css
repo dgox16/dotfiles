@@ -1,0 +1,243 @@
+* {
+    border: none;
+    border-radius: 10px;
+    font-family: "MonoLisa static";
+    font-size: 15px;
+    min-height: 10px;
+}
+
+window {}
+
+window#waybar {
+    background-color: #161617;
+    border-radius: 15px;
+    margin-top: 6px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#window {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    transition: none;
+    color: transparent;
+    background: transparent;
+}
+
+#workspaces {
+    margin: 6px 6px 6px 6px;
+    border-radius: 18px;
+    background: #2a2a2c;
+    transition: none;
+    padding-left: 12px;
+    padding-right: 6px;
+}
+
+#workspaces button {
+    transition: none;
+    color: #B5E8E6;
+    background: transparent;
+    margin-right: 10px;
+}
+
+#workspaces button.persistent {
+    transition: none;
+    color: #aca1cf;
+    background: transparent;
+    font-size: 4px;
+}
+
+#workspaces button.empty {
+    color: #e29eca;
+    font-size: 2px;
+    transition: none;
+    background: transparent;
+}
+
+#workspaces button.active {
+    transition: none;
+    color: #e6b99d;
+    background: transparent;
+    font-size: 4px;
+}
+
+#network {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 6px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: none;
+    color: #161617;
+    background: #e6b99d;
+}
+
+#pulseaudio {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 6px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: none;
+    color: #161617;
+    background: #92a2d5;
+}
+
+#battery {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 6px;
+    border-radius: 18px;
+    transition: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #161617;
+    background: #90b99f;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #161320;
+    background-color: transparent;
+}
+
+#battery.critical:not(.charging) {
+    background-color: #B5E8E0;
+    color: #161320;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #B5E8E0;
+    }
+}
+
+#backlight {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    transition: none;
+    color: #161320;
+    background: #F8BD96;
+}
+
+#clock {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 8px;
+    margin-bottom: 6px;
+    border-radius: 18px;
+    transition: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #161617;
+    background: #c9c7cd;
+}
+
+#memory {
+    margin: 6px 0px 6px 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: none;
+    color: #161617;
+    background: #85b5ba;
+}
+
+#cpu {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    margin-bottom: 6px;
+    padding-right: 10px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: none;
+    color: #161617;
+    background: #ea83a5;
+}
+
+#tray {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    margin-bottom: 0px;
+    padding-right: 10px;
+    border-radius: 10px;
+    transition: none;
+    color: #B5E8E0;
+    background: #161320;
+}
+
+#custom-launcher {
+    font-size: 18px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+    transition: none;
+    color: #92a2d5;
+    background: transparent;
+}
+
+#custom-power {
+    font-size: 20px;
+    margin-top: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    transition: none;
+    color: #161320;
+    background: #F28FAD;
+}
+
+#custom-updates {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    transition: none;
+    color: #161320;
+    background: #E8A2AF;
+}
+
+#custom-media {
+    margin-top: 6px;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    transition: none;
+    color: #161320;
+    background: #F2CDCD;
+}

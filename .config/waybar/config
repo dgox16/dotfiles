@@ -6,7 +6,7 @@
 
     //Modules layout
 
-	"modules-left": ["custom/launcher","cpu","memory"],
+	"modules-left": ["cpu","memory"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["network","pulseaudio", "battery","clock"],
 	
@@ -67,7 +67,7 @@
             "critical": 10
         },
         "format": "{icon}  <span color='#161617'>{capacity}%</span>",
-        "format-charging": "<span color='#9ece6a'></span> <span color='#161617'>{capacity}%</span>",
+        "format-charging": "<span></span> <span color='#161617'>{capacity}%</span>",
         "format-plugged": " <span color='#161617'>{capacity}</span>%",
         "format-alt": "<span color='#161617'>{time}</span> {icon}",
         "format-icons": [
@@ -88,13 +88,13 @@
 
     "cpu": {
         "interval": 15,
-        "format": "<span> </span> {}%",
+        "format": "<span>CPU:</span> {}%",
         "max-length": 10
     },
 
     "memory": {
         "interval": 30,
-        "format": "<span> </span> {used}GiB",
+        "format": "<span>RAM:</span> {used}GiB",
         "max-length": 13
     },
 

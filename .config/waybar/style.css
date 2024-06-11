@@ -6,8 +6,6 @@
     min-height: 10px;
 }
 
-window {}
-
 window#waybar {
     background-color: #161617;
     border-radius: 15px;
@@ -30,7 +28,7 @@ window#waybar.hidden {
 #workspaces {
     margin: 6px 6px 6px 6px;
     border-radius: 18px;
-    background: #2a2a2c;
+    background: #222224;
     transition: none;
     padding-left: 12px;
     padding-right: 6px;
@@ -108,8 +106,8 @@ window#waybar.hidden {
 
 #battery.charging,
 #battery.plugged {
-    color: #161320;
-    background-color: transparent;
+    color: #161617;
+    background-color: #90b99f;
 }
 
 #battery.critical:not(.charging) {

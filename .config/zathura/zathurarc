@@ -1,6 +1,4 @@
 set selection-clipboard clipboard
-include catppuccin-mocha
-set recolor true
 
 set synctex true
 set synctex-editor-command "code -g %{input}:%{line}"

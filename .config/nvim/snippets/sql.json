@@ -56,7 +56,7 @@
 	},
 	"DROP TYPE": {
 		"prefix": "dpe",
-		"body": ["DROP Tyupe ${1:typeNAme};"],
+		"body": ["DROP TYPE ${1:typeNAme};"],
 		"description": "Drop type enum"
 	}
 }

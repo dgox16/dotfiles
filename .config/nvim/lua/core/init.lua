@@ -28,15 +28,15 @@ end
 
 local clipboard_config = function()
     vim.g.clipboard = {
-        name = "xsel",
-        copy = {
-            ["+"] = "xsel --nodetach -i -b",
-            ["*"] = "xsel --nodetach -i -p",
-        },
-        paste = {
-            ["+"] = "xsel -o -b",
-            ["*"] = "xsel -o -p",
-        },
+        name = "wl-clipboard",
+        -- copy = {
+        --     ["+"] = "xsel --nodetach -i -b",
+        --     ["*"] = "xsel --nodetach -i -p",
+        -- },
+        -- paste = {
+        --     ["+"] = "xsel -o -b",
+        --     ["*"] = "xsel -o -p",
+        -- },
         cache_enabled = 1,
     }
 end
@@ -44,7 +44,6 @@ end
 local load_core = function()
     disable_providers()
     leader_map()
-    -- clipboard_config()
     add_filetype()
 
     vim.cmd([[ let g:omni_sql_no_default_maps = 1 ]])
@@ -52,7 +51,6 @@ local load_core = function()
     require("core.autocmds")
     require("core.options")
     require("core.keymappings")
-    vim.cmd.colorscheme("oldworld")
 end
 
 load_core()

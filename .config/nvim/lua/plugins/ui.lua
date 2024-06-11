@@ -8,8 +8,8 @@ return {
     },
 
     {
-        -- dir = "~/Documentos/project_nvim/devicon-colorscheme.nvim/",
-        "dgox16/devicon-colorscheme.nvim",
+        dir = "~/Documents/projects_neovim/devicon-colorscheme.nvim/",
+        -- "dgox16/devicon-colorscheme.nvim",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
@@ -48,12 +48,12 @@ return {
         "akinsho/bufferline.nvim",
         event = { "BufReadPost", "BufNewFile" },
         keys = {
-            { "<leader>bb", "<cmd>BufferLinePick<CR>", { noremap = true, silent = true } },
+            { "<leader>bb", "<cmd>BufferLinePick<CR>",       { noremap = true, silent = true } },
             { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>" },
             { "<leader>br", "<Cmd>BufferLineCloseRight<CR>" },
             { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>" },
-            { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true } },
-            { "<tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true } },
+            { "<S-tab>",    "<cmd>BufferLineCyclePrev<cr>",  { noremap = true, silent = true } },
+            { "<tab>",      "<cmd>BufferLineCycleNext<cr>",  { noremap = true, silent = true } },
         },
         config = function()
             require("configs.bufferline")

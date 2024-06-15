@@ -21,12 +21,6 @@
             "type": "custom"
         },
         {
-            // draw borders first to make colors of left and right border consistant
-            "key": "│           │\u001b[11D\u001b[31m user",
-            "type": "title",
-            "format": "{1}"
-        },
-        {
             "key": "│           │\u001b[11D\u001b[32m󰇅 hname",
             "type": "title",
             "format": "{2}"
@@ -67,6 +61,10 @@
         {
             "key": "│           │\u001b[11D\u001b[35m memory",
             "type": "memory"
+        },
+        {
+            "key": "│           │\u001b[11D\u001b[31m packages",
+            "type": "packages"
         },
         {
             "format": "\u001b[11D\u001b[34m           ├───────────┤",

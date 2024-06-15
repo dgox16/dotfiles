@@ -26,21 +26,6 @@ local leader_map = function()
     vim.g.mapleader = " "
 end
 
-local clipboard_config = function()
-    vim.g.clipboard = {
-        name = "wl-clipboard",
-        -- copy = {
-        --     ["+"] = "xsel --nodetach -i -b",
-        --     ["*"] = "xsel --nodetach -i -p",
-        -- },
-        -- paste = {
-        --     ["+"] = "xsel -o -b",
-        --     ["*"] = "xsel -o -p",
-        -- },
-        cache_enabled = 1,
-    }
-end
-
 local load_core = function()
     disable_providers()
     leader_map()
@@ -51,6 +36,7 @@ local load_core = function()
     require("core.autocmds")
     require("core.options")
     require("core.keymappings")
+    vim.cmd.colorscheme("oldworld")
 end
 
 load_core()

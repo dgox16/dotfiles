@@ -1,0 +1,10 @@
+@import "~/.config/rofi/master_config.rasi" 
+
+/* ---- Configuration ---- */
+configuration {
+	font: "MonoLisa static Regular 12";
+}
+
+element-text {
+    font:	"MonoLisa static Regular 14";
+}

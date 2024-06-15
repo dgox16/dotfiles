@@ -4,14 +4,9 @@
     "margin-top": 10,
     "margn-bottom": 0,
 
-    //Modules layout
-
-	"modules-left": ["cpu","memory"],
+	"modules-left": ["cpu","memory","temperature"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["network","pulseaudio", "battery","clock"],
-	
-
-    // Sourced modules
 
 	"pulseaudio": {
 		"tooltip": false,
@@ -21,9 +16,9 @@
 		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
 			"default": [
-                "<span color='#161617'> </span>", 
-                "<span color='#161617'> </span>", 
-                "<span color='#161617'> </span>"
+                "<span > </span>", 
+                "<span > </span>", 
+                "<span > </span>"
             ]
 		}
 	},
@@ -47,42 +42,37 @@
             "persistent": "󰊠",
         },
     },
+
 	"network": {
 		"tooltip": false,
-		"format-wifi": "<span color='#161617'> </span> {bandwidthDownBits}",
+		"format-wifi": "<span> </span> {bandwidthDownBits}",
 		"format-ethernet": "",
         "interval": 30
 	},
-	"backlight": {
-		"tooltip": false,
-		"format": " {}%",
-		"interval":1,
-        "on-scroll-up": "light -A 5",
-		"on-scroll-down": "light -U 5"
-	},
+
     "battery": {
         "states": {
             "good": 95,
             "warning": 30,
             "critical": 10
         },
-        "format": "{icon}  <span color='#161617'>{capacity}%</span>",
-        "format-charging": "<span></span> <span color='#161617'>{capacity}%</span>",
-        "format-plugged": " <span color='#161617'>{capacity}</span>%",
-        "format-alt": "<span color='#161617'>{time}</span> {icon}",
+        "format": "{icon}  <span>{capacity}%</span>",
+        "format-charging": "<span></span> <span>{capacity}%</span>",
+        "format-plugged": " <span>{capacity}</span>%",
+        "format-alt": "<span>{time}</span> {icon}",
         "format-icons": [
-            "<span color='#161617'></span>", 
-            "<span color='#161617'></span>", 
-            "<span color='#161617'></span>", 
-            "<span color='#161617'></span>", 
-            "<span color='#161617'></span>"
+            "<span></span>", 
+            "<span></span>", 
+            "<span></span>", 
+            "<span></span>", 
+            "<span></span>"
         ]
     },
 
 	"clock": {
         "tooltip": true,
         "interval": 60,
-        "format": "{:%H:%M}",
+        "format": "{:%H:%M | %a, %b %d}",
         "tooltip-format": "{:%Y-%m-%d}",
     },
 
@@ -91,41 +81,15 @@
         "format": "<span> </span> {}%",
         "max-length": 10
     },
+    "temperature": {
+        "interval": 20,
+        "format": "<span> </span> {}°C",
+        "max-length": 10
+    },
 
     "memory": {
         "interval": 30,
         "format": "<span> </span> {used}GiB",
         "max-length": 13
     },
-
-    "custom/media": {
-        "interval": 30,
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 20,
-        "format-icons": {
-            "spotify": " ",
-            "default": " "
-        },
-        "escape": true,
-        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
-        "on-click": "playerctl play-pause"
-    },
-    "custom/launcher":{
-        "format": " ",
-        "on-click": "$HOME/.config/rofi/launchers/type-6/launcher.sh",
-        "on-click-right": "killall rofi"
-    },
-    "custom/power":{
-        "format": " ",
-        "on-click": "bash ~/.config/rofi/leave/leave.sh",
-    },
-    "custom/updates":{
-        "format": "{} Update(s)",
-        "exec": "checkupdates | wc -l",
-        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-        "interval": 15,
-        "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
-    },
-    
 }

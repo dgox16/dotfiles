@@ -36,7 +36,7 @@ window#waybar.hidden {
 
 #workspaces button {
     transition: none;
-    color: #B5E8E6;
+    color: #b5e8e6;
     background: transparent;
     margin-right: 10px;
 }
@@ -111,7 +111,7 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #B5E8E0;
+    background-color: #b5e8e0;
     color: #161320;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -122,7 +122,7 @@ window#waybar.hidden {
 
 @keyframes blink {
     to {
-        color: #B5E8E0;
+        color: #b5e8e0;
     }
 }
 
@@ -135,14 +135,14 @@ window#waybar.hidden {
     border-radius: 10px;
     transition: none;
     color: #161320;
-    background: #F8BD96;
+    background: #f8bd96;
 }
 
 #clock {
     margin-top: 6px;
     margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
     margin-right: 8px;
     margin-bottom: 6px;
     border-radius: 18px;
@@ -165,6 +165,18 @@ window#waybar.hidden {
     background: #85b5ba;
 }
 
+#temperature {
+    margin: 6px 0px 6px 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: none;
+    color: #161617;
+    background: #f5a191;
+}
+
 #cpu {
     margin-top: 6px;
     margin-left: 8px;
@@ -177,65 +189,4 @@ window#waybar.hidden {
     transition: none;
     color: #161617;
     background: #ea83a5;
-}
-
-#tray {
-    margin-top: 6px;
-    margin-left: 8px;
-    padding-left: 10px;
-    margin-bottom: 0px;
-    padding-right: 10px;
-    border-radius: 10px;
-    transition: none;
-    color: #B5E8E0;
-    background: #161320;
-}
-
-#custom-launcher {
-    font-size: 18px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 5px;
-    border-radius: 10px;
-    transition: none;
-    color: #92a2d5;
-    background: transparent;
-}
-
-#custom-power {
-    font-size: 20px;
-    margin-top: 6px;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding-left: 10px;
-    padding-right: 5px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    color: #161320;
-    background: #F28FAD;
-}
-
-#custom-updates {
-    margin-top: 6px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    color: #161320;
-    background: #E8A2AF;
-}
-
-#custom-media {
-    margin-top: 6px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    color: #161320;
-    background: #F2CDCD;
 }

@@ -3,7 +3,7 @@
     "logo": {
         "type": "small",
         "padding": {
-            "top": 4,
+            "top": 5,
             "left": 2
         }
     },
@@ -39,7 +39,7 @@
         },
         {
             "key": "│           │\u001b[11D\u001b[36m󰇄 desktop",
-            "type": "de"
+            "type": "wm"
         },
         {
             "key": "│           │\u001b[11D\u001b[31m term",
@@ -63,7 +63,7 @@
             "type": "memory"
         },
         {
-            "key": "│           │\u001b[11D\u001b[31m packages",
+            "key": "│           │\u001b[11D\u001b[36m packages",
             "type": "packages"
         },
         {

@@ -1,11 +1,11 @@
 * {
     bg-col:  #161617;
     bg-col-light: #161617;
-    border-col: #6c6874;
-    selected-col: #92a2d5;
+    border-col: #3b3b3e;
+    selected-col: #2a2a2c;
     blue: #92a2d5;
     fg-col: #c9c7cd;
-    fg-col2: #161617;
+    fg-col2: #c9c7cd;
     grey: #8b8693;
     width: 800;
 }
@@ -74,7 +74,7 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
+    background-color: @selected-col;
     text-color: @fg-col2  ;
 }
 

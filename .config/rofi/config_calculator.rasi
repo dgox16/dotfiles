@@ -1,0 +1,10 @@
+@import "~/.config/rofi/config.rasi" 
+
+entry {
+  width: 27%;
+  placeholder: "🧮 Calculate";
+}
+
+window {
+    width:	30%;
+}

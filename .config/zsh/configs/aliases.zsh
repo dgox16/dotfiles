@@ -2,8 +2,8 @@ alias g='lazygit'
 alias df='df -h'     # human-readable sizes
 alias free='free -h' # show sizes in MB
 alias cs="clear"
+alias mkdir="mkdir -pv"
 alias v="nvim"
-alias dnfu="sudo dnf update && sudo dnf upgrade"
 alias csn="cs && fastfetch"
 alias ..="cd .."
 alias ...="cd ../.."
@@ -12,8 +12,6 @@ alias lah="eza -al --color=always --icons --group-directories-first --octal-perm
 alias ls="eza --color=always --icons --group-directories-first"
 alias las="eza -a --color=always --icons --group-directories-first"
 alias lt="eza -aT --color=always --icons --group-directories-first"
-alias f='cd && cd $(fd -I --type d --hidden --exclude .git --exclude toolchains --exclude node_modules --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude site-packages --exclude .cargo --exclude .var --exclude google-chrome --exclude mason --exclude packer | fzf)'
-alias fv='cd && cd $(fd -I --type d --hidden --exclude .git --exclude toolchains --exclude node_modules --exclude .cache --exclude .npm --exclude .mozilla --exclude .meteor --exclude site-packages --exclude .cargo --exclude .var --exclude google-chrome --exclude mason --exclude packer| fzf) && v'
 
 alias glog='git log --graph --decorate --oneline'
 

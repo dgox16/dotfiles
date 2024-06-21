@@ -48,12 +48,12 @@ return {
         "akinsho/bufferline.nvim",
         event = { "BufReadPost", "BufNewFile" },
         keys = {
-            { "<leader>bb", "<cmd>BufferLinePick<CR>",       { noremap = true, silent = true } },
+            { "<leader>bb", "<cmd>BufferLinePick<CR>", { noremap = true, silent = true } },
             { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>" },
             { "<leader>br", "<Cmd>BufferLineCloseRight<CR>" },
             { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>" },
-            { "<S-tab>",    "<cmd>BufferLineCyclePrev<cr>",  { noremap = true, silent = true } },
-            { "<tab>",      "<cmd>BufferLineCycleNext<cr>",  { noremap = true, silent = true } },
+            { "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true } },
+            { "<tab>", "<cmd>BufferLineCycleNext<cr>", { noremap = true, silent = true } },
         },
         config = function()
             require("configs.bufferline")
@@ -184,13 +184,9 @@ return {
             lsp = {
                 progress = {
                     enabled = true,
-                    -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
-                    -- See the section on formatting for more details on how to customize.
-                    --- @type NoiceFormat|string
                     format = "lsp_progress",
-                    --- @type NoiceFormat|string
                     format_done = "lsp_progress_done",
-                    throttle = 1000 / 30, -- frequency to update lsp progress message
+                    throttle = 1000 / 30,
                     view = "mini",
                 },
                 override = {

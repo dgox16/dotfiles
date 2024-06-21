@@ -12,8 +12,8 @@
     horizontal_padding = 15
     text_icon_padding = 15
     icon_position = "left"
-    min_icon_size = 20
-    max_icon_size = 22
+    min_icon_size = 24
+    max_icon_size = 26
     progress_bar = true
     progress_bar_height = 17
     progress_bar_frame_width = 1

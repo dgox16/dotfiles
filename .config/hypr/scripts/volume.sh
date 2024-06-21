@@ -13,13 +13,13 @@ get_volume() {
 get_icon() {
 	current=$(get_volume)
 	if [[ "$current" == "Muted" ]]; then
-		echo "$icons_dir/volume-mute.png"
+		echo "$icons_dir/volume-mute.svg"
 	elif [[ "${current%\%}" -le 30 ]]; then
-		echo "$icons_dir/volume-low.png"
+		echo "$icons_dir/volume-low.svg"
 	elif [[ "${current%\%}" -le 60 ]]; then
-		echo "$icons_dir/volume-mid.png"
+		echo "$icons_dir/volume-medium.svg"
 	else
-		echo "$icons_dir/volume-high.png"
+		echo "$icons_dir/volume-high.svg"
 	fi
 }
 
@@ -49,7 +49,7 @@ dec_volume() {
 
 toggle_mute() {
 	if [ "$(pamixer --get-mute)" == "false" ]; then
-		pamixer -m && notify-send -e -u low -i "$icons_dir/volume-mute.png" "Volume Switched OFF"
+		pamixer -m && notify-send -e -u low -i "$icons_dir/volume-mute.svg" "Volume Switched OFF"
 	elif [ "$(pamixer --get-mute)" == "true" ]; then
 		pamixer -u && notify-send -e -u low -i "$(get_icon)" "Volume Switched ON"
 	fi

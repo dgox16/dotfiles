@@ -1,10 +1,10 @@
 {
 	"layer": "top",
-    "width": 1728,
+    "width": 1750,
     "margin-top": 10,
     "margn-bottom": 0,
 
-	"modules-left": ["cpu","memory","temperature"],
+	"modules-left": ["cpu","memory","temperature", "bluetooth"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["network","pulseaudio", "battery","clock"],
 
@@ -16,9 +16,9 @@
 		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
 			"default": [
-                "<span > </span>", 
-                "<span > </span>", 
-                "<span > </span>"
+                "󰕿", 
+                "󰖀", 
+                "󰕾"
             ]
 		}
 	},
@@ -45,9 +45,17 @@
 
 	"network": {
 		"tooltip": false,
-		"format-wifi": "<span> </span> {bandwidthDownBits}",
+		"format-wifi": "{icon} {bandwidthDownBits}",
 		"format-ethernet": "",
-        "interval": 30
+        "interval": 30,
+
+        "format-icons": [
+            "󰤯", 
+            "󰤟", 
+            "󰤢", 
+            "󰤥", 
+            "󰤨"
+        ]
 	},
 
     "battery": {
@@ -56,16 +64,16 @@
             "warning": 30,
             "critical": 10
         },
-        "format": "{icon}  <span>{capacity}%</span>",
-        "format-charging": "<span></span> <span>{capacity}%</span>",
-        "format-plugged": " <span>{capacity}</span>%",
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂅 {capacity}%",
+        "format-plugged": "󰂅 {capacity}%",
         "format-alt": "<span>{time}</span> {icon}",
         "format-icons": [
-            "<span></span>", 
-            "<span></span>", 
-            "<span></span>", 
-            "<span></span>", 
-            "<span></span>"
+            "󰁻", 
+            "󰁽", 
+            "󰁿", 
+            "󰂁", 
+            "󰁹"
         ]
     },
 
@@ -78,18 +86,25 @@
 
     "cpu": {
         "interval": 15,
-        "format": "<span> </span> {}%",
+        "format": "󰍛 {}%",
         "max-length": 10
     },
     "temperature": {
         "interval": 20,
-        "format": "<span> </span> {}°C",
+        "format": " {}°C",
         "max-length": 10
     },
 
     "memory": {
         "interval": 30,
-        "format": "<span> </span> {used}GiB",
+        "format": " {used}GiB",
         "max-length": 13
+    },
+    "bluetooth": {
+        "format": "󰂯 Connecting...",
+        "format-disabled": "󰂲 Off",
+        "format-connected": "󰂱 {device_alias}",
+        "on-click": "blueman-manager",
+        "on-click-right": "rfkill toggle bluetooth",
     },
 }

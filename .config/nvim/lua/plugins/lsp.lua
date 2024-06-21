@@ -5,7 +5,6 @@ return {
         dependencies = {
             {
                 "williamboman/mason.nvim",
-                lazy = true,
                 config = function()
                     require("configs.mason")
                 end,
@@ -29,6 +28,7 @@ return {
             require("configs.lsp")
         end,
     },
+
     {
         "mrcjkb/rustaceanvim",
         version = "^4",

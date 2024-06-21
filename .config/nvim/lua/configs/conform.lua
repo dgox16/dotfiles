@@ -18,6 +18,8 @@ require("conform").setup({
         css = { "prettier" },
         handlebars = { "prettier" },
         rust = { "rustfmt" },
+        sh = { "shfmt" },
+        typst = { "typstyle" },
         -- sql = { "sql_formatter" },
     },
     formatters = {

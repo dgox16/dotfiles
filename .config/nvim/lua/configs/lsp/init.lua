@@ -106,7 +106,48 @@ lspconfig.tailwindcss.setup({
     filetypes = { "html", "javascriptreact", "typescriptreact", "astro", "svelte" },
 })
 
-for _, server in ipairs({ "bashls", "biome", "cssls", "astro", "svelte", "basedpyright" }) do
+local util = require("lspconfig.util")
+local root_files = {
+    "pyproject.toml",
+    "setup.py",
+    "setup.cfg",
+    "requirements.txt",
+    "Pipfile",
+    "pyrightconfig.json",
+}
+local pylance_default_config = {
+    default_config = {
+        filetypes = { "python" },
+        root_dir = util.root_pattern(unpack(root_files)),
+        cmd = { "pylance", "--stdio" },
+        single_file_support = true,
+        capabilities = vim.lsp.protocol.make_client_capabilities(),
+        settings = {
+            editor = { formatOnType = false },
+            python = {
+                analysis = {
+                    autoSearchPaths = true,
+                    useLibraryCodeForTypes = true,
+                    diagnosticMode = "openFilesOnly", --"workspace",
+                    typeCheckingMode = "basic",
+                    completeFunctionParens = true,
+                    autoFormatStrings = true,
+                    indexing = false,
+                    inlayHints = {
+                        variableTypes = true,
+                        functionReturnTypes = true,
+                        callArgumentNames = true,
+                        pytestParameters = true,
+                    },
+                },
+            },
+        },
+    },
+}
+
+require("lspconfig.configs").pylance = pylance_default_config
+
+for _, server in ipairs({ "bashls", "biome", "cssls", "astro", "svelte", "typst_lsp", "pylance" }) do
     lspconfig[server].setup({
         on_attach = on_attach,
         capabilities = capabilities,

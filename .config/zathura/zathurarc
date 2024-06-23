@@ -1,3 +1,4 @@
+include oldworld
 set selection-clipboard clipboard
 
 set synctex true

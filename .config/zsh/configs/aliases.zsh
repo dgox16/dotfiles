@@ -20,3 +20,6 @@ alias djrun='python manage.py runserver'
 alias djmkm='python manage.py makemigrations'
 alias djmig='python manage.py migrate'
 
+# Start services
+alias spsql='sudo systemctl start postgresql.service'
+alias sdocker='sudo systemctl start docker'

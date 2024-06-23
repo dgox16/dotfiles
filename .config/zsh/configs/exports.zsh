@@ -1,9 +1,10 @@
 export EDITOR="nvim"
+export SYSTEMD_EDITOR="nvim"
 export TERMINAL="kitty"
 # export BROWSER="brave"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
-export BAT_THEME="Catppuccin-mocha"
+export BAT_THEME="ansi"
 export KITTY_SHELL_INTEGRATION="enabled"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -12,3 +13,4 @@ export FZF_DEFAULT_OPTS=" \
 #export PATH="$PATH:./node_modules/.bin"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(fnm env --use-on-cd)"

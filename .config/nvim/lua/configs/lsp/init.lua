@@ -145,9 +145,25 @@ local pylance_default_config = {
     },
 }
 
+lspconfig.svelte.setup({
+    on_attach = function(client, _)
+        vim.api.nvim_create_autocmd("BufWritePost", {
+            pattern = { "*.js", "*.ts" },
+            callback = function(ctx)
+                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+            end,
+        })
+    end,
+    -- settings = {
+    --     typescript = {
+    --         inlayHints = lsp_utils.typescriptInlayHints,
+    --     },
+    -- },
+})
+
 require("lspconfig.configs").pylance = pylance_default_config
 
-for _, server in ipairs({ "bashls", "biome", "cssls", "astro", "svelte", "typst_lsp", "pylance" }) do
+for _, server in ipairs({ "bashls", "biome", "cssls", "astro", "typst_lsp", "pylance" }) do
     lspconfig[server].setup({
         on_attach = on_attach,
         capabilities = capabilities,

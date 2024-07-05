@@ -1,7 +1,6 @@
 export EDITOR="nvim"
 export SYSTEMD_EDITOR="nvim"
 export TERMINAL="kitty"
-# export BROWSER="brave"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 export BAT_THEME="ansi"
@@ -13,4 +12,3 @@ export FZF_DEFAULT_OPTS=" \
 #export PATH="$PATH:./node_modules/.bin"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-eval "$(fnm env --use-on-cd)"

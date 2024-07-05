@@ -1,7 +1,5 @@
 format = """$directory$git_branch$ruby$php$kotlin$java$golang$c$nodejs$rust$lua$python$character"""
 
-[line_break]
-disabled = true
 
 [character]
 success_symbol = '[](bold blue) '

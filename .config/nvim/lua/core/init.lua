@@ -15,6 +15,13 @@ local add_filetype = function()
     vim.filetype.add({
         extension = {
             hurl = "hurl",
+            env = "dotenv",
+        },
+        filename = {
+            [".env"] = "dotenv",
+        },
+        pattern = {
+            ["%.env%.[%w_.-]+"] = "dotenv",
         },
     })
 end

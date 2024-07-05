@@ -44,7 +44,6 @@
     },
 
 	"network": {
-		"tooltip": false,
 		"format-wifi": "{icon} {bandwidthDownBits}",
 		"format-ethernet": "",
         "interval": 30,
@@ -78,10 +77,8 @@
     },
 
 	"clock": {
-        "tooltip": true,
         "interval": 60,
         "format": "{:%H:%M | %a, %b %d}",
-        "tooltip-format": "{:%Y-%m-%d}",
     },
 
     "cpu": {
@@ -96,7 +93,7 @@
     },
 
     "memory": {
-        "interval": 30,
+        "interval": 10,
         "format": " {used}GiB",
         "max-length": 13
     },
@@ -104,7 +101,6 @@
         "format": "󰂯 Connecting...",
         "format-disabled": "󰂲 Off",
         "format-connected": "󰂱 {device_alias}",
-        "on-click": "blueman-manager",
-        "on-click-right": "rfkill toggle bluetooth",
+        "on-click": "rfkill toggle bluetooth",
     },
 }

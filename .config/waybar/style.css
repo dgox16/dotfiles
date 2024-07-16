@@ -1,15 +1,16 @@
+@import "oldworld.css";
+
 * {
     border: none;
-    border-radius: 10px;
     font-family: "MonoLisa static";
     font-size: 15px;
     min-height: 10px;
 }
 
 window#waybar {
-    background-color: #161617;
-    border-radius: 15px;
+    background-color: @bg;
     margin-top: 6px;
+    border-radius: 25px;
 }
 
 window#waybar.hidden {
@@ -17,18 +18,16 @@ window#waybar.hidden {
 }
 
 #window {
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
     transition: none;
     color: transparent;
+    border-radius: 10px;
     background: transparent;
 }
 
 #workspaces {
     margin: 6px 6px 6px 6px;
     border-radius: 18px;
-    background: #222224;
+    background: @bg-light;
     transition: none;
     padding-left: 12px;
     padding-right: 6px;
@@ -36,20 +35,20 @@ window#waybar.hidden {
 
 #workspaces button {
     transition: none;
-    color: #b5e8e6;
+    color: @cyan;
     background: transparent;
     margin-right: 10px;
 }
 
 #workspaces button.persistent {
     transition: none;
-    color: #aca1cf;
+    color: @purple;
     background: transparent;
     font-size: 4px;
 }
 
 #workspaces button.empty {
-    color: #e29eca;
+    color: @magenta;
     font-size: 2px;
     transition: none;
     background: transparent;
@@ -57,7 +56,7 @@ window#waybar.hidden {
 
 #workspaces button.active {
     transition: none;
-    color: #e6b99d;
+    color: @yellow;
     background: transparent;
     font-size: 4px;
 }
@@ -72,8 +71,8 @@ window#waybar.hidden {
     font-size: 14px;
     font-weight: bold;
     transition: none;
-    color: #161617;
-    background: #e6b99d;
+    color: @bg;
+    background: @yellow;
 }
 
 #pulseaudio {
@@ -86,8 +85,8 @@ window#waybar.hidden {
     font-size: 14px;
     font-weight: bold;
     transition: none;
-    color: #161617;
-    background: #92a2d5;
+    color: @bg;
+    background: @blue;
 }
 
 #battery {
@@ -100,18 +99,18 @@ window#waybar.hidden {
     transition: none;
     font-size: 14px;
     font-weight: bold;
-    color: #161617;
-    background: #90b99f;
+    color: @bg;
+    background: @green;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: #161617;
-    background-color: #90b99f;
+    color: @bg;
+    background-color: @green;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #b5e8e0;
+    background-color: @cyan;
     color: #161320;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -122,20 +121,8 @@ window#waybar.hidden {
 
 @keyframes blink {
     to {
-        color: #b5e8e0;
+        color: @cyan;
     }
-}
-
-#backlight {
-    margin-top: 6px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    color: #161320;
-    background: #f8bd96;
 }
 
 #clock {
@@ -143,14 +130,14 @@ window#waybar.hidden {
     margin-left: 8px;
     padding-left: 12px;
     padding-right: 12px;
-    margin-right: 8px;
+    margin-right: 10px;
     margin-bottom: 6px;
     border-radius: 18px;
     transition: none;
     font-size: 14px;
     font-weight: bold;
-    color: #161617;
-    background: #c9c7cd;
+    color: @bg;
+    background: @fg;
 }
 
 #memory {
@@ -161,8 +148,8 @@ window#waybar.hidden {
     font-size: 14px;
     font-weight: bold;
     transition: none;
-    color: #161617;
-    background: #85b5ba;
+    color: @bg;
+    background: @cyan;
 }
 
 #temperature {
@@ -173,13 +160,13 @@ window#waybar.hidden {
     font-size: 14px;
     font-weight: bold;
     transition: none;
-    color: #161617;
-    background: #f5a191;
+    color: @bg;
+    background: @orange;
 }
 
 #cpu {
     margin-top: 6px;
-    margin-left: 8px;
+    margin-left: 10px;
     padding-left: 10px;
     margin-bottom: 6px;
     padding-right: 10px;
@@ -187,8 +174,8 @@ window#waybar.hidden {
     font-size: 14px;
     font-weight: bold;
     transition: none;
-    color: #161617;
-    background: #ea83a5;
+    color: @bg;
+    background: @red;
 }
 
 #bluetooth {
@@ -201,6 +188,6 @@ window#waybar.hidden {
     font-size: 14px;
     font-weight: bold;
     transition: none;
-    color: #161617;
-    background: #aca1cf;
+    color: @bg;
+    background: @purple;
 }

@@ -13,4 +13,4 @@ configuration {
     sidebar-mode: true;
 }
 
-@theme "~/.config/rofi/config_theme.rasi"
+@theme "~/.config/rofi/oldworld.rasi"

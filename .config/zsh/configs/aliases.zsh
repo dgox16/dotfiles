@@ -11,7 +11,9 @@ alias lh="eza -l --color=always --icons --group-directories-first --octal-permis
 alias lah="eza -al --color=always --icons --group-directories-first --octal-permissions --no-permissions"
 alias ls="eza --color=always --icons --group-directories-first"
 alias las="eza -a --color=always --icons --group-directories-first"
-alias lt="eza -aT --color=always --icons --group-directories-first"
+alias lt="eza -T --color=always --icons --group-directories-first"
+alias lat="eza -aT --color=always --icons --group-directories-first"
+alias du="dust -b"
 
 alias glog='git log --graph --decorate --oneline'
 

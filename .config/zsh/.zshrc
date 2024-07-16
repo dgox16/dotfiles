@@ -4,7 +4,7 @@ DISABLE_AUTO_TITLE="true"
 # source
 plug "$HOME/.config/zsh/configs/aliases.zsh"
 plug "$HOME/.config/zsh/configs/exports.zsh"
-plug "$HOME/.config/zsh/configs/colors.zsh"
+plug "$HOME/.config/zsh/configs/colors_oldworld.zsh"
 
 
 HISTFILE=~/.histfile

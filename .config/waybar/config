@@ -2,7 +2,7 @@
 	"layer": "top",
     "width": 1750,
     "margin-top": 10,
-    "margn-bottom": 0,
+    "margin-bottom": 0,
 
 	"modules-left": ["cpu","memory","temperature", "bluetooth"],
 	"modules-center": ["hyprland/workspaces"],

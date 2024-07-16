@@ -1,5 +1,6 @@
 format = """$directory$git_branch$ruby$php$kotlin$java$golang$c$nodejs$rust$lua$python$character"""
 
+palette = "catppuccin"
 
 [character]
 success_symbol = '[](bold blue) '
@@ -14,13 +15,13 @@ disabled = true
 
 [cmd_duration]
 min_time = 1
-format = "(fg:#161617 bg:#161617)[](fg:#cba6f7 bg:#161617)[ $duration](fg:#161617 bg:#cba6f7)[](fg:#cba6f7 bg:none) "
+format = "(fg:bg bg:bg)[](fg:purple bg:bg)[ $duration](fg:bg bg:purple)[](fg:purple bg:none) "
 disabled = true
-style = "fg:#cba6f7 bg:#161617"
+style = "fg:purple bg:bg"
 
 [directory]
-format = "(fg:#161617 bg:#161617)[](fg:#e29eca bg:#161617)[  $path](fg:#161617 bg:#e29eca italic)[](fg:#e29eca bg:none) "
-style = "fg:#d9d7d6 bg:#161617"
+format = "(fg:bg bg:bg)[](fg:magenta bg:bg)[  $path](fg:bg bg:magenta italic)[](fg:magenta bg:none) "
+style = "fg:#d9d7d6 bg:bg"
 truncation_length = 2
 truncate_to_repo = true
 
@@ -28,55 +29,79 @@ truncate_to_repo = true
 disabled = true
 
 [git_branch]
-format = "(fg:#161617 bg:#161617)[](fg:#e6b99d bg:#161617)[ $branch](fg:#282c34 bg:#e6b99d)[](fg:#e6b99d bg:none) "
-style = "fg:#e6b99d bg:#161617"
+format = "(fg:bg bg:bg)[](fg:yellow bg:bg)[ $branch](fg:#282c34 bg:yellow)[](fg:yellow bg:none) "
+style = "fg:yellow bg:bg"
 
 [python]
-format = "(fg:#161617 bg:#161617)[](fg:#90b99f bg:#161617)[${symbol}${pyenv_prefix}(${version})( - ${virtualenv})](fg:#161617 bg:#90b99f)[](fg:#90b99f bg:none) "
-style = "fg:#90b99f bg:#161617"
+format = "(fg:bg bg:bg)[](fg:green bg:bg)[${symbol}${pyenv_prefix}(${version})( - ${virtualenv})](fg:bg bg:green)[](fg:green bg:none) "
+style = "fg:green bg:bg"
 symbol = '󰌠 '
 
 [lua]
-format = "(fg:#161617 bg:#161617)[](fg:#92a2d5 bg:#161617)[$symbol$version](fg:#161617 bg:#92a2d5)[](fg:#92a2d5 bg:none) "
-style = "fg:#92a2d5 bg:#161617"
+format = "(fg:bg bg:bg)[](fg:blue bg:bg)[$symbol$version](fg:bg bg:blue)[](fg:blue bg:none) "
+style = "fg:blue bg:bg"
 symbol = ' '
 
 [rust]
-format = "(fg:#161617 bg:#161617)[](fg:#ea83a5 bg:#161617)[$symbol$version](fg:#161617 bg:#ea83a5)[](fg:#ea83a5 bg:none) "
-style = "fg:#ea83a5 bg:#161617"
+format = "(fg:bg bg:bg)[](fg:red bg:bg)[$symbol$version](fg:bg bg:red)[](fg:red bg:none) "
+style = "fg:red bg:bg"
 symbol = ' '
 
 [nodejs]
-format = "(fg:#161617 bg:#161617)[](fg:#90b99f bg:#161617)[$symbol$version](fg:#161617 bg:#90b99f)[](fg:#90b99f bg:none) "
-style = "fg:#90b99f bg:#161617"
+format = "(fg:bg bg:bg)[](fg:green bg:bg)[$symbol$version](fg:bg bg:green)[](fg:green bg:none) "
+style = "fg:green bg:bg"
 symbol = '󰎙 '
 
 [c]
-format = "(fg:#161617 bg:#161617)[](fg:#85b5ba bg:#161617)[$symbol$version-$name](fg:#161617 bg:#85b5ba)[](fg:#85b5ba bg:none) "
-style = "fg:#85b5ba bg:#161617"
+format = "(fg:bg bg:bg)[](fg:cyan bg:bg)[$symbol$version-$name](fg:bg bg:cyan)[](fg:cyan bg:none) "
+style = "fg:cyan bg:bg"
 symbol = ' '
 
 [golang]
-format = "(fg:#161617 bg:#161617)[](fg:#92a2d5 bg:#161617)[$symbol$version-$name](fg:#161617 bg:#92a2d5)[](fg:#92a2d5 bg:none) "
-style = "fg:#92a2d5 bg:#161617"
+format = "(fg:bg bg:bg)[](fg:blue bg:bg)[$symbol$version-$name](fg:bg bg:blue)[](fg:blue bg:none) "
+style = "fg:blue bg:bg"
 symbol = ' '
 
 [java]
-format = "(fg:#161617 bg:#161617)[](fg:#f5a191 bg:#161617)[$symbol$version-$name](fg:#161617 bg:#f5a191)[](fg:#f5a191 bg:none) "
-style = "fg:#f5a191 bg:#161617"
+format = "(fg:bg bg:bg)[](fg:orange bg:bg)[$symbol$version-$name](fg:bg bg:orange)[](fg:orange bg:none) "
+style = "fg:orange bg:bg"
 symbol = ' '
 
 [kotlin]
-format = "(fg:#161617 bg:#161617)[](fg:##f5a191 bg:#161617)[$symbol$version-$name](fg:#161617 bg:##f5a191)[](fg:##f5a191 bg:none) "
-style = "fg:##f5a191 bg:#161617"
+format = "(fg:bg bg:bg)[](fg:#orange bg:bg)[$symbol$version-$name](fg:bg bg:#orange)[](fg:#orange bg:none) "
+style = "fg:#orange bg:bg"
 symbol = ' '
 
 [php]
-format = "(fg:#161617 bg:#161617)[](fg:#92a2d5 bg:#161617)[$symbol$version](fg:#161617 bg:#92a2d5)[](fg:#92a2d5 bg:none) "
-style = "fg:#92a2d5 bg:#161617"
+format = "(fg:bg bg:bg)[](fg:blue bg:bg)[$symbol$version](fg:bg bg:blue)[](fg:blue bg:none) "
+style = "fg:blue bg:bg"
 symbol = '󰟆 '
 
 [ruby]
-format = "(fg:#161617 bg:#161617)[](fg:#e6b99d bg:#161617)[$symbol$version-$name](fg:#161617 bg:#e6b99d)[](fg:#e6b99d bg:none) "
-style = "fg:#e6b99d bg:#161617"
+format = "(fg:bg bg:bg)[](fg:yellow bg:bg)[$symbol$version-$name](fg:bg bg:yellow)[](fg:yellow bg:none) "
+style = "fg:yellow bg:bg"
 symbol = ' '
+
+[palettes.catppuccin]
+magenta = "#f5c2e7"
+purple = "#cba6f7"
+red = "#f38ba8"
+orange = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+cyan = "#94e2d5"
+blue = "#89b4fa"
+fg = "#cdd6f4"
+bg = "#131020"
+
+[palettes.oldworld]
+magenta = "#e29eca"
+purple = "#aca1cf"
+red = "#ea83a5"
+orange = "#f5a191"
+yellow = "#e6b99d"
+green = "#90b99f"
+cyan = "#85b5ba"
+blue = "#92a2d5"
+fg = "#c9c7cd"
+bg = "#161617"

@@ -29,7 +29,7 @@ truncate_to_repo = true
 disabled = true
 
 [git_branch]
-format = "(fg:bg bg:bg)[](fg:yellow bg:bg)[ $branch](fg:#282c34 bg:yellow)[](fg:yellow bg:none) "
+format = "(fg:bg bg:bg)[](fg:yellow bg:bg)[ $branch](fg:bg bg:yellow)[](fg:yellow bg:none) "
 style = "fg:yellow bg:bg"
 
 [python]
@@ -90,6 +90,6 @@ orange = "#f5a191"
 yellow = "#e6b99d"
 green = "#90b99f"
 cyan = "#85b5ba"
-blue = "#92a2d5"
+blue = "#9ca2cf"
 fg = "#c9c7cd"
 bg = "#161617"

@@ -2,15 +2,7 @@ return {
     {
 
         "nvim-treesitter/nvim-treesitter",
-        -- event = { "BufReadPost", "BufNewFile" },
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            {
-
-                "windwp/nvim-ts-autotag",
-                config = true,
-            },
-        },
+        dependencies = {},
         config = function()
             require("configs.treesitter")
         end,
@@ -18,4 +10,21 @@ return {
     },
 
     { "virchau13/tree-sitter-astro", ft = "astro" },
+
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+    {
+
+        "windwp/nvim-ts-autotag",
+        config = true,
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
 }

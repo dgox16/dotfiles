@@ -15,7 +15,7 @@ return {
         },
         opts = {
             colors = {
-                blue = "#92a2d5",
+                blue = "#9ca2cf",
                 cyan = "#85b5ba",
                 green = "#90b99f",
                 magenta = "#e29eca",
@@ -24,14 +24,14 @@ return {
                 red = "#ea83a5",
                 white = "#c9c7cd",
                 yellow = "#e6b99d",
-                bright_blue = "#a6b6e9",
-                bright_cyan = "#99c9ce",
-                bright_green = "#9dc6ac",
-                bright_magenta = "#ecaad6",
-                bright_orange = "#ffae9f",
-                bright_purple = "#b9aeda",
-                bright_red = "#f591b2",
-                bright_yellow = "#f0c5a9",
+                bright_blue = "#acb1d7",
+                bright_cyan = "#97c0c4",
+                bright_green = "#a7c8b3",
+                bright_magenta = "#e8b0d4",
+                bright_orange = "#f6b0a2",
+                bright_purple = "#b7aed5",
+                bright_red = "#ed96b3",
+                bright_yellow = "#eac5ae",
             },
         },
     },
@@ -142,7 +142,7 @@ return {
         end,
     },
 
-    { "echasnovski/mini.cursorword", config = true },
+    { "echasnovski/mini.cursorword", event = { "BufReadPost", "BufNewFile" }, config = true },
 
     {
         "folke/noice.nvim",

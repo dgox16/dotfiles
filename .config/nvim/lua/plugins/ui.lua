@@ -15,7 +15,7 @@ return {
         },
         opts = {
             colors = {
-                blue = "#9ca2cf",
+                blue = "#92a2d5",
                 cyan = "#85b5ba",
                 green = "#90b99f",
                 magenta = "#e29eca",
@@ -24,7 +24,7 @@ return {
                 red = "#ea83a5",
                 white = "#c9c7cd",
                 yellow = "#e6b99d",
-                bright_blue = "#acb1d7",
+                bright_blue = "#a7b3dd",
                 bright_cyan = "#97c0c4",
                 bright_green = "#a7c8b3",
                 bright_magenta = "#e8b0d4",

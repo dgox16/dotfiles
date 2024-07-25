@@ -8,8 +8,8 @@ return {
     },
 
     {
-        dir = "~/Documents/projects_neovim/devicon-colorscheme.nvim/",
-        -- "dgox16/devicon-colorscheme.nvim",
+        -- dir = "~/Documents/projects_neovim/devicon-colorscheme.nvim/",
+        "dgox16/devicon-colorscheme.nvim",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },

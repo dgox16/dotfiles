@@ -2,7 +2,7 @@
 
 entry {
   width: 37%;
-  placeholder: "󰅍 Search Clipboard";
+  placeholder: "📝 Search Clipboard";
 }
 
 listview {

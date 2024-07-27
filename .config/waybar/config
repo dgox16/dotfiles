@@ -4,7 +4,7 @@
     "margin-top": 10,
     "margin-bottom": 0,
 
-	"modules-left": ["cpu","memory","temperature"],
+	"modules-left": ["cpu","memory","temperature", "bluetooth"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": ["network","pulseaudio", "battery","clock"],
 

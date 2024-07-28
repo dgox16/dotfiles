@@ -37,7 +37,7 @@ exit
 🤔 thinking face face hmmm think consider
 🤐 zipper mouth face face sealed zipper secret
 🤨 face with raised eyebrow face distrust scepticism disapproval disbelief surprise
-😐 neutral face indifference meh :| neutral
+😐 neutral face indifference meh
 😑 expressionless face face indifferent - - meh deadpan
 😶 face without mouth face hellokitty
 😏 smirking face face smile mean prank smug sarcasm

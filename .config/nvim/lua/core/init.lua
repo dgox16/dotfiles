@@ -15,6 +15,7 @@ local add_filetype = function()
     vim.filetype.add({
         extension = {
             hurl = "hurl",
+            http = "http",
             env = "dotenv",
         },
         filename = {

@@ -9,9 +9,13 @@ return {
     {
         "nosduco/remote-sshfs.nvim",
         dependencies = { "nvim-telescope/telescope.nvim" },
+        cmd = { "RemoteSSHFSConnect" },
         opts = {
-            -- Refer to the configuration section below
-            -- or leave empty for defaults
+            ui = {
+                confirm = {
+                    connect = false,
+                },
+            },
         },
     },
     {

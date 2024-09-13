@@ -15,7 +15,7 @@ require("conform").setup({
         -- htmldjango = { "djhtml" },
         markdown = { "prettier" },
         html = { "prettier" },
-        css = { "prettier" },
+        css = { "biome" },
         handlebars = { "prettier" },
         rust = { "rustfmt" },
         sh = { "shfmt" },

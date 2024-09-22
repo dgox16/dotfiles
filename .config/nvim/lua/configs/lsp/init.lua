@@ -101,9 +101,12 @@ lspconfig.html.setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+
 lspconfig.emmet_language_server.setup({
     filetypes = { "html", "javascriptreact", "typescriptreact", "astro" },
 })
+
+-- lspconfig.phpactor.setup({})
 
 lspconfig.tailwindcss.setup({
     filetypes = { "html", "javascriptreact", "typescriptreact", "astro", "svelte" },

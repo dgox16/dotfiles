@@ -20,6 +20,7 @@ require("conform").setup({
         rust = { "rustfmt" },
         sh = { "shfmt" },
         typst = { "typstyle" },
+        -- php = { "pint" },
         -- sql = { "sql_formatter" },
     },
     formatters = {

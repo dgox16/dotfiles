@@ -15,7 +15,7 @@ require("conform").setup({
         css = { "biome" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
-        -- typst = { "typstyle" },
+        typst = { "typstyle" },
         php = { "pint" },
         -- sql = { "sql_formatter" },
     },

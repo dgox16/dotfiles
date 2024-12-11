@@ -24,10 +24,13 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.tinymist.setup({
-    single_file_support = true,
-    root_dir = function()
-        return vim.fn.getcwd()
-    end,
+    on_attach = on_attach,
+    capabilities = capabilities,
+    offset_encoding = "utf-8",
+    settings = {
+        formatterMode = "typstyle",
+        exportPdf = "onSave",
+    },
 })
 
 lspconfig.jsonls.setup({
@@ -66,7 +69,7 @@ lspconfig.tailwindcss.setup({
     filetypes = { "html", "javascriptreact", "typescriptreact", "astro", "svelte" },
 })
 
-for _, server in ipairs({ "intelephense", "bashls", "marksman", "biome", "cssls", "astro", "tinymist" }) do
+for _, server in ipairs({ "intelephense", "bashls", "marksman", "biome", "cssls", "astro" }) do
     lspconfig[server].setup({
         on_attach = on_attach,
         capabilities = capabilities,

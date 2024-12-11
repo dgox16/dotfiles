@@ -1,21 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Keymaps para usar javascriptreact
-autocmd("FileType", {
-    pattern = "javascript",
-    callback = function()
-        vim.keymap.set("n", "<leader>h", ":setfiletype javascriptreact<cr>", { noremap = true, silent = true })
-    end,
-})
-
--- Keymaps para usar htmldjango
-autocmd("FileType", {
-    pattern = "html",
-    callback = function()
-        vim.keymap.set("n", "<leader>h", ":setfiletype htmldjango<cr>", { noremap = true, silent = true })
-    end,
-})
-
 -- Cambiar directorio en caso de abrir con argumentos
 autocmd("BufEnter", {
     callback = function()
@@ -64,13 +48,5 @@ autocmd("FileType", {
     pattern = "markdown",
     callback = function()
         vim.keymap.set("n", "<leader>b", ":MarkdownPreview<CR>", { noremap = true, silent = true })
-    end,
-})
-
--- Keymaps para tex
-autocmd("FileType", {
-    pattern = "tex",
-    callback = function()
-        vim.keymap.set("n", "<leader>b", ":TexlabForward<CR>", { noremap = true, silent = true })
     end,
 })

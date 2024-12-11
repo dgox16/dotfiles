@@ -14,7 +14,6 @@ end
 local add_filetype = function()
     vim.filetype.add({
         extension = {
-            hurl = "hurl",
             http = "http",
             env = "dotenv",
         },
@@ -24,6 +23,16 @@ local add_filetype = function()
         pattern = {
             ["%.env%.[%w_.-]+"] = "dotenv",
         },
+    })
+    vim.api.nvim_create_autocmd({
+        "BufNewFile",
+        "BufRead",
+    }, {
+        pattern = "*.typ",
+        callback = function()
+            local buf = vim.api.nvim_get_current_buf()
+            vim.api.nvim_buf_set_option(buf, "filetype", "typst")
+        end,
     })
 end
 

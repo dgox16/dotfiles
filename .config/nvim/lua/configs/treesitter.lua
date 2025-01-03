@@ -14,7 +14,10 @@ require("nvim-treesitter.configs").setup({
         "typescript",
         "css",
     },
-    auto_install = true,
+    sync_install = true,
+    auto_install = false,
+    ignore_install = {},
+    modules = {},
     indent = {
         enable = true,
         disable = { "python" },
@@ -23,10 +26,6 @@ require("nvim-treesitter.configs").setup({
         enable = true,
         additional_vim_regex_highlighting = false,
     },
-    -- rainbow = {
-    --     enable = true,
-    --     strategy = require("ts-rainbow.strategy.global"),
-    -- },
     incremental_selection = {
         enable = true,
         keymaps = {

@@ -66,10 +66,26 @@ lspconfig.jsonls.setup({
 })
 
 lspconfig.tailwindcss.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
     filetypes = { "html", "javascriptreact", "typescriptreact", "astro", "svelte" },
 })
 
-for _, server in ipairs({ "intelephense", "bashls", "marksman", "biome", "cssls", "astro" }) do
+lspconfig.basedpyright.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        basedpyright = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly",
+                useLibraryCodeForTypes = true,
+            },
+        },
+    },
+})
+
+for _, server in ipairs({ "intelephense", "bashls", "marksman", "biome", "cssls", "astro", "basedpyright" }) do
     lspconfig[server].setup({
         on_attach = on_attach,
         capabilities = capabilities,

@@ -92,7 +92,7 @@ return {
         event = { "BufReadPost", "BufNewFile" },
         opts = {
             exclude = {
-                filetypes = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+                filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy" },
             },
         },
     },

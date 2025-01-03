@@ -15,8 +15,6 @@ require("bufferline").setup({
         right_trunc_marker = "",
         offsets = {
             {
-                filetype = "neo-tree",
-                text = "Neo-tree",
                 highlight = "Directory",
                 text_align = "left",
             },

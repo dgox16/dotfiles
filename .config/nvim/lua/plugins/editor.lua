@@ -8,7 +8,6 @@ return {
     },
     {
         "nosduco/remote-sshfs.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim" },
         cmd = { "RemoteSSHFSConnect" },
         opts = {
             ui = {
@@ -20,41 +19,93 @@ return {
     },
     {
         "folke/todo-comments.nvim",
-        cmd = { "TodoTrouble", "TodoTelescope" },
+        cmd = { "TodoTrouble" },
         event = { "BufReadPost", "BufNewFile" },
         config = true,
         keys = {
-            { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+            {
+                "<leader>st",
+                function()
+                    Snacks.picker.todo_comments()
+                end,
+                desc = "Todo",
+            },
         },
     },
 
     {
-        "nvim-telescope/telescope.nvim",
-        cmd = "Telescope",
+        "folke/snacks.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            picker = {},
+            lazygit = {},
+            terminal = {},
+        },
         keys = {
+            -- Lazygit
+            {
+                "<leader>gg",
+                function()
+                    Snacks.lazygit()
+                end,
+            },
             {
                 "<leader>,",
-                "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-                desc = "Switch Buffer",
+                function()
+                    Snacks.picker.buffers()
+                end,
+                desc = "Buffers",
             },
-            -- find
-            { "<leader>ff", "<cmd>Telescope find_files<cr>", { silent = true } },
-            { "<leader>fh", "<cmd>Telescope find_files hidden=true no_ignore=true<CR>" },
-            { "<leader>fo", "<cmd>Telescope oldfiles<CR>" },
-            { "<leader>fw", "<cmd>Telescope live_grep <CR>" },
-            { "<leader>fc", "<cmd>Telescope colorscheme <CR>" },
-            { "<leader>ft", "<cmd>Telescope treesitter<CR>" },
-            -- git
-            { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-            { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
-            -- search
-            { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find case_mode=ignore_case<CR>" },
+            {
+                "<leader>/",
+                function()
+                    Snacks.picker.lines()
+                end,
+                desc = "Grep",
+            },
+            {
+                "<leader>:",
+                function()
+                    Snacks.picker.command_history()
+                end,
+                desc = "Command History",
+            },
+            {
+                "<leader>ff",
+                function()
+                    Snacks.picker.files()
+                end,
+                desc = "Find Files",
+            },
+            {
+                "<leader>fw",
+                function()
+                    Snacks.picker.grep()
+                end,
+                desc = "Visual selection or word",
+                mode = { "n", "x" },
+            },
+            {
+                "<leader>gl",
+                function()
+                    Snacks.picker.git_log()
+                end,
+                desc = "Git Log",
+            },
         },
-        dependencies = {
-            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
+
+    {
+        "akinsho/toggleterm.nvim",
+        cmd = { "ToggleTerm" },
+        version = "v2.*",
+        keys = {
+            { "<M-q>", "<cmd>ToggleTerm<CR>", mode = "n" },
+            { "<leader>gg" },
         },
         config = function()
-            require("configs.telescope")
+            require("configs.toggleterm")
         end,
     },
 
@@ -69,19 +120,6 @@ return {
            { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
            { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
         },
-    },
-    {
-
-        "akinsho/toggleterm.nvim",
-        cmd = { "ToggleTerm" },
-        version = "v2.*",
-        keys = {
-            { "<M-q>", "<cmd>ToggleTerm<CR>", mode = "n" },
-            { "<leader>gg" },
-        },
-        config = function()
-            require("configs.toggleterm")
-        end,
     },
 
     {

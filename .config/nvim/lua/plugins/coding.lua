@@ -1,18 +1,14 @@
 return {
     {
-        "hrsh7th/nvim-cmp",
+        "saghen/blink.cmp",
         event = "InsertEnter",
-        dependencies = {
-            "onsails/lspkind.nvim",
-            "saadparwaiz1/cmp_luasnip",
-            "hrsh7th/cmp-nvim-lua",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-buffer",
-        },
+        version = "*",
         config = function()
-            require("configs.cmp")
+            require("configs.blink")
         end,
+        opts_extend = { "sources.default" },
     },
+
     {
         "chrisgrieser/nvim-various-textobjs",
         event = "BufReadPost",
@@ -60,11 +56,7 @@ return {
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup({})
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
+        config = true,
     },
 
     {
@@ -77,14 +69,6 @@ return {
         "kylechui/nvim-surround",
         version = "*",
         keys = { "cs", "ys", "ds" },
-        opts = {
-            -- aliases = {
-            --     ["b"] = ")",
-            --     ["a"] = "{",
-            --     ["r"] = "]",
-            --     ["q"] = { '"', "'", "`" },
-            -- },
-        },
     },
 
     {

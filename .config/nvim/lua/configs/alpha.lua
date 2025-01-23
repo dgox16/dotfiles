@@ -47,10 +47,8 @@ end
 
 local leader = " "
 dashboard.section.buttons.val = {
-    button("space f f", "  Find File  ", leader, ":Telescope find_files<CR>"),
-    button("space f h", "󰗹  Find Hidden File  ", leader, ":Telescope find_files hidden=true no_ignore=true<CR>"),
-    button("space f o", "󱋡  Recent File  ", leader, ":Telescope oldfiles<CR>"),
-    button("space f w", "󱀽  Find Word  ", leader, ":Telescope live_grep<CR>"),
+    button("space f f", "  Find File  ", leader, ":lua Snacks.picker.files()<CR>"),
+    button("space f w", "󱀽  Find Word  ", leader, ":lua Snacks.picker.grep()<CR>"),
     button("space f n", "󱇧  New File  ", leader, ":ene <BAR> startinsert <CR>"),
     button("space n", "  Settings", leader, ":e $MYVIMRC | :cd %:p:h <CR>"),
     button("space l", "󰒲  Lazy", leader, ":Lazy<CR>"),

@@ -85,7 +85,17 @@ lspconfig.basedpyright.setup({
     },
 })
 
-for _, server in ipairs({ "intelephense", "bashls", "marksman", "biome", "cssls", "astro", "basedpyright" }) do
+lspconfig.astro.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    init_options = {
+        typescript = {
+            tsdk = vim.fs.normalize("/usr/lib/node_modules/typescript/lib/"),
+        },
+    },
+})
+
+for _, server in ipairs({ "intelephense", "bashls", "marksman", "biome", "cssls", "basedpyright", "html" }) do
     lspconfig[server].setup({
         on_attach = on_attach,
         capabilities = capabilities,

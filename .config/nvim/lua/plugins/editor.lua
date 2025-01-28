@@ -34,69 +34,6 @@ return {
     },
 
     {
-        "folke/snacks.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            picker = {},
-            lazygit = {},
-            terminal = {},
-        },
-        keys = {
-            -- Lazygit
-            {
-                "<leader>gg",
-                function()
-                    Snacks.lazygit()
-                end,
-            },
-            {
-                "<leader>,",
-                function()
-                    Snacks.picker.buffers()
-                end,
-                desc = "Buffers",
-            },
-            {
-                "<leader>/",
-                function()
-                    Snacks.picker.lines()
-                end,
-                desc = "Grep",
-            },
-            {
-                "<leader>:",
-                function()
-                    Snacks.picker.command_history()
-                end,
-                desc = "Command History",
-            },
-            {
-                "<leader>ff",
-                function()
-                    Snacks.picker.files()
-                end,
-                desc = "Find Files",
-            },
-            {
-                "<leader>fw",
-                function()
-                    Snacks.picker.grep()
-                end,
-                desc = "Visual selection or word",
-                mode = { "n", "x" },
-            },
-            {
-                "<leader>gl",
-                function()
-                    Snacks.picker.git_log()
-                end,
-                desc = "Git Log",
-            },
-        },
-    },
-
-    {
         "akinsho/toggleterm.nvim",
         cmd = { "ToggleTerm" },
         version = "v2.*",

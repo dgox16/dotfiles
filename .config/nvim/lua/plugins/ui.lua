@@ -1,52 +1,23 @@
 return {
     {
         "hoob3rt/lualine.nvim",
-        event = { "BufReadPost", "BufNewFile" },
+        event = "VeryLazy",
+        init = function()
+            vim.g.lualine_laststatus = vim.o.laststatus
+            if vim.fn.argc(-1) > 0 then
+                vim.o.statusline = " "
+            else
+                vim.o.laststatus = 0
+            end
+        end,
         config = function()
             require("configs.lualine")
         end,
     },
 
     {
-        dir = "~/Documents/projects_neovim/devicon-colorscheme.nvim/",
-        -- "dgox16/devicon-colorscheme.nvim",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        opts = {
-            colors = {
-                blue = "#92a2d5",
-                cyan = "#85b5ba",
-                green = "#90b99f",
-                magenta = "#e29eca",
-                orange = "#f5a191",
-                purple = "#aca1cf",
-                red = "#ea83a5",
-                white = "#c9c7cd",
-                yellow = "#e6b99d",
-                bright_blue = "#a7b3dd",
-                bright_cyan = "#97c0c4",
-                bright_green = "#a7c8b3",
-                bright_magenta = "#e8b0d4",
-                bright_orange = "#f6b0a2",
-                bright_purple = "#b7aed5",
-                bright_red = "#ed96b3",
-                bright_yellow = "#eac5ae",
-            },
-        },
-    },
-
-    {
-        "goolord/alpha-nvim",
-        event = "BufWinEnter",
-        config = function()
-            require("configs.alpha")
-        end,
-    },
-
-    {
         "akinsho/bufferline.nvim",
-        event = { "BufReadPost", "BufNewFile" },
+        event = "VeryLazy",
         keys = {
             { "<leader>bb", "<cmd>BufferLinePick<CR>", { noremap = true, silent = true } },
             { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>" },
@@ -58,43 +29,26 @@ return {
         config = function()
             require("configs.bufferline")
         end,
-        dependencies = {
-            {
-                "echasnovski/mini.bufremove",
-                keys = {
-                    {
-                        "<leader>bd",
-                        function()
-                            require("mini.bufremove").delete(0, false)
-                        end,
-                        desc = "Delete Buffer",
-                    },
-                    {
-                        "<leader>bD",
-                        function()
-                            require("mini.bufremove").delete(0, true)
-                        end,
-                        desc = "Delete Buffer (Force)",
-                    },
-                },
-            },
-        },
     },
 
     {
-        "nvim-tree/nvim-web-devicons",
-        config = true,
-    },
-
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        event = { "BufReadPost", "BufNewFile" },
+        "echasnovski/mini.icons",
+        lazy = true,
         opts = {
-            exclude = {
-                filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy" },
+            file = {
+                [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
+                ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
+            },
+            filetype = {
+                dotenv = { glyph = "", hl = "MiniIconsYellow" },
             },
         },
+        init = function()
+            package.preload["nvim-web-devicons"] = function()
+                require("mini.icons").mock_nvim_web_devicons()
+                return package.loaded["nvim-web-devicons"]
+            end
+        end,
     },
 
     {
@@ -105,23 +59,6 @@ return {
                 names = false,
             },
         },
-    },
-
-    {
-        "stevearc/dressing.nvim",
-        lazy = true,
-        init = function()
-            ---@diagnostic disable-next-line: duplicate-set-field
-            vim.ui.select = function(...)
-                require("lazy").load({ plugins = { "dressing.nvim" } })
-                return vim.ui.select(...)
-            end
-            ---@diagnostic disable-next-line: duplicate-set-field
-            vim.ui.input = function(...)
-                require("lazy").load({ plugins = { "dressing.nvim" } })
-                return vim.ui.input(...)
-            end
-        end,
     },
 
     { "echasnovski/mini.cursorword", event = { "BufReadPost", "BufNewFile" }, config = true },

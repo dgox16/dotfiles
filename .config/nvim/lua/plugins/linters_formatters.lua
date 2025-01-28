@@ -13,7 +13,6 @@ return {
         config = function()
             require("lint").linters_by_ft = {
                 python = { "ruff" },
-                htmldjango = { "djlint" },
             }
             vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost", "BufReadPost" }, {
                 callback = function()

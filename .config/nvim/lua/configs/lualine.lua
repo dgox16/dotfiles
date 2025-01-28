@@ -175,14 +175,13 @@ local function config_lualine(colors)
 
     require("lualine").setup({
         options = {
+
+            -- globalstatus = vim.o.laststatus == 3,
+            disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
             icons_enabled = true,
             theme = theme,
             component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
-            disabled_filetypes = {
-                statusline = {},
-                winbar = {},
-            },
             ignore_focus = {},
             always_divide_middle = true,
             globalstatus = true,
@@ -226,3 +225,4 @@ end
 
 local colors = require("oldworld.palette")
 config_lualine(colors)
+vim.o.laststatus = vim.g.lualine_laststatus

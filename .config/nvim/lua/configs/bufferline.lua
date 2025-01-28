@@ -1,10 +1,10 @@
 require("bufferline").setup({
     options = {
         close_command = function(n)
-            require("mini.bufremove").delete(n, false)
+            Snacks.bufdelete.delete()
         end,
         right_mouse_command = function(n)
-            require("mini.bufremove").delete(n, false)
+            Snacks.bufdelete.delete()
         end,
         diagnostics = "nvim_lsp",
         always_show_bufferline = true,

@@ -1,16 +1,9 @@
 local M = {}
 
 M.opts = {
-    row = 5, -- dashboard position. nil for center
+    row = 5,
     preset = {
         pick = "snacks",
-        header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ 
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ 
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ 
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ 
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ 
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
         keys = {
             { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
             { icon = " ", key = "w", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },

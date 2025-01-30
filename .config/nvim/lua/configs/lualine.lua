@@ -175,8 +175,6 @@ local function config_lualine(colors)
 
     require("lualine").setup({
         options = {
-
-            -- globalstatus = vim.o.laststatus == 3,
             disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
             icons_enabled = true,
             theme = theme,

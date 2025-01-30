@@ -1,9 +1,9 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Keymaps para markdown
+-- Keymaps para http
 autocmd("FileType", {
-    pattern = "markdown",
+    pattern = "http",
     callback = function()
-        vim.keymap.set("n", "<leader>b", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>a", "<cmd>lua require('kulala').run()<CR>", { noremap = true, silent = true })
     end,
 })

@@ -34,19 +34,6 @@ return {
     },
 
     {
-        "akinsho/toggleterm.nvim",
-        cmd = { "ToggleTerm" },
-        version = "v2.*",
-        keys = {
-            { "<M-q>", "<cmd>ToggleTerm<CR>", mode = "n" },
-            { "<leader>gg" },
-        },
-        config = function()
-            require("configs.toggleterm")
-        end,
-    },
-
-    {
         "folke/flash.nvim",
         opts = {},
         -- stylua: ignore
@@ -62,9 +49,7 @@ return {
     {
         "mistweaverco/kulala.nvim",
         opts = {},
-        keys = {
-            { "<leader>a", "<cmd>lua require('kulala').run()<CR>" },
-        },
+        ft = "http",
     },
 
     {

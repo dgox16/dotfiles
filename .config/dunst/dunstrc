@@ -32,7 +32,7 @@
     history_length = 20 
     show_age_threshold = 60 
     markup = "full" 
-    font = "Monolisa static 12" 
+    font = "Maple Mono 12" 
     word_wrap = "yes" 
     sort = "yes" 
     shrink = "no" 

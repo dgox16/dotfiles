@@ -4,6 +4,7 @@ require("snacks").setup({
     dashboard = dashboard.opts,
     bigfile = {},
     bufdelete = {},
+    explorer = {},
     indent = {},
     input = {},
     lazygit = {

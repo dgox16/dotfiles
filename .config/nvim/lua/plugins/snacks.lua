@@ -7,6 +7,14 @@ return {
             require("configs.snacks")
         end,
         keys = {
+            -- Explorer
+            {
+                "<leader>e",
+                function()
+                    Snacks.explorer()
+                end,
+                desc = "File Explorer",
+            },
             -- Bufdelete
             {
                 "<leader>bd",
@@ -46,18 +54,41 @@ return {
                 desc = "Grep",
             },
             {
+                "<leader><space>",
+                function()
+                    Snacks.picker.smart()
+                end,
+                desc = "Smart Find Files",
+            },
+            {
                 "<leader>:",
                 function()
                     Snacks.picker.command_history()
                 end,
                 desc = "Command History",
             },
+
             {
                 "<leader>ff",
                 function()
                     Snacks.picker.files()
                 end,
                 desc = "Find Files",
+            },
+
+            {
+                "<leader>fh",
+                function()
+                    Snacks.picker.files({ hidden = true, ignored = true })
+                end,
+                desc = "Find Files",
+            },
+
+            {
+                "<leader>fc",
+                function()
+                    Snacks.picker.cliphist()
+                end,
             },
             {
                 "<leader>fw",

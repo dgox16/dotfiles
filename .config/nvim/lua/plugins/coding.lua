@@ -55,7 +55,7 @@ return {
 
     {
         "echasnovski/mini.pairs",
-        event = "VeryLazy",
+        event = "BufReadPost",
         opts = {
             modes = { insert = true, command = true, terminal = false },
             skip_next = [=[[%w%%%'%[%"%.%`%$]]=],

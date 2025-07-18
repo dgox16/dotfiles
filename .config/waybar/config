@@ -5,9 +5,9 @@
     "margin-left":10,
     "margin-right":10,
 
-	"modules-left": ["cpu","memory","temperature", "bluetooth"],
+	"modules-left": ["cpu","memory","temperature"],
 	"modules-center": ["hyprland/workspaces"],
-	"modules-right": ["network","pulseaudio", "battery","clock"],
+	"modules-right": ["network","pulseaudio", "battery", "battery#bat2","clock"],
 
 	"pulseaudio": {
 		"tooltip": false,
@@ -59,14 +59,36 @@
 	},
 
     "battery": {
+        "bat": "BAT0",
+        "interval": 10,
         "states": {
             "good": 95,
             "warning": 30,
             "critical": 10
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂅 {capacity}%",
-        "format-plugged": "󰂅 {capacity}%",
+        "format": "INT: {icon} {capacity}%",
+        "format-charging": "INT: 󰂅 {capacity}%",
+        "format-plugged": "INT: 󰂅 {capacity}%",
+        "format-alt": "<span>{time}</span> {icon}",
+        "format-icons": [
+            "󰁻", 
+            "󰁽", 
+            "󰁿", 
+            "󰂁", 
+            "󰁹"
+        ]
+    },
+    "battery#bat2": {
+        "bat": "BAT1",
+        "interval": 10,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "EXT: {icon} {capacity}%",
+        "format-charging": "EXT: 󰂅 {capacity}%",
+        "format-plugged": "EXT: 󰂅 {capacity}%",
         "format-alt": "<span>{time}</span> {icon}",
         "format-icons": [
             "󰁻", 
@@ -89,19 +111,13 @@
     },
     "temperature": {
         "interval": 20,
-        "format": " {}°C",
+        "format": "󰈸 {}°C",
         "max-length": 10
     },
 
     "memory": {
         "interval": 10,
-        "format": " {used}GiB",
+        "format": " {used}GiB",
         "max-length": 13
-    },
-    "bluetooth": {
-        "format": "󰂯 Connecting...",
-        "format-disabled": "󰂲 Off",
-        "format-connected": "󰂱 {device_alias}",
-        "on-click": "rfkill toggle bluetooth",
     },
 }

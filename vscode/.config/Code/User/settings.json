@@ -1,0 +1,133 @@
+{
+    "workbench.startupEditor": "none",
+    "editor.fontFamily": "Maple Mono",
+    "editor.fontSize": 15.5,
+    "editor.fontWeight": "500",
+    "editor.fontLigatures": "'calt' 1, 'cv01'",
+    "editor.minimap.enabled": false,
+    "window.customTitleBarVisibility": "auto",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.sideBar.location": "right",
+    "vim.highlightedyank.enable": true,
+    "vim.useSystemClipboard": true,
+    "editor.bracketPairColorization.enabled": false,
+    "window.zoomLevel": 1.4,
+    "workbench.activityBar.location": "top",
+    "workbench.colorTheme": "OldWorld",
+    "vim.leader": "<space>",
+    "vim.sneak": true,
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+   "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<Tab>"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "<S-Tab>"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                ":"
+            ],
+            "commands": [
+                "workbench.action.showCommands",
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "material-icon-theme.folders.color": "#c9c7cd",
+    "git.confirmSync": false
+}

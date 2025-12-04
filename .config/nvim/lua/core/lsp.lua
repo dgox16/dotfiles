@@ -1,3 +1,5 @@
+local servers = { "vtsls", "luals", "biome" }
+
 vim.diagnostic.config({
     virtual_text = true,
     underline = true,
@@ -12,5 +14,12 @@ vim.diagnostic.config({
     },
 })
 
--- Si quieres también para LSP windows
-require("lspconfig.ui.windows").default_options.border = "single"
+vim.api.nvim_create_user_command("LspRestart", function()
+    local clients = vim.lsp.get_clients()
+    for _, c in ipairs(clients) do
+        c:stop()
+    end
+    vim.lsp.enable(servers)
+end, {})
+
+vim.lsp.enable(servers)

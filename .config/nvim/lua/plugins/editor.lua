@@ -8,14 +8,20 @@ return {
     },
     {
         "nosduco/remote-sshfs.nvim",
-        cmd = { "RemoteSSHFSConnect" },
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
         opts = {
             ui = {
                 confirm = {
                     connect = false,
                 },
             },
+            connections = {
+                ssh_known_hosts = vim.fn.expand("$HOME") .. "/.ssh/known_hosts",
+            },
         },
+    },
+    {
+        "sindrets/diffview.nvim",
     },
     {
         "folke/todo-comments.nvim",
@@ -48,8 +54,14 @@ return {
 
     {
         "mistweaverco/kulala.nvim",
-        opts = {},
-        ft = "http",
+        ft = { "http", "rest" },
+        opts = {
+            additional_curl_options = { "-k" },
+            global_keymaps = false,
+            ui = {
+                display_mode = "float",
+            },
+        },
     },
 
     {

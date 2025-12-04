@@ -1,6 +1,12 @@
 require("blink.cmp").setup({
     keymap = {
         preset = "enter",
+
+        ["<M-enter>"] = {
+            function(cmp)
+                cmp.show({ providers = { "lsp", "path", "snippets", "buffer" } })
+            end,
+        },
     },
     cmdline = {
         keymap = {

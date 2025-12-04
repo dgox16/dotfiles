@@ -23,6 +23,18 @@ keymap("n", "<Leader>l", ":Lazy<CR>", opts)
 keymap("n", "<Leader>r", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>", { noremap = true, silent = false })
 -- Abrir ajustes nvim
 -- keymap("n", "<Leader>n", ":e $MYVIMRC | :cd %:p:h <CR>", opts)
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+
+keymap("n", "g{", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
+keymap("n", "g}", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
+
+keymap("n", "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
+
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
+keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()", { noremap = true, silent = true })
 -- Scroll mas rapido
 keymap("n", "<C-e>", "2<C-e>", opts)
 keymap("n", "<C-y>", "2<C-y>", opts)

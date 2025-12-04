@@ -74,8 +74,9 @@ return {
 
     {
         "kylechui/nvim-surround",
-        version = "*",
-        keys = { "cs", "ys", "ds" },
+        version = "^3.0.0",
+        event = "VeryLazy",
+        config = true,
     },
 
     {

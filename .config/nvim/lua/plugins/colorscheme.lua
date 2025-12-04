@@ -1,7 +1,7 @@
 return {
     {
         -- "dgox16/oldworld.nvim",
-        dir = "~/Documents/projects_neovim/oldworld.nvim/",
+        dir = "~/Documents/oldworld/oldworld.nvim/",
         priority = 1000,
         opts = {
             styles = {

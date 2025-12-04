@@ -91,58 +91,68 @@ local function config_lualine(colors)
 
     local function getLspName()
         local bufnr = vim.api.nvim_get_current_buf()
-        local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
         local buf_ft = vim.bo.filetype
-        if next(buf_clients) == nil then
-            return "  No servers"
-        end
-        local buf_client_names = {}
 
-        for _, client in pairs(buf_clients) do
-            if client.name ~= "null-ls" then
-                table.insert(buf_client_names, client.name)
+        local client_names = {}
+
+        ----------------------------------------------------------------------
+        -- LSP clients
+        ----------------------------------------------------------------------
+        local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+        for _, client in ipairs(buf_clients) do
+            table.insert(client_names, client.name)
+        end
+
+        ----------------------------------------------------------------------
+        -- nvim-lint
+        ----------------------------------------------------------------------
+        local lint_ok, lint = pcall(require, "lint")
+        if lint_ok and lint.linters_by_ft then
+            local linters = lint.linters_by_ft[buf_ft]
+            if type(linters) == "table" then
+                for _, l in ipairs(linters) do
+                    table.insert(client_names, l)
+                end
+            elseif type(linters) == "string" then
+                table.insert(client_names, linters)
             end
         end
 
-        local lint_s, lint = pcall(require, "lint")
-        if lint_s then
-            for ft_k, ft_v in pairs(lint.linters_by_ft) do
-                if type(ft_v) == "table" then
-                    for _, linter in ipairs(ft_v) do
-                        if buf_ft == ft_k then
-                            table.insert(buf_client_names, linter)
-                        end
-                    end
-                elseif type(ft_v) == "string" then
-                    if buf_ft == ft_k then
-                        table.insert(buf_client_names, ft_v)
+        ----------------------------------------------------------------------
+        -- conform.nvim
+        ----------------------------------------------------------------------
+        local conform_ok, conform = pcall(require, "conform")
+        if conform_ok then
+            local formatters = table.concat(conform.list_formatters_for_buffer(), " ")
+            if conform_ok then
+                for formatter in formatters:gmatch("%w+") do
+                    if formatter then
+                        table.insert(client_names, formatter)
                     end
                 end
             end
         end
 
-        local ok, conform = pcall(require, "conform")
-        local formatters = table.concat(conform.list_formatters_for_buffer(), " ")
-        if ok then
-            for formatter in formatters:gmatch("%w+") do
-                if formatter then
-                    table.insert(buf_client_names, formatter)
-                end
+        ----------------------------------------------------------------------
+        -- Si no hay nada, mostrar "No tools"
+        ----------------------------------------------------------------------
+        if #client_names == 0 then
+            return "  No tools"
+        end
+
+        ----------------------------------------------------------------------
+        -- Eliminar duplicados
+        ----------------------------------------------------------------------
+        local uniq, seen = {}, {}
+        for _, name in ipairs(client_names) do
+            if not seen[name] then
+                table.insert(uniq, name)
+                seen[name] = true
             end
         end
 
-        local hash = {}
-        local unique_client_names = {}
-
-        for _, v in ipairs(buf_client_names) do
-            if not hash[v] then
-                unique_client_names[#unique_client_names + 1] = v
-                hash[v] = true
-            end
-        end
-        local language_servers = table.concat(unique_client_names, ", ")
-
-        return "  " .. language_servers
+        return "  " .. table.concat(uniq, ", ")
     end
 
     local macro = {

@@ -1,4 +1,11 @@
 require("conform").setup({
+    formatters = {
+        kulala = {
+            command = "kulala-fmt",
+            args = { "format", "$FILENAME" },
+            stdin = false,
+        },
+    },
     default_format_opts = {
         timeout_ms = 3000,
         async = false,
@@ -10,19 +17,21 @@ require("conform").setup({
     },
     formatters_by_ft = {
         lua = { "stylua" },
-        python = { "ruff_format", "usort" },
         json = { "biome" },
         javascript = { "biome" },
         javascriptreact = { "biome" },
         typescript = { "biome" },
         typescriptreact = { "biome" },
-        markdown = { "prettier" },
-        html = { "prettier" },
         css = { "biome" },
-        rust = { "rustfmt" },
-        sh = { "shfmt" },
-        typst = { "typstyle" },
+        html = { "biome" },
+        http = { "kulala" },
+        dockerfile = { "dockerfmt" },
+        -- markdown = { "prettier" },
+        -- rust = { "rustfmt" },
+        -- sh = { "shfmt" },
+        -- typst = { "typstyle" },
         -- php = { "pint" },
+        -- yaml = { "prettier" },
         -- sql = { "sql_formatter" },
     },
 })

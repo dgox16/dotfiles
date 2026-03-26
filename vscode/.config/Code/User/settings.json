@@ -20,7 +20,7 @@
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
-   "vim.normalModeKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "<Tab>"
@@ -129,5 +129,19 @@
     ],
     "workbench.iconTheme": "gruvbox-material-icon-theme",
     "material-icon-theme.folders.color": "#c9c7cd",
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "[json]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "biome.lsp.bin": "biome",
+    "editor.formatOnSave": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }

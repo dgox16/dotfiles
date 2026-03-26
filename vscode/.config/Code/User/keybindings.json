@@ -1,11 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "/",
-        "command": "actions.find",
-        "when": "editorFocus || editorIsOpen"
-    },
-    {
         "key": "ctrl+f",
         "command": "-actions.find",
         "when": "editorFocus || editorIsOpen"
